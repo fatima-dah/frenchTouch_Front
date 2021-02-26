@@ -1,0 +1,26 @@
+:root {
+  --main-font: ;
+  --secondary-font: ;
+  --third-font: ;
+  --main-color-font: ;
+  --secondary-color-font: ;
+  --spacing: ;
+  --spacing-medium: calc(var(--spacing) * 2);
+  --spacing-large: calc(var(--spacing) * 4);
+  --main-color: ;
+  --dark: ;
+  --light: ;
+  --light-main: ;
+  --secondary-color: ;
+}
+
+* {
+  box-sizing: content-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
