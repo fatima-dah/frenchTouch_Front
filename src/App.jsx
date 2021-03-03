@@ -6,13 +6,15 @@ import RdvVisitor from '../src/components/visiteur/reserve/Reserve'
 import BookVisitor from '../src/components/visiteur/book/Book'
 import ShopVisitor from '../src/components/visiteur/shop/Shop'
 import PaletteVisitor from '../src/components/visiteur/palette/Palette'
+import Navbar from '../src/components/visiteur/navbar/Navbar'
 import AboutVisitor from '../src/components/visiteur/about/About'
+
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Navbar/>
       <Switch >
       <Route exact path="/" />
       <Route path="/apropos" component={AboutVisitor}/>
