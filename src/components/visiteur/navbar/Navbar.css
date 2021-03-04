@@ -13,6 +13,7 @@
     height: 60px;
     width: 100px;
     margin-top:24px;
+    margin-left: 24px;
 }
 
 .menu-items {
@@ -20,8 +21,9 @@
 
 }
 .link {
-    font-size: 16px;
+    font-size: 14px;
     padding: 24px;
+    letter-spacing: 1.5px;
 }
 .router {
     color:black;
@@ -29,6 +31,6 @@
 }
 
 .link:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }

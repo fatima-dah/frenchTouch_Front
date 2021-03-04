@@ -24,7 +24,7 @@ function App() {
       <Route path="/shop" component={ShopVisitor}/>
       <Route path="/nuancier" component={PaletteVisitor}/>
 
-        
+          
       </Switch>
       
     </div>
