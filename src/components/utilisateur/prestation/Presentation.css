@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@200&display=swap');
+
+
+.PresentationStyle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+} 
+.imagePresentationFrenchTouch{
+    display: flex;
+    border-radius: 5px;
+} 
+.titlePresentation{
+    display: flex;
+    font-family: 'Parisienne', cursive;
+    font-size:50px;
+    color:var(--dark);
+
+
+} 
+
+
+.vertical-line{
+    border-left: 1px solid rgb(128, 128, 128);
+    display: inline-block;
+    height: 310px;
+    margin:  8%;
+} 
+
+.descriptionPrestation{
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+} 
+
+
+@media screen and (max-width: 1024px) {
+    .PresentationStyle{
+      
+        width:90%;
+    } 
+}
+
+
+@media screen and (max-width: 767px) {
+    .PresentationStyle{
+        display: flex;
+        flex-direction: column;
+        width:80%;
+    } 
+    .vertical-line{
+      display: none;
+    } 
+
+}
+
+

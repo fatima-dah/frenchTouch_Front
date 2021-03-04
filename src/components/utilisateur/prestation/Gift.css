@@ -1,0 +1,40 @@
+.cartesGift {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleGift {
+  text-align: center;
+  font-size: 32px;
+  font-family: "Parisienne", cursive;
+}
+
+.pictureGift {
+  border-radius: 30px;
+  width: 350px;
+  height: auto;
+}
+
+.containerGift{
+    position: relative;
+    text-align: center;
+    color: rgb(15, 15, 15);
+    font-size: 30px;
+} 
+.textGift{
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+
+} 
+.PriceGift{
+    text-align: center;
+    margin:2%;
+} 
+
+.LignGift{
+  text-align: center;
+    margin:2%;
+    font-weight:bold;
+} 
