@@ -6,7 +6,7 @@ function Reserve() {
 
     return (
       <div>
-   
+          Rendez vous
       </div>
     );
   }

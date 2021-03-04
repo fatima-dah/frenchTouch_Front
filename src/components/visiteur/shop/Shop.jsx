@@ -6,7 +6,7 @@ function Shop() {
 
     return (
       <div>
-   
+          Shop
       </div>
     );
   }

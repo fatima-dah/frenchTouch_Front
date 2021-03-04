@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 import "./Gift.css";
 import axios from "axios";
@@ -14,6 +15,7 @@ function Prestation() {
   return (
     <div>
       <h2 className="titleGift">Cheque cadeaux</h2>
+      <Link className="router" to ="/Gifts"> <p className="link"> 
 
       <div className="cartesGift">
         {gift.map((gift) => (
@@ -26,7 +28,7 @@ function Prestation() {
       <div className="LignGift">Un chèque cadeau à offrir ?</div>
 
       <div className="PriceGift">De 50,00€ à 1000,00€</div>
-
+      </p></Link>
     </div>
   );
 }

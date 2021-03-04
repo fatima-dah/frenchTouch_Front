@@ -6,7 +6,7 @@ function Palette() {
 
   return (
     <div>
- 
+        NUANCIER
     </div>
   );
 }

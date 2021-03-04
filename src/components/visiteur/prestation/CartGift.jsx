@@ -12,7 +12,7 @@ function CartGift() {
 
   useEffect(() => {
     axios.get(`${FETCH}/gifts`).then((res) => setGift(res.data));
-  }, []);
+  }, [gift]);
 
   return (
     <div>

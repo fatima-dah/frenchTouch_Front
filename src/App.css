@@ -8,7 +8,7 @@
   --spacing-large: calc(var(--spacing) * 4);
   --dark: rgb(42,33,37);
   --light-color:rgb(245,223,217) ;
-  --secondary-color:  rgb(216,138,125);
+  --secondary-color-light:  rgb(216,138,125);
 }
 
 * {
