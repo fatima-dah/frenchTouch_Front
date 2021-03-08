@@ -21,6 +21,7 @@ function App() {
         <Route path="/book" component={BookVisitor} />
         <Route path="/shop" component={ShopVisitor} />
         <Route path="/nuancier" component={PaletteVisitor} />
+
       </Switch>
     </div>
   );
