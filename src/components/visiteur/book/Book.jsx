@@ -1,4 +1,4 @@
-
+import './Book.css'
 
 function Book() {
 
@@ -6,7 +6,7 @@ function Book() {
 
   return (
     <div>
-      Book
+      <h1>Book</h1>
     </div>
   );
 }
