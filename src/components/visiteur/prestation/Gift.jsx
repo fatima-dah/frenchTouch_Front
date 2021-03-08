@@ -20,8 +20,8 @@ function Prestation() {
       <div className="cartesGift">
         {gift.map((gift) => (
           <div className="containerGift">
-            <img className="pictureGift" src={gift.picture} alt="" />
-            <div className="textGift">{gift.title}</div>
+            <img className="pictureGift" src={gift.imageGift} alt="" />
+            <div className="textGift">{gift.titleGift}</div>
           </div>
         ))}
       </div>

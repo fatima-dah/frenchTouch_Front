@@ -1,9 +1,8 @@
 import "./App.css";
-import Header from "./components/visiteur/header/Header";
+// import Header from "./components/visiteur/header/Header";
 import { Route, Switch } from "react-router-dom";
 import PrestationsVisitor from "../src/components/visiteur/prestation/PrestationImport";
 import GiftsVisitor from "../src/components/visiteur/prestation/CartGift";
-
 
 import RdvVisitor from "../src/components/visiteur/reserve/Reserve";
 import BookVisitor from "../src/components/visiteur/book/Book";
