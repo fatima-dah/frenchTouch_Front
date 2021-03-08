@@ -1,4 +1,4 @@
-
+import './Prestation.css'
 
 function Prestation() {
 
@@ -6,7 +6,7 @@ function Prestation() {
 
     return (
       <div>
-        Prestations
+       <h1>Prestations </h1> 
       </div>
     );
   }
