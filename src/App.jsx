@@ -14,7 +14,7 @@ import AboutVisitor from '../src/components/visiteur/about/About'
 function App() {
   return (
     <div className="App">
-      {/* <Navbar/> */}
+      <Navbar/>
       <Switch >
       <Route exact path="/" />
       <Route path="/apropos" component={AboutVisitor}/>
