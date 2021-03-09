@@ -2,25 +2,40 @@ import React from "react";
 import logo from "../../../assets/entier noir-480px.png";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import LogoSVG from "../../../assets/entier noir.svg";
 
 function Header() {
   return (
     <nav>
-      
-      <img className="logo" src={logo} alt="logo" />
-      <div class="menu-items">
-        <div class="items" id="menu">
-          <a href="#">Item1</a>
-          <a href="#">Item2</a>
-          <a href="#">Item3</a>
-          <a href="#">Item4</a>
-          <a href="#">Item5</a>
-          <a href="#">Item6</a>
-          <a href="#" class="close">
+      <Link to="/">
+        <img className="logo" src={LogoSVG} alt="logo" />
+      </Link>
+      <div className="menu-items">
+        <div className="items" id="menu">
+          <Link className="router" to="/prestations">
+            PRESTATIONS
+          </Link>
+          <Link className="router" to="/book">
+            BOOK{" "}
+          </Link>
+          <Link className="router" to="/rendezvous">
+            PRENDRE RDV{" "}
+          </Link>
+          <Link className="router" to="/about">
+            CONTACT{" "}
+          </Link>
+          <Link className="router" to="/shop">
+            SHOP{" "}
+          </Link>
+          <Link className="router" to="/nuancier">
+            NUANCIER{" "}
+          </Link>
+
+          <a href="#" className="close">
             X
           </a>
         </div>
-        <a href="#menu" class="burger">
+        <a href="#menu" className="burger">
           <div></div>
           <div></div>
           <div></div>

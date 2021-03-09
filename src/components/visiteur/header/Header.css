@@ -1,6 +1,4 @@
 :root {
-  --main-color: rgb(225, 0, 255);
-  --secondary-color: green;
   --light: rgb(253, 250, 253);
   --dark: rgb(14, 0, 15);
 
@@ -11,17 +9,8 @@
   --navbar-height: 50px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding-top: var(--navbar-height);
-}
-
 nav {
-  background-color: var(--main-color);
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,16 +21,16 @@ nav {
   height: var(--navbar-height);
 }
 
-
-
 nav a {
   color: var(--light);
   text-decoration: none;
   padding-right: var(--spacing);
 }
 
-nav a:hover {
-  color: var(--secondary-color);
+nav .router:hover {
+  background-color: black;
+  color: white;
+  text-decoration: underline;
 }
 
 main {
@@ -51,6 +40,7 @@ main {
 .menu-items {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .burger {
@@ -65,6 +55,7 @@ main {
 .burger div {
   height: calc(var(--burger-size) / 6);
   background-color: var(--light);
+  border-radius: 2px;
 }
 
 .close {
@@ -72,16 +63,38 @@ main {
 }
 
 .logo {
-    height: 50px;
-    width: 50px;
+  height: 100px;
+  width: 100px;
+  margin-top: 32px;
 }
 
-@media screen and (max-width: 600px) {
+a.router {
+  color: black;
+  padding: 18px 18px 18px 18px;
+  letter-spacing: 1.5px;
+  margin-right: 3px;
+}
+
+.items {
+  margin-right: 24px;
+}
+
+@media screen and (max-width: 1024px) {
   .items {
     display: none;
   }
   .burger {
     display: flex;
+    margin-right: 32px;
+    margin-top: 32px;
+  }
+
+  a .burger div {
+    background-color: pink;
+  }
+
+  .burger div {
+    background-color: black;
   }
 
   .items:target {
@@ -94,13 +107,17 @@ main {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--main-color);
+    background-color: grey;
     opacity: 0.95;
   }
 
   .items:target a {
-    font-size: 18pt;
+    font-size: 32pt;
     padding: var(--spacing);
+  }
+
+  .items:target a:hover {
+    color: white;
   }
 
   .items:target .close {
@@ -110,3 +127,5 @@ main {
     right: var(--spacing);
   }
 }
+
+/* Restera un media query ipad ici*/
