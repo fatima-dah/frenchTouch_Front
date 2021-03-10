@@ -19,6 +19,7 @@ nav {
   top: 0;
   width: 100%;
   height: var(--navbar-height);
+  margin-bottom: 64px;
 }
 
 nav a {

@@ -1,11 +1,20 @@
+.Gift {
+  margin-top: 120px;
+}
+
 .cartGifts {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .CartGift {
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -40,9 +49,122 @@
   height: 280px;
   margin: 6%;
 }
-/* .inputGift{
+.inputGift {
+  display: flex;
+  margin: 3%;
+}
+.inputGifts {
+  display: flex;
+  margin: 2%;
+  width: 300px;
+}
+
+.inputGiftsImage {
+  display: flex;
+  margin: 2%;
+  width: 200px;
+}
+.inputGiftsPrice {
+  margin: 1%;
+  width: 30px;
+}
+.inputGiftPrices {
+  margin: 3%;
+}
+
+.submitGift {
+  width: 180px;
+  margin-top:6%;
+  margin-left:18%;
+  color: var(--secondary-color-light);
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--light-color);
+}
+.inputGiftsMessage{
+  display: flex;
+  width:320px;
+  margin: 2%;
 
 } 
-.inputGifts{
+.main-form-gift{
+  width:80%;
+  margin-left: auto;
+  margin-right: auto;
+}  
+.inputGiftsImage {
+  display: flex;
+  margin: 2%;
+  width: 290px;
+}
 
-}  */
+@media screen and (max-width: 768px) {
+
+  .cartGifts {
+    display: flex;
+    flex-direction: column;
+    width:80%;
+  }
+  .CartGift {
+    width: 450px;
+  }
+  .lignVerticalGift {
+ display: none;
+  }
+
+  .inputGifts {
+    display: flex;
+    margin: 2%;
+    width:380px ;
+  }
+  
+  .inputGiftsImage {
+    display: flex;
+    margin: 2%;
+    width: 360px;
+  }
+  .inputGiftsPrice {
+    margin: 2%;
+    width: 50px;
+  }
+
+
+}
+
+@media screen and (max-width: 558px) {
+  .main-form-gift .inputGifts{
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+  }  
+
+  .CartGift {
+    width: 300px;
+  }
+
+  
+  .inputGiftsImage{
+    width:93%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .inputGiftsMessage{
+    width:103%;
+   
+  } 
+  .inputGiftsPrice {
+    margin: 2%;
+    width: 40px;
+  }
+  .submitGift {
+    width: 180px;
+    margin-top:6%;
+    margin-left:14%;
+    color: var(--secondary-color-light);
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--light-color);
+  }
+
+}

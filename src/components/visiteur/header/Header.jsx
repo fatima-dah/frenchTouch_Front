@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../assets/entier noir-480px.png";
+// import logo from "../../../assets/entier noir-480px.png";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import LogoSVG from "../../../assets/entier noir.svg";

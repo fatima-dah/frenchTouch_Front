@@ -21,7 +21,7 @@ function CartGift() {
 
   useEffect(() => {
     axios.get(`${FETCH}/gifts`).then((res) => setGift(res.data));
-  }, [gift]);
+  }, []);
 
   const handleValid = () => {
     if (
@@ -61,63 +61,70 @@ function CartGift() {
         });
     }
   };
-
+  console.log({ image });
 
   return (
-    <div>
+    <div className="Gift">
       <h2 className="titleGift">Cheque cadeaux</h2>
-      <form className="main-form" onSubmit={handleSubmit}>
-        <div className="cartGifts">
-          <div className="CartGift">
-            <img className="imageLogoGift" src={imageLogo} alt="" />
-            <div className="LignCartGift"></div>
-            <div>{title}</div>
+      <div className="cartGifts">
+        <div className="CartGift">
+          <img className="imageLogoGift" src={imageLogo} alt="" />
+          <div className="LignCartGift"></div>
+          <div>{title}</div>
 
-            <Carousel className="CarouselGift">
+          <Carousel className="CarouselGift">
+            {gift.map((gift) => (
               <div className="imageLogoGiftCarousels">
                 <img
-                  value={image}
-                  onChange={(event) => setImage(event.target.value)}
+                  type="image"
                   className="imageLogoGiftCarousels"
+                  src={gift.image}
                   alt=""
-                  src="https://images.serenataassets.com/image/upload/v1539073473/blogs/fleurs-romantique.jpg"
                 />
               </div>
-              <div className="imageLogoGiftCarousels">
-                <img
-                  value={image}
-                  onChange={(event) => setImage(event.target.value)}
-                  className="imageLogoGiftCarousels"
-                  alt=""
-                  src="https://www.drostatic.com/images/lemagfemmes/home/gateau_fusee.jpg"
-                />
-              </div>
-              <div className="imageLogoGiftCarousels">
-                <img
-                  value={image}
-                  onChange={(event) => setImage(event.target.value)}
-                  className="imageLogoGiftCarousels"
-                  alt=""
-                  src="https://1.bp.blogspot.com/-PmQ_LhCa4po/XkQ7LHMlbiI/AAAAAAAAAno/KfuE0rqW9P4q1DTPwqff2h1Xs59Ax_NmwCLcBGAsYHQ/s1600/saint-valentin-2020.jpg"
-                />
-              </div>
-              <div className="imageLogoGiftCarousels">
-                <img
-                  value={image}
-                  onChange={(event) => setImage(event.target.value)}
-                  className="imageLogoGiftCarousels"
-                  alt=""
-                  src="https://zenidees.com/wp-content/uploads/2020/11/nail-art-cadeau-noel-38.jpg"
-                />
-              </div>
-            </Carousel>
+            ))}
+          </Carousel>
 
-            <div>{message}</div>
-            <div className="LignCartGift"></div>
-            <div>{price}</div>
-          </div>
-          <div className="lignVerticalGift"></div>
-          <div>
+          <div className="messageGift">{message}</div>
+          <div className="LignCartGift"></div>
+          <div>{price}</div>
+        </div>
+        <div className="lignVerticalGift"></div>
+        <form className="main-form-gift" onSubmit={handleSubmit}>
+          <div className="formGifts">
+          <div  className="inputGift"> Vous allez recevoir le chèque cadeau par mail puis vous pourrez l'imprimer afin de l'offrir à la personne de votre choix. </div>
+          <div className="inputGiftPrices">
+              <label>
+                {" "}
+                Valeur du chèque :
+                <select
+                  type="text"
+                  name="price"
+                  className="inputGiftsPrice"
+
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                >
+                  <option></option>
+
+                  <option>50</option>
+                  <option>60</option>
+                  <option>70</option>
+                  <option>80</option>
+                  <option>90</option>
+                  <option>100</option>
+                </select>
+                ou
+                <input
+                 type="text"
+                 name="price"
+                 className="inputGiftsPrice"
+
+                 value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                /> €
+              </label>
+            </div>{" "}
             <div className="inputGift">
               <label>
                 {" "}
@@ -174,8 +181,8 @@ function CartGift() {
               <label>
                 {" "}
                 Message :
-                <input
-                  className="inputGifts"
+                <textarea
+                  className="inputGiftsMessage"
                   type="text"
                   name="message"
                   value={message}
@@ -183,41 +190,37 @@ function CartGift() {
                 />
               </label>
             </div>{" "}
+         
             <div className="inputGift">
               <label>
-                {" "}
-                valeur du chèque :
+                Selectionnez le nom d'une image :
                 <select
                   type="text"
-                  name="price"
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  name="image"
+                  className="inputGiftsImage"
+
+                  value={image}
+                  onChange={(e) => setImage(e.target.value)}
                 >
                   <option></option>
-
-                  <option>50</option>
-                  <option>60</option>
-                  <option>70</option>
-                  <option>80</option>
-                  <option>90</option>
-                  <option>100</option>
+                  {gift.map((gift) => (
+                    <option value={gift.image}>{gift.titleGift} </option>
+                  ))}
                 </select>
-                ou
-                <input />
               </label>
-            </div>{" "}
+            </div>
             <button
               type="submit"
               onClick={handleValid}
-              className="submit"
+              className="submitGift"
               value="Submit"
             >
               Ajouter au panier
             </button>
             <span className="msgValid">{valid}</span>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
