@@ -1,27 +1,48 @@
-.fullRdv {
-    /* background-color: black; */
-    width: 100vw;
-    height: 100vh;
-    margin-top: 80px;
-}
-
 .boxPicture {
-    border :10px solid red;
-    box-sizing: content-box;
-    width: 50vw;
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  width: 60vw;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
 }
 
 .pictureAndform {
-    border: 5px solid black;
-    display: flex;
-    justify-content: center;
-    
+  padding: 2%;
+}
+.formRdv {
+  margin: 10px;
+}
+.imageRdv {
+  width: 450px;
 }
 
+.titleRdv {
+  text-align: center;
+  margin: 5%;
+}
 
+.mainForm {
+  display: flex;
+  flex-direction: column;
+}
 
-.mainForm{
-    display: flex;
-    flex-direction: column;
+.labelFormRDV {
+  width: 150px;
+  float: left;
+}
+
+.submitRDV {
+
+  width: 140px;
+  margin:4%;
+
+  margin-left:auto;
+  margin-right: auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 760) {
 }

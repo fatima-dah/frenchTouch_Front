@@ -23,7 +23,6 @@ function Prestation() {
             {gift.slice(0, 1).map((gift) => (
               <div className="containerGift">
                 <img className="pictureGift" src={gift.imageGift} alt="" />
-                {/* <div className="textGift">{gift.titlePrestationGift}</div> */}
               </div>
             ))}
           </div>

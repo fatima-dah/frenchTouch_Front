@@ -87,7 +87,7 @@ function CartGift() {
 
           <div className="messageGift">{message}</div>
           <div className="LignCartGift"></div>
-          <div>{price}</div>
+          <div>{price} </div>
         </div>
         <div className="lignVerticalGift"></div>
         <form className="main-form-gift" onSubmit={handleSubmit}>
@@ -107,12 +107,12 @@ function CartGift() {
                 >
                   <option></option>
 
-                  <option>50</option>
-                  <option>60</option>
-                  <option>70</option>
-                  <option>80</option>
-                  <option>90</option>
-                  <option>100</option>
+                  <option>50,00 €</option>
+                  <option>60,00 €</option>
+                  <option>70,00 €</option>
+                  <option>80,00 €</option>
+                  <option>90,00 €</option>
+                  <option>100,00 €</option>
                 </select>
                 ou
                 <input
@@ -217,7 +217,7 @@ function CartGift() {
             >
               Ajouter au panier
             </button>
-            <span className="msgValid">{valid}</span>
+            <div className="msgValid">{valid}</div>
           </div>
         </form>
       </div>
