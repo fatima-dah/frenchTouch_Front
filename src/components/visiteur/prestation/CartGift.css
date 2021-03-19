@@ -103,7 +103,7 @@
   .cartGifts {
     display: flex;
     flex-direction: column;
-    width:80%;
+    width:90%;
   }
   .CartGift {
     width: 450px;
@@ -111,6 +111,12 @@
   .lignVerticalGift {
  display: none;
   }
+  .inputGiftsMessage{
+    display: flex;
+    width:395px;
+    margin: 2%;
+  
+  } 
 
   .inputGifts {
     display: flex;
@@ -132,30 +138,32 @@
 }
 
 @media screen and (max-width: 558px) {
-  .main-form-gift .inputGifts{
-    width:100%;
-    margin-left: auto;
-    margin-right: auto;
-  }  
+ 
 
   .CartGift {
     width: 300px;
   }
 
+  .inputGifts {
+    display: flex;
+    margin: 2%;
+    width:260px ;
+  }
+
   
   .inputGiftsImage{
-    width:93%;
+    width:91%;
     margin-left: auto;
     margin-right: auto;
   }
 
   .inputGiftsMessage{
-    width:103%;
+    width:270px ;
    
   } 
   .inputGiftsPrice {
     margin: 2%;
-    width: 40px;
+    width: 4px;
   }
   .submitGift {
     width: 180px;

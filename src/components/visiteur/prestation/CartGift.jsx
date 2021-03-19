@@ -73,7 +73,7 @@ function CartGift() {
           <div>{title}</div>
 
           <Carousel className="CarouselGift">
-            {gift.map((gift) => (
+            {gift.slice(0, 4).map((gift) => (
               <div className="imageLogoGiftCarousels">
                 <img
                   type="image"
@@ -91,7 +91,7 @@ function CartGift() {
         </div>
         <div className="lignVerticalGift"></div>
         <form className="main-form-gift" onSubmit={handleSubmit}>
-          <div className="formGifts">
+          {/* <div className="formGifts"> */}
           <div  className="inputGift"> Vous allez recevoir le chèque cadeau par mail puis vous pourrez l'imprimer afin de l'offrir à la personne de votre choix. </div>
           <div className="inputGiftPrices">
               <label>
@@ -183,6 +183,7 @@ function CartGift() {
                 Message :
                 <textarea
                   className="inputGiftsMessage"
+                  rows="4"
                   type="text"
                   name="message"
                   value={message}
@@ -203,7 +204,7 @@ function CartGift() {
                   onChange={(e) => setImage(e.target.value)}
                 >
                   <option></option>
-                  {gift.map((gift) => (
+                  {gift.slice(0, 4).map((gift) => (
                     <option value={gift.image}>{gift.titleGift} </option>
                   ))}
                 </select>
@@ -218,8 +219,7 @@ function CartGift() {
               Ajouter au panier
             </button>
             <div className="msgValid">{valid}</div>
-          </div>
-        </form>
+         </form>
       </div>
     </div>
   );

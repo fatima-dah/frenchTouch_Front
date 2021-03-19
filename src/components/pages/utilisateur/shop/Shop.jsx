@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import Header from './../header/Header'
+
 
 
 function Shop() {
@@ -9,6 +11,7 @@ function Shop() {
 
   return (
     <div>
+      <Header />
  
     </div>
   );
