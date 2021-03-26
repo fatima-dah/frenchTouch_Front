@@ -83,15 +83,6 @@ img::after {
     background-color: black;
 }
 
-/* .imgHome::before {
-    position: absolute;
-    width: 100vw;
-    height: 1000px;
-    background-color: black;
-} */
-
-
-
 .alignTitle {
     width: 85vw;
     height: 466px;
