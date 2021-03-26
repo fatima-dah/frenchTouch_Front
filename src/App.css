@@ -24,3 +24,7 @@ html {
   padding: 0;
   overflow-x: hidden;
 }
+ .App {
+   margin-left: 7.5vw;
+   margin-right: 7.5vw;
+ }

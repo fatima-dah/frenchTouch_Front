@@ -5,7 +5,7 @@ import logo from "../../../assets/entier noir-480px.png";
 
 function Navbar() {
   return (
-    <nav className="fullHeader">
+    <nav className="fullHeader App">
         <img className="Logo" src={logo} alt="frenchtouchlogo"/>
         <div className="menu-items">
             <Link className="router" to ="/"> <p className="link"> ACCUEIL </p></Link>
