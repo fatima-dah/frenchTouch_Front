@@ -1,0 +1,89 @@
+.cr-text {
+  color: var(--fourth-color);
+  text-align: center;
+  width: 50vw;
+  margin-left:15vw;
+}
+
+.cr{
+  width: 80vw;
+  overflow:hidden;
+  max-height: 600px;
+  margin-top: 50px;
+}
+
+.cr-content {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.title-cr {
+  font-family: var(--title-font);
+  color: var(--third-color) !important;
+}
+
+.coment-cr {
+  font-size: 11pt;
+  font-family: "Didact Gothic";
+}
+
+.box-cr {
+  width: 95vw;
+  height: 200px;
+}
+
+.full {
+  background-color: #fdf1db;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.full h4 {
+  text-align: center;
+  font-size: 18pt;
+  margin: 6px;
+  letter-spacing: 1pt;
+  font-style: italic;
+  color: var(--fourth-color);
+  font-family: var(--title-font);
+  padding-bottom: 10px;
+}
+
+.full h4:before {
+  content: "\2014";
+  position: absolute;
+  margin-left: -30px;
+  color: var(--third-color) !important;
+}
+
+.full h4::after {
+  content: "\2014";
+  position: absolute;
+  margin-left: 10px;
+  color: var(--third-color) !important;
+}
+
+.carousel-control-next {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  bottom: 70px;
+}
+
+.carousel-control-prev {
+  position: relative;
+  bottom: 50px;
+}
+
+
+@media screen and (min-width: 1025px) {
+  .full h4 {
+    font-size: 18pt;
+  }
+
+  .coment-cr {
+    font-size: 16px;
+  }
+}

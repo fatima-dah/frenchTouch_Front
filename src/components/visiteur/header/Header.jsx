@@ -6,7 +6,7 @@ import LogoSVG from "../../../assets/entier noir.svg";
 
 function Header() {
   return (
-    <nav>
+    <nav className="App">
       <Link to="/">
         <img className="logo" src={LogoSVG} alt="logo" />
       </Link>
@@ -18,7 +18,7 @@ function Header() {
           <Link className="router" to="/book">
             BOOK{" "}
           </Link>
-          <Link className="router" to="/rendezvous">
+          <Link className="router rdv" to="/rendezvous">
             PRENDRE RDV{" "}
           </Link>
           <Link className="router" to="/about">
@@ -27,7 +27,7 @@ function Header() {
           <Link className="router" to="/shop">
             SHOP{" "}
           </Link>
-          <Link className="router" to="/nuancier">
+          <Link className="router right" to="/nuancier">
             NUANCIER{" "}
           </Link>
 
