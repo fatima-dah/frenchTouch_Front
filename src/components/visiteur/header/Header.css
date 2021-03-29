@@ -14,12 +14,12 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing);
   position: fixed;
-  top: 0;
-  width: 100%;
-  height: var(--navbar-height);
-  margin-bottom: 64px;
+  width: 85vw;
+  height: 55px;
+  border: 1px solid transparent;
+  background: transparent;
+  z-index: 10;
 }
 
 nav a {
@@ -29,9 +29,13 @@ nav a {
 }
 
 nav .router:hover {
-  background-color: black;
-  color: white;
+  background-color:  rgba(241,216,204,255);
+  color: rgb(0, 0, 0);
   text-decoration: underline;
+}
+
+nav .router .rdv {
+  background-color: white;
 }
 
 main {
@@ -64,30 +68,32 @@ main {
 }
 
 .logo {
-  height: 100px;
-  width: 100px;
-  margin-top: 32px;
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
 }
 
 a.router {
   color: black;
   padding: 18px 18px 18px 18px;
   letter-spacing: 1.5px;
-  margin-right: 3px;
 }
 
-.items {
-  margin-right: 24px;
+a.router.right{
+  padding-right: 3px;
+  margin-right: 0;
+} 
+
+a.router.rdv {
+  background-color: white;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1023px) {
   .items {
     display: none;
   }
   .burger {
     display: flex;
-    margin-right: 32px;
-    margin-top: 32px;
   }
 
   a .burger div {

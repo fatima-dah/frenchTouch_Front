@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/visiteur/header/Header";
+import Footer from "./components/visiteur/footer/Footer";
 import { Redirect, Route, Switch } from "react-router-dom";
 import AdminLogin from "./components/Adminlogin/AdminLogin";
 import Prestations from "./components/pages/utilisateur/prestation/Prestation";
@@ -12,6 +13,7 @@ import Abouts from "./components/pages/utilisateur/about/About";
 import Admin from "./components/Administrateur/Admin/Admin";
 import Services from "./components/Administrateur/Adminprestation/Prestation";
 import { useEffect, useState } from "react";
+
 
 
 
@@ -47,6 +49,7 @@ function App() {
        
 
       </Switch>
+      <Footer/>
     </div>
   );
 }

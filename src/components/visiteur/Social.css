@@ -1,0 +1,23 @@
+.social {
+    position: relative;
+    bottom: 95px;
+    left: 4vw;
+}
+
+.columnSocial {
+    height: 100px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.columnSocialIcon {
+    height: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .columnSocial{
+        display: none;
+    }
+}

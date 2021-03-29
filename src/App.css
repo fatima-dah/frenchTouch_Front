@@ -20,3 +20,7 @@ html {
   margin: 0;
   padding: 0;
 }
+ .App {
+   margin-left: 7.5vw;
+   margin-right: 7.5vw;
+ }
