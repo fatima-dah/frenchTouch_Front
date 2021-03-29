@@ -1,0 +1,138 @@
+:root {
+  --light: rgb(253, 250, 253);
+  --dark: rgb(14, 0, 15);
+
+  --spacing: 8px;
+  --spacing-2: calc(var(--spacing) * 2);
+  --spacing-4: calc(var(--spacing) * 4);
+
+  --navbar-height: 50px;
+}
+
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 85vw;
+  height: 55px;
+  border: 1px solid transparent;
+  background: transparent;
+  z-index: 10;
+}
+
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  padding-right: var(--spacing);
+}
+
+nav .router:hover {
+  background-color:  rgba(241,216,204,255);
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+
+nav .router .rdv {
+  background-color: white;
+}
+
+main {
+  padding: var(--spacing-2);
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.burger {
+  --burger-size: 30px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: var(--burger-size);
+  height: var(--burger-size);
+}
+
+.burger div {
+  height: calc(var(--burger-size) / 6);
+  background-color: var(--light);
+  border-radius: 2px;
+}
+
+.close {
+  display: none;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
+}
+
+a.router {
+  color: black;
+  padding: 18px 18px 18px 18px;
+  letter-spacing: 1.5px;
+}
+
+a.router.right{
+  padding-right: 3px;
+  margin-right: 0;
+} 
+
+a.router.rdv {
+  background-color: white;
+}
+
+@media screen and (max-width: 1023px) {
+  .items {
+    display: none;
+  }
+  .burger {
+    display: flex;
+  }
+
+  a .burger div {
+    background-color: pink;
+  }
+
+  .burger div {
+    background-color: black;
+  }
+
+  .items:target {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: grey;
+    opacity: 0.95;
+  }
+
+  .items:target a {
+    font-size: 32pt;
+    padding: var(--spacing);
+  }
+
+  .items:target a:hover {
+    color: white;
+  }
+
+  .items:target .close {
+    display: block;
+    position: fixed;
+    top: var(--spacing);
+    right: var(--spacing);
+  }
+}
+
+/* Restera un media query ipad ici*/
