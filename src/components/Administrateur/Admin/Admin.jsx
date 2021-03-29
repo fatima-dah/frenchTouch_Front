@@ -1,8 +1,10 @@
-import {useEffect} from 'react'
-import Nav from './../NavBar/Nav'
+import { useEffect} from 'react'
+// import Nav from './../NavBar/Nav'
 import './Admin.css'
 
 function Admin() {
+
+
 
     useEffect(() => {
       window.scrollTo(0, 0)
@@ -10,7 +12,7 @@ function Admin() {
   
     return (
       <div className="messageAsso" >
-        <Nav/>
+        {/* <Nav/> */}
         <h2 className="titl"> ADMINISTRATION </h2>
        
       </div>

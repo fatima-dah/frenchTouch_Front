@@ -1,23 +1,27 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import FileUpload from "./../FileUpload/FileUpload";
 import { FETCH } from "../../../Fetch";
-import FileUpload from "../../News/FileUpload/FileUpload";
-import Nav from "./Nav";
+import SubCategory from './SubCategory';
+// import Presentations from "./Presentations"
+import "./Prestation.css"
+// import Nav from './Nav';
 
-const Prestation = () => {
+function Prestations() {
   const [service, setService] = useState([]);
+  const [subCategory, setSubCategory] = useState([]);
+  const [subCategorys, setSubCategorys] = useState("");
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [duration, setDuration] = useState("");
-  const [image, setImage] = useState("");
+  const [valid, setValid] = useState("");
   const [statusBtn, setStatusBtn] = useState(true);
-  const token = localStorage.getItem("TOKEN");
-
   const [file, setFile] = useState("");
   const [fileName, setFileName] = useState("");
-
   const [uploadedFile, setUploadedFile] = useState({});
+  const token = localStorage.getItem("TOKEN");
 
   const onChange = (e) => {
     setFile(e.target.files[0]);
@@ -45,11 +49,28 @@ const Prestation = () => {
       }
     }
   };
-  console.log(uploadedFile);
+
 
   useEffect(() => {
-    axios.get(`${FETCH}/services`).then((res) => setService(res.data));
-  }, []);
+    axios
+      .get(`${FETCH}/services`)
+      .then((res) => setService(res.data));
+  }, [service]);
+
+
+  useEffect(() => {
+    axios.get(`${FETCH}/sub_categorys`).then((res) => setSubCategory(res.data));
+  }, [subCategory]);
+
+
+  const handleValid = () => {
+    if (name === "" || description === "" || price === "" || duration === "") {
+      setValid("");
+    } else {
+      setValid("Actualité ajoutée avec succès.");
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (statusBtn === true) {
@@ -62,6 +83,7 @@ const Prestation = () => {
             description: description,
             price: price,
             duration: duration,
+            sub_category_id: subCategorys,
             image: uploadedFile.filePath,
           },
           {
@@ -76,106 +98,135 @@ const Prestation = () => {
         .catch(function (error) {
           console.log(error);
         });
+        console.log(uploadedFile)
     }
   };
-
-  function verifEmpty() {
-    if (name === "" || description === "" || price === "" || duration === "") {
-      alert("Des champs obligatoires sont vides.");
-    } else {
-      setTexthidden("Votre prestation a bien été envoyer !");
-    }
-  }
+  // console.log(subCategorys)
 
   return (
-    <div>
-      <Nav />
-      <div className="AssoFormAdd">
-        <h1>Formulaire d'ajout de Prestation</h1>
+    <div >
+      {/* <Nav /> */}
+    {/* <Presentations /> */}
+      <div className="AddformService">
+      <SubCategory />
 
-        <form className="assoformAdd" onSubmit={handleSubmit}>
-          <div className="LignStyleAsso"></div>
+        <div>
+          <span className="borderTitle">
+            <h3 className="addTitle">Ajouter une prestation</h3>
+          </span>
 
-          <fieldset>
-            <legend className="colorLign">Associations</legend>
-            <label className="labelAssoAdd">
-              <p>
-                Nom <span>*</span> :
-              </p>
+          <div className="LignStyleService"></div>
 
-              <input
-                type="text"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              <p>
-                Ville <span>*</span> :
-              </p>
-            </label>
-            <label className="labelAssoAdd">
-              <p>
-                description <span>*</span> :
-              </p>
-              <textarea
-                type="text"
-                name="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                required
-              />
-            </label>
-            <label className="labelAssoAdd">
-              <p>
-                Prix <span>*</span> :
-              </p>
-              <input
-                type="text"
-                name="price"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-                required
-              />
-            </label>
-            <label className="labelAssoAdd">
-              <p>durée :</p> <span>*</span>
-              <input
-                type="text"
-                name="contact"
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-              />
-            </label>
+          <div className="formServiceAdd">
+            <form className="main-formAdd" onSubmit={handleSubmit}>
+              <fieldset>
+                <legend className="colorLign"> Prestation </legend>
+                <div className="form_ServiceAdd">
+                  <label>
+                    nom: <span className="styleRequired">*</span>
+                    <input
+                      type="text"
+                      name="title"
+                      className="form-inputAdd"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form_ServiceAdd">
+                  <label>
+                    prix : <span className="styleRequired">*</span>
+                    <input
+                      type="text"
+                      name="title"
+                      className="form-inputAdd"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form_ServiceAdd">
+                  <label>
+                    durée :<span className="styleRequired">*</span>
+                    <input
+                      type="text"
+                      name="author"
+                      className="form-inputAdd"
+                      value={duration}
+                      onChange={(e) => setDuration(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form_ServiceAdd">
+                  <label>
+                    Description : <span className="styleRequired">*</span>
+                    <textarea
+                      type="text"
+                      name="description"
+                      className="form-input_descriptionAdd"
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form_actualityAdd">
+                  <label>
+                    sous category : <span className="styleRequired">*</span>
+                    <select
+                      
+                      className="form-input_category"
+                      value={subCategorys} 
+                      onChange={(e) => setSubCategorys(e.target.value)}
+                      required
+                    >
+                      <option value="blank"></option>
 
-            <label>
-              <p>image :</p> <span>*</span>
-              <FileUpload
-                method={(e) => {
-                  e.preventDefault();
-                  handleUpload();
-                }}
-                onChange={(e) => {
-                  onChange(e);
-                }}
-                fileName={uploadedFile.fileName}
-                filePath={uploadedFile.filePath}
-              />{" "}
-            </label>
-          
-            <div>
-              <button className="submitAdd" type="submit" onClick={verifEmpty}>
-                Envoyer
-              </button>
-            </div>
-            <span className="msgValid">{textHidden}</span>
-          </fieldset>
-        </form>
+                      {subCategory.map((subCategory) => (
+                        <option value={subCategory.id}>{subCategory.name} </option>
+                      ))}
+                    </select>
+                  </label>
+                </div>
+                <div className="form_ServiceAdd">
+                  <label>
+                    Image :
+                    <FileUpload
+                      className="imageForm"
+                      method={(e) => {
+                        e.preventDefault();
+                        handleUpload();
+                      }}
+                      onChange={(e) => {
+                        onChange(e);
+                      }}
+                      fileName={uploadedFile.fileName}
+                      filePath={uploadedFile.filePath}
+                    />
+                  </label>
+                </div>
+                <p>
+                  <span className="styleRequired">*</span> champs obligatoires
+                </p>
+                <button
+                  type="submit"
+                  className="submitAdd"
+                  value="Submit"
+                  onClick={handleValid}
+                >
+                  Envoyer
+                </button>
+                <span className="msgValid">{valid}</span>
+              </fieldset>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default Prestation;
+export default Prestations;

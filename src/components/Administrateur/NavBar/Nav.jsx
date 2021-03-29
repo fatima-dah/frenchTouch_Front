@@ -1,26 +1,24 @@
 import "./Nav.css";
-import LogoSVG from "../../../assets/entier noir.svg";
-import { Link } from "react-router-dom";
-
+import LogoSVG from './../../../assets/entier blanc.svg';
+import Link from "react"
 
 const Nav = () => {
+
+
+
   const handleSubmit = () => {
     localStorage.removeItem("TOKEN");
     alert("Disconnected successfully");
   };
   return (
     <section>
-      <div className="navbarAdmin">
-        <Link
-          to="/"
-          onClick={handleSubmit}
-          className="home-link"
-        >
-          <img src={LogoSVG} alt="home" className="img-home" />
-        </Link>
-      </div>
+      <Link to="/" onClick={handleSubmit} className="home-link">
+        <img src={LogoSVG} alt="home" className="img-home" />
+      </Link>
+     
     </section>
   );
 };
 
 export default Nav;
+

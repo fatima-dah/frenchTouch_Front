@@ -1,0 +1,143 @@
+.addTitle {
+    text-align: center;
+    padding-top: 1%;
+    font-family: var(--main-font);
+    color: var(--dark);
+  }
+  .colorLign {
+    padding: 2%;
+    font-size: 18px;
+  }
+  .formServiceAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--third-font);
+  }
+  .requests {
+    margin-top: 140px;
+  }
+  
+  .form-visibility {
+    margin: 1%;
+  }
+  
+  .styleRequired {
+    color: red;
+  }
+  
+  .form-inputAdd {
+    display: block;
+    width: 91%;
+    margin: 2%;
+  }
+  .form-inputCategoryAdd {
+    display: block;
+    min-width: 88.5%;
+    margin: 2%;
+  }
+  
+  .form-input_descriptionAdd {
+    display: block;
+    width: 93%;
+    margin: 2%;
+  }
+  
+  .main-formAdd {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    width: 40%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .form_ServiceAdd {
+    margin-top: 5%;
+    justify-content: flex-start;
+  }
+  .form_ServiceAdd select {
+    width: 80%;
+  }
+  
+  .submitAdd {
+    display: block;
+    margin: auto;
+    box-shadow: rgba(14, 14, 15, 0.2) 0px 1px 5px 1px;
+    background-color: #f7f9fc;
+    color: #3f3f3f;
+    border-radius: 20px;
+    border: #1a1b1b;
+    padding: 8px;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-top: 8%;
+    font-size: 18px;
+  }
+  .submitAdd:hover {
+    background-color: #3f3f3f;
+    color: #f7f9fc;
+    border-radius: 20px;
+    border: #1a1b1b;
+    padding-left: 28px;
+    padding-right: 28px;
+    font-size: 18px;
+  }
+  .AddformService {
+    margin-top: 140px;
+  }
+  
+  .msgValid {
+    color: green;
+    text-align: center;
+    padding: 18px;
+    margin: 8px;
+  }
+  
+  .imageForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type="radio"] {
+    width: auto;
+    height: auto;
+  }
+  .LignStyleService {
+    border: var(--secondary-color) 1px solid;
+    margin-left: 28%;
+    margin-right: 28%;
+    margin-bottom: 2%;
+    margin-top: 4%;
+  }
+  .imageAcceptNews {
+    height: auto;
+    width: 350px;
+    border-radius: 5px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .imageAcceptNews {
+      height: auto;
+      width: 180px;
+      border-radius: 5px;
+    }
+    .form-inputCategoryAdd {
+      display: block;
+      min-width: 88%;
+    }
+    .main-formAdd {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  
+    .LignStyleService {
+      border: var(--secondary-color) 1px solid;
+      margin-left: 18%;
+      margin-right: 18%;
+      margin-bottom: 8%;
+      margin-top: 4%;
+    }
+  }
+  

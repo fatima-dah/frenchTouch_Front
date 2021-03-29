@@ -13,7 +13,7 @@ function Prestation() {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    axios.get(`${FETCH}/services/with_category`).then((res) => setService(res.data));
+    axios.get(`${FETCH}/services/with_category`).then((res) => setServiceFiltre(res.data));
     setServiceFiltre(service);
     console.log( serviceFiltre)   },[]);
   
@@ -45,7 +45,6 @@ function Prestation() {
                   service.filter((service) => service.cat_name === e.target.value)
                 );}
                 else{
-                  e.preventDefault();
                   setServiceFiltre(service);
                 }}}
             >

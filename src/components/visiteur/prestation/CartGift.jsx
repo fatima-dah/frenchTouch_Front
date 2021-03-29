@@ -92,134 +92,135 @@ function CartGift() {
         <div className="lignVerticalGift"></div>
         <form className="main-form-gift" onSubmit={handleSubmit}>
           {/* <div className="formGifts"> */}
-          <div  className="inputGift"> Vous allez recevoir le chèque cadeau par mail puis vous pourrez l'imprimer afin de l'offrir à la personne de votre choix. </div>
+          <div className="inputGift">
+            {" "}
+            Vous allez recevoir le chèque cadeau par mail puis vous pourrez
+            l'imprimer afin de l'offrir à la personne de votre choix.{" "}
+          </div>
           <div className="inputGiftPrices">
-              <label>
-                {" "}
-                Valeur du chèque :
-                <select
-                  type="text"
-                  name="price"
-                  className="inputGiftsPrice"
+            <label>
+              {" "}
+              Valeur du chèque :
+              <select
+                type="text"
+                name="price"
+                className="inputGiftsPrice"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              >
+                <option></option>
 
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                >
-                  <option></option>
-
-                  <option>50,00 €</option>
-                  <option>60,00 €</option>
-                  <option>70,00 €</option>
-                  <option>80,00 €</option>
-                  <option>90,00 €</option>
-                  <option>100,00 €</option>
-                </select>
-                ou
-                <input
-                 type="text"
-                 name="price"
-                 className="inputGiftsPrice"
-
-                 value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                /> €
-              </label>
-            </div>{" "}
-            <div className="inputGift">
-              <label>
-                {" "}
-                Title :
-                <input
-                  type="text"
-                  name="title"
-                  className="inputGifts"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-              </label>
-            </div>{" "}
-            <div className="inputGift">
-              <label>
-                {" "}
-                Nom béneficiaire :
-                <input
-                  type="text"
-                  name="firstname"
-                  className="inputGifts"
-                  value={firstname}
-                  onChange={(e) => setFirstname(e.target.value)}
-                />
-              </label>
-            </div>{" "}
-            <div className="inputGift">
-              <label>
-                {" "}
-                Nom du béneficiaire :
-                <input
-                  type="text"
-                  name="lastname"
-                  className="inputGifts"
-                  value={lastname}
-                  onChange={(e) => setLastname(e.target.value)}
-                />
-              </label>
-            </div>
-            <div className="inputGift">
-              <label>
-                {" "}
-                Email du béneficiaire :
-                <input
-                  type="email"
-                  name="email"
-                  className="inputGifts"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </label>
-            </div>
-            <div className="inputGift">
-              <label>
-                {" "}
-                Message :
-                <textarea
-                  className="inputGiftsMessage"
-                  rows="4"
-                  type="text"
-                  name="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                />
-              </label>
-            </div>{" "}
-         
-            <div className="inputGift">
-              <label>
-                Selectionnez le nom d'une image :
-                <select
-                  type="text"
-                  name="image"
-                  className="inputGiftsImage"
-
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                >
-                  <option></option>
-                  {gift.slice(0, 4).map((gift) => (
-                    <option value={gift.image}>{gift.titleGift} </option>
-                  ))}
-                </select>
-              </label>
-            </div>
-            <button
-              type="submit"
-              onClick={handleValid}
-              className="submitGift"
-              value="Submit"
-            >
-              Ajouter au panier
-            </button>
-            <div className="msgValid">{valid}</div>
-         </form>
+                <option>50,00 €</option>
+                <option>60,00 €</option>
+                <option>70,00 €</option>
+                <option>80,00 €</option>
+                <option>90,00 €</option>
+                <option>100,00 €</option>
+              </select>
+              ou
+              <input
+                type="text"
+                name="price"
+                className="inputGiftsPrice"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />{" "}
+              €
+            </label>
+          </div>{" "}
+          <div className="inputGift">
+            <label>
+              {" "}
+              Title :
+              <input
+                type="text"
+                name="title"
+                className="inputGifts"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </label>
+          </div>{" "}
+          <div className="inputGift">
+            <label>
+              {" "}
+              Nom béneficiaire :
+              <input
+                type="text"
+                name="firstname"
+                className="inputGifts"
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+              />
+            </label>
+          </div>{" "}
+          <div className="inputGift">
+            <label>
+              {" "}
+              Nom du béneficiaire :
+              <input
+                type="text"
+                name="lastname"
+                className="inputGifts"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="inputGift">
+            <label>
+              {" "}
+              Email du béneficiaire :
+              <input
+                type="email"
+                name="email"
+                className="inputGifts"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="inputGift">
+            <label>
+              {" "}
+              Message :
+              <textarea
+                className="inputGiftsMessage"
+                rows="4"
+                type="text"
+                name="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+            </label>
+          </div>{" "}
+          <div className="inputGift">
+            <label>
+              Selectionnez le nom d'une image :
+              <select
+                type="text"
+                name="image"
+                className="inputGiftsImage"
+                value={image}
+                onChange={(e) => setImage(e.target.value)}
+              >
+                <option></option>
+                {gift.slice(0, 4).map((gift) => (
+                  <option value={gift.image}>{gift.titleGift} </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <button
+            type="submit"
+            onClick={handleValid}
+            className="submitGift"
+            value="Submit"
+          >
+            Ajouter au panier
+          </button>
+          <div className="msgValid">{valid}</div>
+        </form>
       </div>
     </div>
   );
