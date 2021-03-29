@@ -10,6 +10,7 @@ import ShopVisitor from "../src/components/visiteur/shop/Shop";
 import PaletteVisitor from "../src/components/visiteur/palette/Palette";
 import Navbar from "../src/components/visiteur/navbar/Navbar";
 import AboutVisitor from "../src/components/visiteur/about/About";
+import AdminHome from "../src/components/Administrateur/Adminhome/AdminHome"
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/book" component={BookVisitor} />
         <Route path="/shop" component={ShopVisitor} />
         <Route path="/nuancier" component={PaletteVisitor} />
+        <Route path="/admin/home" component={AdminHome} />
       </Switch>
       <Footer/>
     </div>

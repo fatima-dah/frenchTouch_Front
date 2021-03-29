@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+  color: #000000;
+  transition: 1s;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+p {
+  padding: 3rem 5rem;
+}
+
+#side-bar{
+	position: absolute;
+	width: 230px;
+	height: 100%;
+	background: #09FBBA;
+	left:-300px;
+  transition: .5s ease-out;
+  z-index: 4;
+}
+.toggle-btn{
+	position: absolute;
+	top: 10px;
+	left: 310px;
+  cursor: pointer;
+  height: 50px;
+  width: 60px;
+}
+.toggle-btn span{
+	width: 60px;
+	height: 10px;
+  border-radius:5px;
+	background: #0a0f55;
+	display: block;
+  margin-top:4px; 
+  transition: 0.3s ease;
+}
+
+#side-bar li{
+	color: #292929;
+	list-style: none;
+	font-size: 2.5rem;
+	cursor: pointer;
+	padding-left:5px; 
+}
+
+#side-bar li:hover{
+	background: #292929;
+	color: #FCFCFB;
+}
+
+#side-bar.active{
+	left:0;
+}
+#side-bar.active .toggle-btn {
+  top: 2.8rem;
+  left: 235px;
+}
+#side-bar.active span {
+  position: absolute;
+}
+#side-bar.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 16px;
+}
+#side-bar.active span:nth-child(2) {
+  opacity: 0;
+}
+#side-bar.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 16px;
+}
+#side-bar.active ~ .content {
+  opacity: 0.3;
+}

@@ -1,4 +1,4 @@
-
+import React from "react";
 
 function About() {
 
@@ -6,7 +6,7 @@ function About() {
 
   return (
     <div>
- 
+      <h1>ADMIN ABOUT</h1>
     </div>
   );
 }
