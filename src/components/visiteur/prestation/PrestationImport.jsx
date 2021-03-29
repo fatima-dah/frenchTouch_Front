@@ -1,17 +1,13 @@
-import Presentation from './Presentation';
-import Prestation from './Prestation';
-import Gift from './Gift';
-
+import Presentation from "./Presentation";
+import Prestation from "./Prestation";
+import Gift from "./Gift";
 
 function PresentationImport() {
-
-
   return (
     <div>
-        <Presentation />
-        <Prestation />
-        <Gift />
-  
+      <Presentation />
+      <Prestation />
+      <Gift />
     </div>
   );
 }

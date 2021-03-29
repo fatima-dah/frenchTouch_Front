@@ -1,5 +1,5 @@
 import { useEffect} from 'react'
-// import Nav from './../NavBar/Nav'
+import Nav from './../NavBar/Nav'
 import './Admin.css'
 
 function Admin() {
@@ -12,8 +12,8 @@ function Admin() {
   
     return (
       <div className="messageAsso" >
-        {/* <Nav/> */}
-        <h2 className="titl"> ADMINISTRATION </h2>
+        <Nav/>
+        <h2 className="titleAdmin"> ADMINISTRATION </h2>
        
       </div>
     );

@@ -55,7 +55,7 @@ const AdminLogin = (props) => {
           localStorage.setItem("token",data.token);
           console.log(data);
           props.setConnected(true);
-          //alert("Vous êtes connecté.e");
+          alert("Vous êtes connecté.e");
           history.push("/admin");
         })
         .catch((err) => {

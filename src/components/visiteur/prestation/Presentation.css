@@ -2,8 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@200&display=swap');
 
 
+.ServicePrestations{
+    padding-top:80px;
+} 
+
 .PresentationStyle{
-    margin-top:100px;
     display: flex;
     justify-content: center;
     align-items: center;

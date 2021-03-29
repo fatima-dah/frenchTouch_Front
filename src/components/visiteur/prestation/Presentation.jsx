@@ -14,22 +14,28 @@ function Presentation() {
   }, []);
 
   return (
-    <div>
-       {servicePresentation.map((servicePresentation) =>(
-      <div className="PresentationStyle">
-        <div className="imagePresentation">
-          <img className="imagePresentationFrenchTouch" src={servicePresentation.image_service}  alt="" />
-        </div>
-        <div className="vertical-line"></div>
-        <div className="textPresentation">
-          <h1 className="titlePresentation">{servicePresentation.title} </h1>
-          <p className="descriptionPrestation">
-          {servicePresentation.description} 
-          </p>
-        </div>
+    <div className="ServicePrestations">
+        {servicePresentation.map((servicePresentation) => (
+          <div className="PresentationStyle">
+            <div className="imagePresentation">
+              <img
+                className="imagePresentationFrenchTouch"
+                src={servicePresentation.image_service}
+                alt=""
+              />
+            </div>
+            <div className="vertical-line"></div>
+            <div className="textPresentation">
+              <h1 className="titlePresentation">
+                {servicePresentation.title}{" "}
+              </h1>
+              <p className="descriptionPrestation">
+                {servicePresentation.description}
+              </p>
+            </div>
+          </div>
+        ))}
       </div>
-      ))} 
-    </div>
   );
 }
 
