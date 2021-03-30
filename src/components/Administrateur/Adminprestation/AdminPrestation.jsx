@@ -3,9 +3,10 @@ import { useState, useEffect } from "react";
 import FileUpload from "./../FileUpload/FileUpload";
 import { FETCH } from "../../../Fetch";
 import SubCategory from './SubCategory';
-// import Presentations from "./Presentations"
+import DeleteService from './DeleteService'
+import Presentations from "./Presentations"
 import "./Prestation.css"
-// import Nav from './Nav';
+import NavBar from './../NavBar/Nav';
 
 function Prestations() {
   const [service, setService] = useState([]);
@@ -101,22 +102,19 @@ function Prestations() {
         console.log(uploadedFile)
     }
   };
-  // console.log(subCategorys)
+  
 
   return (
     <div >
-      {/* <Nav /> */}
-    {/* <Presentations /> */}
+      <NavBar />
+      <div>
+    <Presentations />
+    </div>
       <div className="AddformService">
       <SubCategory />
 
         <div>
-          <span className="borderTitle">
-            <h3 className="addTitle">Ajouter une prestation</h3>
-          </span>
-
-          <div className="LignStyleService"></div>
-
+            <h3 className="titleService">Ajouter une prestation</h3>
           <div className="formServiceAdd">
             <form className="main-formAdd" onSubmit={handleSubmit}>
               <fieldset>
@@ -225,6 +223,7 @@ function Prestations() {
           </div>
         </div>
       </div>
+      <DeleteService />
     </div>
   );
 }

@@ -25,7 +25,7 @@ function SubCategory() {
     if (name === "" || categorys === "") {
       setValid("");
     } else {
-      setValid("Actualité ajoutée avec succès.");
+      setValid("La catégorie à était ajoutée avec succès.");
     }
   };
 
@@ -59,7 +59,7 @@ function SubCategory() {
 
   return (
     <div className="">
-      <h3 className="addTitle">Ajouter une sous categorie</h3>
+      <h3 className="titleService">Ajouter une sous categorie</h3>
 
       <form className="main-formAdd" onSubmit={handleSubmit}>
         <fieldset>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Header from './../header/Header'
+import NavBar from '../navBar/NavBar'
 import CartGift from "../../../visiteur/prestation/CartGift";
 
 function CartGifts() {
@@ -9,7 +9,7 @@ function CartGifts() {
 
   return (
     <div>
-      <Header />
+      <NavBar />
       <CartGift />
     </div>
   );

@@ -61,7 +61,9 @@ function Prestation() {
         {serviceFiltre
         .map((service) => (
           <div className="carteService">
+            <div className="imageServiceLign">
             <img className="imageService" src={service.image} alt="" />{" "}
+          </div>
             <div className="servicePresta">
               <p className="nameService">{service.name} </p>
               <div className="descriptionService">{service.description} </div>

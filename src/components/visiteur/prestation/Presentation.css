@@ -3,7 +3,7 @@
 
 
 .ServicePrestations{
-    padding-top:80px;
+    padding-top:0px;
 } 
 
 .PresentationStyle{
@@ -17,6 +17,8 @@
 .imagePresentationFrenchTouch{
     display: flex;
     border-radius: 5px;
+    height: 300px;
+    width: auto;
 } 
 .titlePresentation{
     display: flex;

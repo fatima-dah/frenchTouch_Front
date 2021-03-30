@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Header from './../header/Header'
+import NavBar from '../navBar/NavBar'
 import Reserve from '../../../visiteur/reserve/Reserve'
 
 
@@ -11,7 +11,7 @@ function Reserves() {
 
   return (
     <div>
-            <Header />
+            <NavBar />
             <Reserve />
 
  

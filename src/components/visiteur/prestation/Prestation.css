@@ -16,11 +16,11 @@
   justify-content: center;
   align-items: center;
   width: 680px;
-  padding: 1%;
-  margin: 1%;
+  padding: 8px;
+  margin: 2%;
+  background-color: var(--light-color);
   border: 1px solid rgb(253, 253, 253);
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  border-radius: 8px;
+
 }
 .nameService {
   color: var(--secondary-color-light);
@@ -31,11 +31,42 @@
   font-size: 32px;
   font-family: "Parisienne", cursive;
 }
+
 .imageService {
-  border-radius: 5px;
-  height: 240px;
-  width: 240px;
+  height: 250px;
+  width: 250px;
+
+
 }
+
+
+.imageServiceLign {
+  width: 300px;
+  height: 250px;
+  position: relative;
+  margin-left: 0;
+}
+
+.imageServiceLign::after,
+.imageServiceLign::before{
+  position: absolute;
+  height:100%;
+  content:"";
+  width: 100%;
+  padding: 20px 0px
+}
+
+.imageServiceLign::before {
+  border: 1px solid rgb(88, 87, 87);
+  padding: 0;
+  bottom: -4px;
+  right: -10px;
+  height: 270px;
+  width: 275px;
+}
+
+
+
 .descriptionService {
   display: flex;
   color: var(--dark);
@@ -53,6 +84,7 @@
   justify-content: center;
   align-items: center;
   margin: 1%;
+  padding-top:2%;
 }
 
 .filterButtons {
@@ -88,8 +120,14 @@
     margin: 3%;
   }
   .imageService {
-    border-radius: 5px;
-    height: auto;
-    width: 80%;
+    height: 250px;
+    border-radius:8px;
+    width: 300px;
+  }
+  .imageServiceLign::after {
+    display:none;
+  }
+  .imageServiceLign::before {
+    display:none;
   }
 }

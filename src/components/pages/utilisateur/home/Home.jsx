@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Header from './../header/Header'
+import NavBar from '../navBar/NavBar'
 import Home from  "./../../../visiteur/home/Home"
 
 
@@ -12,7 +12,7 @@ function Homes() {
 
   return (
     <div>
-      <Header />
+      <NavBar />
       <Home />
  
     </div>

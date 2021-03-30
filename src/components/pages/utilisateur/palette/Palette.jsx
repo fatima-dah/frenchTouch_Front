@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Header from './../header/Header';
+import NavBar from '../navBar/NavBar';
 import Palette from './../../../visiteur/palette/Palette';
 
 
@@ -12,7 +12,7 @@ function Palettes() {
 
   return (
     <div>
-      <Header />
+      <NavBar />
       <Palette />
  
     </div>

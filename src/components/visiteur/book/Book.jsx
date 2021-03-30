@@ -6,7 +6,7 @@ function Book() {
 
   return (
     <div>
-      <h1>Book</h1>
+      <h2>Book</h2>
     </div>
   );
 }

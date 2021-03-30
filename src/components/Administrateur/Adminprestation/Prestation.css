@@ -1,8 +1,5 @@
 .addTitle {
     text-align: center;
-    padding-top: 1%;
-    font-family: var(--main-font);
-    color: var(--dark);
   }
   .colorLign {
     padding: 2%;
@@ -14,9 +11,7 @@
     align-items: center;
     font-family: var(--third-font);
   }
-  .requests {
-    margin-top: 140px;
-  }
+
   
   .form-visibility {
     margin: 1%;

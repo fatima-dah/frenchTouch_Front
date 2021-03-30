@@ -1,3 +1,4 @@
+import Nav from './../NavBar/Nav'
 
 
 function Shop() {
@@ -6,6 +7,8 @@ function Shop() {
 
     return (
       <div>
+        <Nav />
+        Shop
    
       </div>
     );

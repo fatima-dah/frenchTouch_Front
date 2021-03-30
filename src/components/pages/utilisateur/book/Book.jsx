@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Header from './../header/Header'
+import NavBar from '../navBar/NavBar'
 import Book from './../../../visiteur/book/Book'
 
 
@@ -12,7 +12,7 @@ function Books() {
 
   return (
     <div>
-      <Header />
+      <NavBar />
       <Book />
  
     </div>

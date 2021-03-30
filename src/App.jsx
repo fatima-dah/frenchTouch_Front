@@ -11,7 +11,7 @@ import Books from "./components/pages/utilisateur/book/Book";
 import Shops from "./components/pages/utilisateur/shop/Shop";
 import Palettes from "./components/pages/utilisateur/palette/Palette";
 import Abouts from "./components/pages/utilisateur/about/About";
-import PrestationsAdmin from "./components/Administrateur/Adminprestation/Prestation";
+import PrestationsAdmin from "./components/Administrateur/Adminprestation/AdminPrestation";
 import CartGiftsAdmin from "./components/Administrateur/Adminprestation/AdminGift";
 import ReservesAdmin from "./components/Administrateur/Adminreserve/AdminReserve";
 import BooksAdmin from "./components/Administrateur/Adminbook/AdminBook";
@@ -29,10 +29,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      {/* <Header/> */}
+    <div className="">
       <Switch>
-        {/* <Route exact path="/" component={Header} /> */}
         <Route exact path="/" component={Home} />
         <Route path="/login" component={AdminLogin}>
           <AdminLogin setConnected={setConnected} />
@@ -52,9 +50,7 @@ function App() {
           </Route>   */}
 
         <Route path="/about_admin" component={AboutsAdmin} />
-        <Route path="/prestations_admin" component={PrestationsAdmin}>
-          {connected ? <PrestationsAdmin /> : <Redirect to="/login" />}
-        </Route>
+        <Route path="/prestations_admin" component={PrestationsAdmin} />
         <Route path="/Gifts_admin" component={CartGiftsAdmin} />
         <Route path="/rendezvous_admin" component={ReservesAdmin} />
         <Route path="/book_admin" component={BooksAdmin} />

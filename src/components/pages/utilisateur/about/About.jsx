@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Header from './../header/Header'
+import NavBar from '../navBar/NavBar'
 import About from './../../../visiteur/about/About'
 
 
@@ -12,7 +12,7 @@ function Abouts() {
 
   return (
     <div>
-      <Header />
+      <NavBar />
       <About />
  
     </div>
