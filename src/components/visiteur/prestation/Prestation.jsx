@@ -9,61 +9,69 @@ function Prestation() {
   const [serviceFiltre, setServiceFiltre] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("");
   const [reiniFilter, setReiniFilter] = useState([]);
-  
+
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    axios.get(`${FETCH}/services/with_category`).then((res) => setServiceFiltre(res.data));
+    axios
+      .get(`${FETCH}/services/with_category`)
+      .then((res) => setServiceFiltre(res.data));
     setServiceFiltre(service);
-    console.log( serviceFiltre)   },[]);
-  
+    console.log(serviceFiltre);
+  }, []);
+
   useEffect(() => {
-    axios.get(`${FETCH}/services/with_category`).then((res) => setReiniFilter(res.data));
+    axios
+      .get(`${FETCH}/services/with_category`)
+      .then((res) => setReiniFilter(res.data));
   }, []);
   useEffect(() => {
-    axios.get(`${FETCH}/services/with_category`).then((res) => setService(res.data));
+    axios
+      .get(`${FETCH}/services/with_category`)
+      .then((res) => setService(res.data));
   }, []);
 
   useEffect(() => {
     axios.get(`${FETCH}/categorys`).then((res) => setCategory(res.data));
   }, []);
 
-
   return (
     <div>
       <h2 className="titleService">Prestation</h2>
       <div className="filterCategory">
-          <label className="styleCategory">
+        <label className="styleCategory">
+          <div className="filterButtonCategory">
             <select
-              className="filterButtonCategory"
               value={categoryFilter}
-              onChange={ (e)  => { 
+              onChange={(e) => {
                 setCategoryFilter(e.target.value);
                 console.log(e.target.value);
-                if(e.target.value!==""){
-                setServiceFiltre(
-                  service.filter((service) => service.cat_name === e.target.value)
-                );}
-                else{
+                if (e.target.value !== "") {
+                  setServiceFiltre(
+                    service.filter(
+                      (service) => service.cat_name === e.target.value
+                    )
+                  );
+                } else {
                   setServiceFiltre(service);
-                }}}
+                }
+              }}
             >
               <option value=""> Catégories</option>
-             {category.map((category) => (
-              <option value={category.name}>{category.name} </option>
-              ))} 
+              {category.map((category) => (
+                <option value={category.name}>{category.name} </option>
+              ))}
             </select>
-          </label>
-       
+          </div>
+        </label>
       </div>
 
       <div className="cartesService">
-        {serviceFiltre
-        .map((service) => (
+        {serviceFiltre.map((service) => (
           <div className="carteService">
             <div className="imageServiceLign">
-            <img className="imageService" src={service.image} alt="" />{" "}
-          </div>
+              <img className="imageService" src={service.image} alt="" />{" "}
+            </div>
             <div className="servicePresta">
               <p className="nameService">{service.name} </p>
               <div className="descriptionService">{service.description} </div>

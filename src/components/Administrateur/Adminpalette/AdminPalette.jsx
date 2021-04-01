@@ -1,15 +1,167 @@
-import Nav from './../NavBar/Nav'
+import axios from "axios";
+import { useState, useEffect } from "react";
+import FileUpload from "./../FileUpload/FileUpload";
+import { FETCH } from "../../../Fetch";
+import "./AdminPalette.css";
+import DeletePalette from './DeletePalette.jsx'
+import NavBar from "./../NavBar/Nav";
 
-function Palette() {
+function Prestations() {
+  const [palette, setPalette] = useState([]);
 
+  const [name, setName] = useState("");
+  const [reference, setReference] = useState("");
 
+  const [valid, setValid] = useState("");
+  const [statusBtn, setStatusBtn] = useState(true);
+  const [file, setFile] = useState("");
+  const [fileName, setFileName] = useState("");
+  const [uploadedFile, setUploadedFile] = useState({});
+  const token = localStorage.getItem("TOKEN");
+
+  const onChange = (e) => {
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+  };
+
+  const handleUpload = async (e) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await axios.post(`${FETCH}/upload`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const { fileName, filePath } = res.data;
+      setUploadedFile({ fileName, filePath });
+    } catch (err) {
+      let message;
+      if (err.response.status === 500) {
+        message = "There was a problem with the server";
+      } else {
+        message = "Everything went fine";
+      }
+    }
+  };
+
+  useEffect(() => {
+    axios.get(`${FETCH}/palettes`).then((res) => setPalette(res.data));
+  }, [palette]);
+
+ 
+
+  const handleValid = () => {
+    if (name === "" || reference === "" ) {
+      setValid("");
+    } else {
+      setValid("la nuance à ajoutée avec succès.");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (statusBtn === true) {
+      setStatusBtn(false);
+      axios
+        .post(
+          `${FETCH}/palettes`,
+          {
+            name: name,
+            ref_palette:reference,
+            image: uploadedFile.filePath,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      console.log(uploadedFile);
+    }
+  };
 
   return (
     <div>
-      <Nav />
- <h2>Palette Admin</h2>
+      <NavBar />
+      <div className="PaletteAdmin">
+        <div>
+          <h3 className="titleService">Ajouter une nuance</h3>
+          <div className="formServiceAdd">
+            <form className="main-formAdd" onSubmit={handleSubmit}>
+              <fieldset>
+                <legend className="colorLign"> Nuance </legend>
+                <div className="form_ServiceAdd">
+                  <label>
+                    nom: <span className="styleRequired">*</span>
+                    <input
+                      type="text"
+                      name="title"
+                      className="form-inputAdd"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+                <div className="form_ServiceAdd">
+                  <label>
+                    référence :
+                    <input
+                      type="text"
+                      name="title"
+                      className="form-inputAdd"
+                      value={reference}
+                      onChange={(e) => setReference(e.target.value)}
+                      required
+                    />
+                  </label>
+                </div>
+               
+                <div className="form_ServiceAdd">
+                  <label>
+                    Image : <span className="styleRequired">*</span>
+                    <FileUpload
+                      className="imageForm"
+                      method={(e) => {
+                        e.preventDefault();
+                        handleUpload();
+                      }}
+                      onChange={(e) => {
+                        onChange(e);
+                      }}
+                      fileName={uploadedFile.fileName}
+                      filePath={uploadedFile.filePath}
+                    />
+                  </label>
+                </div>
+                <p>
+                  <span className="styleRequired">*</span> champs obligatoires
+                </p>
+                <button
+                  type="submit"
+                  className="submitAdd"
+                  value="Submit"
+                  onClick={handleValid}
+                >
+                  Envoyer
+                </button>
+                <span className="msgValid">{valid}</span>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+      <DeletePalette />
     </div>
   );
 }
 
-export default Palette;
+export default Prestations;

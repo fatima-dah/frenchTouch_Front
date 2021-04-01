@@ -11,10 +11,12 @@ function Admin() {
     });
   
     return (
-      <div className="messageAsso" >
+      <div  >
         <Nav/>
+        <div className="AdminHome">
         <h2 className="titleAdmin"> ADMINISTRATION </h2>
-       
+      
+        </div>
       </div>
     );
   }

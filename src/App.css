@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@font-face {
+  font-family: 'Canvas';
+  src: local('Font-titre'), url(./assets/Font-titre.otf) format('opentype');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
 :root {
-  --main-font: ;
-  --secondary-font: ;
-  --third-font: ;
+  --main-font: "Canvas";
+  --secondary-font: "Montserrat" ;
+  /* --third-font:; */
   --main-color-font: ;
   --secondary-color-font: ;
   --spacing-medium: calc(var(--spacing) * 2);
@@ -19,6 +27,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
  .App {
    margin-left: 7.5vw;

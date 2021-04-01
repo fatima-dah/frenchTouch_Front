@@ -21,19 +21,25 @@ import AboutsAdmin from "./components/Administrateur/Adminabout/AdminAbout";
 import Admin from "./components/Administrateur/Admin/Admin";
 import { useEffect, useState } from "react";
 
-function App() {
-  // const connected = getToken();
-  const [connected, setConnected] = useState(false);
-  useEffect(() => {
-    if (localStorage.getItem("token")) setConnected(true);
-  }, []);
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+  return;
 
+}
+function getToken() {
+  const tokenString = sessionStorage.getItem('token');
+  //  const userToken = JSON.parse(tokenString);
+  return tokenString
+}
+
+function App() {
+  
   return (
     <div className="">
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={AdminLogin}>
-          <AdminLogin setConnected={setConnected} />
+          <AdminLogin setToken={setToken} />
         </Route>
         <Route path="/about" component={Abouts} />
         <Route path="/prestations" component={Prestations} />
@@ -43,11 +49,11 @@ function App() {
         <Route path="/shop" component={Shops} />
         <Route path="/nuancier" component={Palettes} />
         <Route path="/admin" component={Admin}>
-          {connected ? <Admin /> : <Redirect to="/login" />}
+          {getToken() ? <Admin /> : <Redirect to="/login" />}
         </Route>
-        {/* <Route path="/services" component={Services}> 
-        {connected ? <Services/> : <Redirect to="/login"/> } 
-          </Route>   */}
+         <Route path="/services" component={PrestationsAdmin}> 
+        {getToken() ? <PrestationsAdmin/> : <Redirect to="/login"/> } 
+          </Route>   
 
         <Route path="/about_admin" component={AboutsAdmin} />
         <Route path="/prestations_admin" component={PrestationsAdmin} />

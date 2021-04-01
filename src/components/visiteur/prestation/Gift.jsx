@@ -18,7 +18,7 @@ function Prestation() {
 
       <Link className="router" to="/Gifts">
         {" "}
-        <p className="link">
+        <div className="link">
           <div className="cartesGift">
             {gift.slice(0, 1).map((gift) => (
               <div className="containerGift">
@@ -26,10 +26,9 @@ function Prestation() {
               </div>
             ))}
           </div>
-          <div className="LignGift">Un chèque cadeau à offrir ?</div>
+        </div>
+        <div className="LignGift">Un chèque cadeau à offrir ?</div>
 
-          <div className="PriceGift">De 50,00€ à 1000,00€</div>
-        </p>
       </Link>
     </div>
   );

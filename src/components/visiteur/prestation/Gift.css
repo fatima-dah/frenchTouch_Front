@@ -1,5 +1,10 @@
+.gift{
+  margin-top:80px;
+} 
+
 .cartesGift {
   display: flex;
+  margin-top:50px;
   justify-content: center;
   align-items: center;
 }
@@ -36,6 +41,6 @@
 
 .LignGift{
   text-align: center;
-    margin-bottom:1%;
+    margin:1%;
     font-weight:bold;
 } 

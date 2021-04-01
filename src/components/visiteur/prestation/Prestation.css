@@ -20,7 +20,6 @@
   margin: 2%;
   background-color: var(--light-color);
   border: 1px solid rgb(253, 253, 253);
-
 }
 .nameService {
   color: var(--secondary-color-light);
@@ -35,10 +34,7 @@
 .imageService {
   height: 250px;
   width: 250px;
-
-
 }
-
 
 .imageServiceLign {
   width: 300px;
@@ -48,12 +44,12 @@
 }
 
 .imageServiceLign::after,
-.imageServiceLign::before{
+.imageServiceLign::before {
   position: absolute;
-  height:100%;
-  content:"";
+  height: 100%;
+  content: "";
   width: 100%;
-  padding: 20px 0px
+  padding: 20px 0px;
 }
 
 .imageServiceLign::before {
@@ -64,8 +60,6 @@
   height: 270px;
   width: 275px;
 }
-
-
 
 .descriptionService {
   display: flex;
@@ -84,7 +78,7 @@
   justify-content: center;
   align-items: center;
   margin: 1%;
-  padding-top:2%;
+  padding-top: 3%;
 }
 
 .filterButtons {
@@ -95,11 +89,44 @@
 .filterButton {
   color: var(--secondary-color-light);
   margin: 1%;
+  padding: 8px;
 }
-.filterButtonCategory{
+.filterButtonCategory {
   color: var(--secondary-color-light);
+}
+.filterButtonCategory {
+  border: 1px solid var(--light-color);
+  width: 160px;
+  border-radius: 5px;
+  background: #fff;
+  position: relative;
+}
+.filterButtonCategory select {
+  cursor: pointer;
 
-} 
+  padding: 5px 8px;
+  width: 90%;
+  border: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+.filterButtonCategory:after {
+  top: 50%;
+  left: 85%;
+  border: solid transparent;
+  content: " ";
+
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: var(--secondary-color-light);
+  border-width: 5px;
+  margin-top: -2px;
+  z-index: 100;
+}
+.filterButtonCategory select:focus {
+  outline: none;
+}
 
 .priceService,
 .timeService {
@@ -110,7 +137,7 @@
   margin-left: 20px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
   .carteService {
     display: flex;
     flex-direction: column;
@@ -121,13 +148,13 @@
   }
   .imageService {
     height: 250px;
-    border-radius:8px;
+    border-radius: 8px;
     width: 300px;
   }
   .imageServiceLign::after {
-    display:none;
+    display: none;
   }
   .imageServiceLign::before {
-    display:none;
+    display: none;
   }
 }

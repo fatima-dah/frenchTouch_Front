@@ -51,7 +51,7 @@ function NavBar() {
                 </Link>
 
                 <a href="#" className="close">
-                  X
+                ✕
                 </a>
               </div>
             </div>

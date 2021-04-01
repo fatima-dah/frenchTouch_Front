@@ -136,9 +136,12 @@ function Presentations() {
 
   return (
     <div ClassName="admin_presentation_service">
+
       {servicePresentation.map((res) => (
         <div>
+
           <div className="PresentationStyle">
+
             <div className="imagePresentation">
               <img
                 className="imagePresentationFrenchTouch"

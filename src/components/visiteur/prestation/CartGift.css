@@ -1,4 +1,6 @@
-
+.Gift{
+  padding-top:80px;
+} 
 
 .cartGifts {
   display: flex;

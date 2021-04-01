@@ -36,7 +36,7 @@ nav a {
 nav .router:hover {
   background-color: rgba(241, 216, 204, 255);
   color: rgb(0, 0, 0);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 nav .router .rdv {
@@ -93,10 +93,12 @@ a.router.rdv {
   background-color: white;
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1225px) {
   .items {
     display: none;
+
   }
+ 
   .burger {
     display: flex;
   }
@@ -119,22 +121,32 @@ a.router.rdv {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: grey;
-    opacity: 0.95;
-  }
+    background-color: var(--light-color);
 
+    opacity: 0.97;
+  }
+.router{
+  border-bottom: 1px solid var(--light);
+  width: 80%;
+  text-align:center;
+
+} 
   .items:target a {
-    font-size: 32pt;
-    padding: var(--spacing);
+    font-size: 34px;
+    padding:14px;
+
   }
 
   .items:target a:hover {
-    color: white;
+    color: var(--light);
+    text-decoration:none;
+    
   }
 
   .items:target .close {
     display: block;
     position: fixed;
+    color:var(--dark);
     top: var(--spacing);
     right: var(--spacing);
   }

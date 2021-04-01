@@ -1,0 +1,70 @@
+/* .PaletteAdmin{
+    padding-top:80px;
+} 
+.Palettes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    color: var(--dark);
+    text-align: center;
+    overflow-x: hidden;
+  }
+  
+  .palette {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  
+  .margPalette{
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 60px;
+  } 
+  
+  
+  
+  .picturePalettes {
+    width: 270px;
+  }
+  
+  .palette {
+    width: 270px;
+    position: relative;
+    background-color: var(--light-color);
+    padding: 2%;
+    padding-right: 5%;
+    margin-left: 0;
+  }
+  
+  .palette::after,
+  .palette::before {
+    position: absolute;
+    height: 100%;
+    content: "";
+    width: 100%;
+  }
+  
+  .palette::before {
+    border: 1px solid rgb(88, 87, 87);
+    padding: 0;
+    bottom: 4px;
+    right: 7px;
+    height: 260px;
+    width: 290px;
+  }
+
+  .BtnDelete{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  } 
+
+  .deleteBtn{
+width: 40px;
+margin-top:8px;
+  } 
+   */

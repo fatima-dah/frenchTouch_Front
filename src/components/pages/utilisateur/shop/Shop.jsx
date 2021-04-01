@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import NavBar from './../navBar/NavBar'
+import Shops from './../../../visiteur/shop/Shop'
 
 
 
@@ -12,6 +13,7 @@ function Shop() {
   return (
     <div>
       <NavBar />
+      <Shops />
  
     </div>
   );

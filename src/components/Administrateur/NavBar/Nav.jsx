@@ -15,7 +15,7 @@ const Nav = () => {
   }
   const handleSubmit = () => {
     localStorage.removeItem("TOKEN");
-    alert("Disconnected successfully");
+    alert("Vous ête deconnecté du compte administrateur");
   };
   return (
     <section>

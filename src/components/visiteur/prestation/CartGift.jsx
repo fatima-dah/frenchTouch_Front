@@ -92,11 +92,11 @@ function CartGift() {
         <div className="lignVerticalGift"></div>
         <form className="main-form-gift" onSubmit={handleSubmit}>
           {/* <div className="formGifts"> */}
-          <div className="inputGift">
+          {/* <div className="inputGift">
             {" "}
             Vous allez recevoir le chèque cadeau par mail puis vous pourrez
             l'imprimer afin de l'offrir à la personne de votre choix.{" "}
-          </div>
+          </div> */}
           <div className="inputGiftPrices">
             <label>
               {" "}
