@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import NavBar from './../navBar/NavBar'
-import Shops from './../../../visiteur/shop/Shop'
+import Product from './../../../visiteur/shop/Product'
 
 
 
@@ -13,7 +13,7 @@ function Shop() {
   return (
     <div>
       <NavBar />
-      <Shops />
+      <Product />
  
     </div>
   );

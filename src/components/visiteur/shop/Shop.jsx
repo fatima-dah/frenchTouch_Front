@@ -1,39 +1,67 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Shop.css';
-import Products from './Product';
+import Product from './Product';
 import Cart from './Cart';
+import axios from "axios";
+import { FETCH } from "./../../../Fetch";
 
-const PAGE_PRODUCTS = 'product';
 const PAGE_CART = 'cart';
+const PAGE_PRODUCTS = "product";
 
-function App() {
+
+
+function Shops() {
   const [cart, setCart] = useState([]);
-  const [page, setPage] = useState(PAGE_PRODUCTS);
+  const [page, setPage] = useState(PAGE_CART);
+  const [home, setHome] = useState([]);
 
-  const navigateTo = (nextPage) => {
-    setPage(nextPage);
-  };
+  useEffect(() => {
+    axios
+      .get(`${FETCH}/homes`)
+      .then((res) => setHome(res.data));
+  }, []);
 
-  const getCartTotal = () => {
-    return cart.reduce(
-      (sum, { quantity }) => sum + quantity,
-      0
-    );
-  };
+  // const navigateTo = (nextPage) => {
+  //   setPage(nextPage);
+  // };
+
+  // const getCartTotal = () => {
+  //   return cart.reduce(
+  //     (sum, { quantity }) => sum + quantity,
+  //     0
+  //   );
+  // };
+ 
 
   return (
-    <div className="App">
+    <div className="">
+       <div>
+      <div className="imageAboutServices">
+      <div className="alignTitleService App">
+         <h1 className="titleAcceuilServices">Panier</h1>
+       </div>
+       {home.map((home) => (
+         <div>
+           <img src={home.picture_about} className="imageAbout" alt="image_acceuil" />
+         </div>
+       ))} 
+      
+       </div>
+       
+  
+      </div>
       <header>
-        <button onClick={() => navigateTo(PAGE_CART)}>
-          Go to Cart ({getCartTotal()})
-        </button>
+      
 
-        <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
+        {/* <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
           View Products
-        </button>
+        </button> */}
+        {/* <button onClick={() => navigateTo(PAGE_CART)}>
+          Go to Cart ({getCartTotal()})
+        </button> */}
       </header>
       {page === PAGE_PRODUCTS && (
-        <Products cart={cart} setCart={setCart} />
+        <Product cart={cart} setCart={setCart} />
       )}
       {page === PAGE_CART && (
         <Cart cart={cart} setCart={setCart} />
@@ -42,4 +70,4 @@ function App() {
   );
 }
 
-export default App;
+export default Shops;

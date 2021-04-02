@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
-export default function Cart({ cart, setCart }) {
+function Cart({ cart, setCart }) {
   const getTotalSum = () => {
-    return cart.reduce(
-      (sum, { price, quantity }) => sum + price * quantity,
-      0
-    );
+    console.log("salut");
+
+    return cart.reduce((sum, { price, quantity }) => sum + price * quantity, 0);
+  };
+
+  const getCartTotal = () => {
+    console.log("ok");
+    return cart.reduce((sum, { quantity }) => sum + quantity, 0);
   };
 
   const clearCart = () => {
@@ -13,25 +17,22 @@ export default function Cart({ cart, setCart }) {
   };
 
   const setQuantity = (product, amount) => {
+    console.log("bou");
+
     const newCart = [...cart];
-    newCart.find(
-      (item) => item.name === product.name
-    ).quantity = amount;
+    newCart.find((item) => item.name === product.name).quantity = amount;
     setCart(newCart);
   };
 
   const removeFromCart = (productToRemove) => {
-    setCart(
-      cart.filter((product) => product !== productToRemove)
-    );
+    setCart(cart.filter((product) => product !== productToRemove));
   };
 
   return (
-    <>
-      <h1>Cart</h1>
-      {cart.length > 0 && (
-        <button onClick={clearCart}>Clear Cart</button>
-      )}
+    <div>
+      <h1>Panier</h1>
+
+      {cart.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
       <div className="products">
         {cart.map((product, idx) => (
           <div className="product" key={idx}>
@@ -39,22 +40,17 @@ export default function Cart({ cart, setCart }) {
             <h4>${product.price}</h4>
             <input
               value={product.quantity}
-              onChange={(e) =>
-                setQuantity(
-                  product,
-                  parseInt(e.target.value)
-                )
-              }
+              onChange={(e) => setQuantity(product, parseInt(e.target.value))}
             />
             <img src={product.image} alt={product.name} />
-            <button onClick={() => removeFromCart(product)}>
-              Remove
-            </button>
+            <button onClick={() => removeFromCart(product)}>Remove</button>
           </div>
         ))}
       </div>
 
       <div>Total Cost: ${getTotalSum()}</div>
-    </>
+    </div>
   );
 }
+
+export default Cart;
