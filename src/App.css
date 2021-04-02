@@ -33,3 +33,11 @@ html {
    margin-left: 7.5vw;
    margin-right: 7.5vw;
  }
+
+ h1, h2{
+   font-family:var(--main-font);
+ } 
+ p{
+  font-family:var(--secondary-font);
+
+ }  

@@ -26,6 +26,7 @@ function Prestation() {
         buttons: [{
             label: 'Oui',
             onClick: () => {
+              window.history.go();
                 axios.delete(`${FETCH}/services/${id}`, {
                     headers: {
                         Authorization: `Bearer ${token}`

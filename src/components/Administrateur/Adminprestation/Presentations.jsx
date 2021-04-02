@@ -37,6 +37,7 @@ function Presentations() {
               .catch(function (erreur) {
                 console.log(erreur);
               });
+            window.history.go();
           },
         },
         {
@@ -59,6 +60,7 @@ function Presentations() {
               .catch(function (erreur) {
                 console.log(erreur);
               });
+            window.history.go();
           },
         },
         {
@@ -114,6 +116,7 @@ function Presentations() {
             label: "Oui",
             onClick: async () => {
               handleUpload(id);
+              window.history.go();
             },
           },
           {
@@ -136,12 +139,9 @@ function Presentations() {
 
   return (
     <div ClassName="admin_presentation_service">
-
       {servicePresentation.map((res) => (
         <div>
-
           <div className="PresentationStyle">
-
             <div className="imagePresentation">
               <img
                 className="imagePresentationFrenchTouch"

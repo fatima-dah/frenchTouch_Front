@@ -73,11 +73,11 @@ function Prestation() {
               <img className="imageService" src={service.image} alt="" />{" "}
             </div>
             <div className="servicePresta">
-              <p className="nameService">{service.name} </p>
-              <div className="descriptionService">{service.description} </div>
-              <div className="timeService">Durée {service.duration} </div>
+              <h4 className="nameService">{service.name} </h4>
+              <p className="descriptionService">{service.description} </p>
+              <p className="timeService">Durée {service.duration} </p>
             </div>
-            <div className="priceService">{service.price}€</div>
+            <p className="priceService">{service.price}€</p>
           </div>
         ))}
       </div>

@@ -1,42 +1,45 @@
-import React, { useState, useEffect } from "react";
-import './Shop.css'
-import axios from "axios";
-import { FETCH } from "./../../../Fetch";
+import React, { useState } from 'react';
+import './Shop.css';
+import Products from './Product';
+import Cart from './Cart';
 
-function Shop() {
-  const [product, setProduct] = useState([]);
-  const [home, setHome] = useState([]);
+const PAGE_PRODUCTS = 'product';
+const PAGE_CART = 'cart';
 
-  useEffect(() => {
-    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
-  }, []);
+function App() {
+  const [cart, setCart] = useState([]);
+  const [page, setPage] = useState(PAGE_PRODUCTS);
 
-  useEffect(() => {
-    axios.get(`${FETCH}/products`).then((res) => setProduct(res.data));
-  }, []);
+  const navigateTo = (nextPage) => {
+    setPage(nextPage);
+  };
 
-
-
-
-    return (
-      <div>
-          <div className="imageAboutServices">
-        <div className="alignTitleService App">
-          <p className="titleAcceuilServices">Produits</p>
-        </div>
-        {home.map((home) => (
-          <div>
-            <img
-              src={home.picture_about}
-              className="imageAbout"
-              alt="image_acceuil"
-            />
-          </div>
-        ))}
-      </div>
-      </div>
+  const getCartTotal = () => {
+    return cart.reduce(
+      (sum, { quantity }) => sum + quantity,
+      0
     );
-  }
-  
-  export default Shop;
-  
+  };
+
+  return (
+    <div className="App">
+      <header>
+        <button onClick={() => navigateTo(PAGE_CART)}>
+          Go to Cart ({getCartTotal()})
+        </button>
+
+        <button onClick={() => navigateTo(PAGE_PRODUCTS)}>
+          View Products
+        </button>
+      </header>
+      {page === PAGE_PRODUCTS && (
+        <Products cart={cart} setCart={setCart} />
+      )}
+      {page === PAGE_CART && (
+        <Cart cart={cart} setCart={setCart} />
+      )}
+    </div>
+  );
+}
+
+export default App;

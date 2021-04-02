@@ -19,7 +19,7 @@ function Palette() {
     <div>
       <div className="imageAboutServices">
         <div className="alignTitleService App">
-          <p className="titleAcceuilServices">Nuancier</p>
+          <h1 className="titleAcceuilServices">Nuancier</h1>
         </div>
         {home.map((home) => (
           <div>

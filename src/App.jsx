@@ -7,6 +7,8 @@ import AdminLogin from "./components/Adminlogin/AdminLogin";
 import Prestations from "./components/pages/utilisateur/prestation/Prestation";
 import CartGifts from "./components/pages/utilisateur/prestation/CartGift";
 import Reserves from "./components/pages/utilisateur/reserve/Reserve";
+import Paniers from "./components/pages/utilisateur/panier/Panier";
+
 import Books from "./components/pages/utilisateur/book/Book";
 import Shops from "./components/pages/utilisateur/shop/Shop";
 import Palettes from "./components/pages/utilisateur/palette/Palette";
@@ -23,12 +25,11 @@ import { useEffect, useState } from "react";
 
 function setToken(userToken) {
   sessionStorage.setItem('token', JSON.stringify(userToken));
-  return;
 
 }
 function getToken() {
   const tokenString = sessionStorage.getItem('token');
-  //  const userToken = JSON.parse(tokenString);
+  // const userToken = JSON.parse(tokenString);
   return tokenString
 }
 
@@ -48,6 +49,8 @@ function App() {
         <Route path="/book" component={Books} />
         <Route path="/shop" component={Shops} />
         <Route path="/nuancier" component={Palettes} />
+        <Route path="/panier" component={Paniers} />
+
         <Route path="/admin" component={Admin}>
           {getToken() ? <Admin /> : <Redirect to="/login" />}
         </Route>

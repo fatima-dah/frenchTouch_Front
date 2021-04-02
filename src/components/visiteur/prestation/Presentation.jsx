@@ -25,7 +25,7 @@ function Presentation() {
       <div>
       <div className="imageAboutServices">
       <div className="alignTitleService App">
-         <p className="titleAcceuilServices">Prestations</p>
+         <h1 className="titleAcceuilServices">Prestations</h1>
        </div>
        {home.map((home) => (
          <div>
@@ -50,9 +50,9 @@ function Presentation() {
             </div>
             <div className="vertical-line"></div>
             <div className="textPresentation">
-              <h1 className="titlePresentation">
+              <h3 className="titlePresentation">
                 {servicePresentation.title}{" "}
-              </h1>
+              </h3>
               <p className="descriptionPrestation">
                 {servicePresentation.description}
               </p>
