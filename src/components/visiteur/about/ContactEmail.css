@@ -1,0 +1,49 @@
+.FormContact{
+    margin-top:60px;
+} 
+
+.Contact-M {
+  margin-top: 28px;
+  color: var(--dark);
+  -ms-overflow-style: none ;
+
+}
+
+.form-inputContact {
+  color: var(--dark);
+  width: 400px;
+  border: 1px solid var(--dark);
+  border-top: none;
+  border-right: none;
+  padding:1%;
+  padding-bottom: 16px;
+  padding-left: 16px;
+
+}
+
+
+.form-inputContact::placeholder {
+  color: var(--dark);
+  opacity: 1;
+  font-weight: 500;
+}
+
+.titleContact {
+  font-family: var(--main-font);
+  font-size:28px;
+}
+
+.submitContact {
+  cursor: pointer;
+  background-color: var(--secondary-color-light);
+  color: var(--light-color);
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+ margin-top:45px;
+ margin-bottom:80px;
+
+  border: none;
+  font-size: 14px;
+}

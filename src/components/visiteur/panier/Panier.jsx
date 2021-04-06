@@ -1,11 +1,13 @@
-import Shop from"./../shop/Shop"
+import Cart from "./../shop/Cart"
+
+
 
 
 function Panier(){
 
   return(
     <div>
-      <Shop />
+      <Cart cart={Cart} />
     </div>
   )
 } 

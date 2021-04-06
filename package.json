@@ -11,6 +11,7 @@
     "antd": "^4.14.1",
     "axios": "^0.21.0",
     "config": "^3.3.6",
+    "emailjs-com": "^2.6.4",
     "express-fileupload": "^1.2.1",
     "infinite-react-carousel": "^1.2.11",
     "mobiscroll": "^3.0.0-beta6",
@@ -29,6 +30,7 @@
     "react-responsive-carousel": "^3.2.13",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-use-cart": "^1.11.1",
     "reactstrap": "^8.9.0",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"

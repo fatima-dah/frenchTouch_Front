@@ -1,4 +1,5 @@
 import "./App.css";
+
 // import Header from "./components/visiteur/header/Header";
 import Home from "./components/pages/utilisateur/home/Home";
 import Footer from "./components/visiteur/footer/Footer";
@@ -49,7 +50,7 @@ function App() {
         <Route path="/book" component={Books} />
         <Route path="/shop" component={Shops} />
         <Route path="/nuancier" component={Palettes} />
-        <Route path="/panier" component={Paniers} />
+        <Route path="/panier" component={Paniers}  />
 
         <Route path="/admin" component={Admin}>
           {getToken() ? <Admin /> : <Redirect to="/login" />}
