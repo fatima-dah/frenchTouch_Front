@@ -47,17 +47,20 @@ export default function ContactUs() {
           "user_kCoI6na0uvUeXNsG3jZJg"
         )
         .then(function (response) {
+          window.history.go();
+
           console.log(response);
         })
         .catch(function (error) {
           console.log(error);
         });
       e.target.reset();
+
     }
   }
 
   return (
-    <div className="FormContact App">
+    <div className="FormContact ">
       <div className="FormulaireContact">
         <div className="form">
           <form className="contact-form" onSubmit={sendEmail}>
@@ -108,7 +111,7 @@ export default function ContactUs() {
                       value={message}
                       placeholder="Message"
                       onChange={(e) => setMessage(e.target.value)}
-                      className="form-inputContact "
+                      className="form-inputContact scroll "
                     />
                   </label>
                 </div>

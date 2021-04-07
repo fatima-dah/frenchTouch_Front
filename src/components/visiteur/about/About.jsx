@@ -30,7 +30,7 @@ function About() {
           ))}
         </div>
       </div>
-      <div className="contactCart">
+      <div className="contactCart App">
       <div>
       <ContactEmail />
       </div>

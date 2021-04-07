@@ -66,8 +66,9 @@ function Shops() {
           ))}
         </div>
       </div>
+      <button onClick={() => navigateTo(PAGE_CART)}>Go to Cart ({getCartTotal()})</button>
+
       <div className="cartesService">
-        <button onClick={() => navigateTo(PAGE_CART)}>Go to Cart ({getCartTotal()})</button>
 
         {product.map((product, idx) => (
           <div className="carteService" key={idx}>

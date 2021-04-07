@@ -1,9 +1,7 @@
-.FormContact{
-    margin-top:60px;
-} 
+
 
 .Contact-M {
-  margin-top: 28px;
+  margin-bottom: 32px;
   color: var(--dark);
   -ms-overflow-style: none ;
 
@@ -11,7 +9,7 @@
 
 .form-inputContact {
   color: var(--dark);
-  width: 400px;
+  width: 550px;
   border: 1px solid var(--dark);
   border-top: none;
   border-right: none;
@@ -20,7 +18,9 @@
   padding-left: 16px;
 
 }
-
+.scroll{
+  height: 100px;
+} 
 
 .form-inputContact::placeholder {
   color: var(--dark);
@@ -30,20 +30,63 @@
 
 .titleContact {
   font-family: var(--main-font);
-  font-size:28px;
+  font-size:32px;
+  margin-bottom:50px;
 }
 
 .submitContact {
   cursor: pointer;
   background-color: var(--secondary-color-light);
-  color: var(--light-color);
+  color: white;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
-
+ font-weight: bold;
  margin-top:45px;
  margin-bottom:80px;
 
   border: none;
   font-size: 14px;
 }
+
+@media screen and (max-width:1568px){
+  .form-inputContact {
+    color: var(--dark);
+    width: 430px;
+    
+  
+  }
+
+}
+
+@media screen and (max-width:1268px){
+  .form-inputContact {
+    color: var(--dark);
+    width: 350px;
+  }
+  .Contact-M {
+    margin-bottom: 22px;
+   
+  
+  }
+
+}
+@media screen and (max-width:1000px){
+  .form-inputContact {
+    color: var(--dark);
+    width: 80%;
+  }
+  .Contact-M {
+    margin-bottom: 22px;
+   
+  
+  }
+
+}
+@media screen and (max-width:500px){
+  .form-inputContact {
+    color: var(--dark);
+    width: 90%;
+  }
+  }
+

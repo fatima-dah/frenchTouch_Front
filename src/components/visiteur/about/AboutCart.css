@@ -1,0 +1,80 @@
+.Contact {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: var(--dark);
+}
+
+.CartContact {
+  width: 600px;
+  position: relative;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+.pictureContact {
+  display: flex;
+  width: 95%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.CartContact::after,
+.CartContact::before {
+  position: absolute;
+  height: 100%;
+  content: "";
+  width: 100%;
+}
+
+.CartContact::before {
+  border: 1px solid rgb(88, 87, 87);
+  padding: 0;
+  bottom: 8px;
+  left: -10px;
+}
+
+.CartContact::after {
+  background-color: var(--light-color);
+  padding: 0;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
+@media screen and (max-width: 1568px) {
+  .CartContact {
+    width: 470px;
+  }
+}
+
+@media screen and (max-width: 1268px) {
+  .CartContact {
+    width: 400px;
+  }
+  .pictureContact {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .CartContact {
+    width: 90%;
+  }
+  .pictureContact {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .CartContact {
+    width: 80%;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 8px;
+    padding-bottom: 40px;
+  }
+  .pictureContact {
+    height: 200px;
+  }
+}

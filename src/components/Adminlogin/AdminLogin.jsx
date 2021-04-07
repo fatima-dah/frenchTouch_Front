@@ -15,8 +15,10 @@ import { confirmAlert } from "react-confirm-alert";
 import { Link } from "react-router-dom";
 import Header from "../pages/utilisateur/navBar/NavBar";
 
+
+
+
 const AdminLogin = (props) => {
-  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -41,6 +43,7 @@ const AdminLogin = (props) => {
   }));
 
   const classes = useStyles();
+  const history = useHistory();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -55,10 +58,11 @@ const AdminLogin = (props) => {
           props.setToken(data.token);
 
           // console.log(data);
+         
+          history.push(`./admin` )
+          window.history.go();
 
-          alert("Vous êtes connecté.e");
-          // history.push("/admin");
-
+          
         })
         .catch((err) => {
           confirmAlert({

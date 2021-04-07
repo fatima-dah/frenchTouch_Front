@@ -53,14 +53,19 @@ function App() {
         <Route path="/panier" component={Paniers}  />
 
         <Route path="/admin" component={Admin}>
-          {getToken() ? <Admin /> : <Redirect to="/login" />}
+          {getToken() ? <Admin /> : <AdminLogin setToken={setToken} />}
         </Route>
          <Route path="/services" component={PrestationsAdmin}> 
-        {getToken() ? <PrestationsAdmin/> : <Redirect to="/login"/> } 
+        {getToken() ? <PrestationsAdmin/> : <AdminLogin setToken={setToken} /> } 
           </Route>   
 
-        <Route path="/about_admin" component={AboutsAdmin} />
-        <Route path="/prestations_admin" component={PrestationsAdmin} />
+        <Route path="/about_admin" component={AboutsAdmin} >
+        {getToken() ? <AboutsAdmin/> : <AdminLogin setToken={setToken} /> } 
+        </Route>
+
+        <Route path="/prestations_admin" component={PrestationsAdmin} >
+        {getToken() ? <PrestationsAdmin/> : <AdminLogin setToken={setToken} /> } 
+        </Route>
         <Route path="/Gifts_admin" component={CartGiftsAdmin} />
         <Route path="/rendezvous_admin" component={ReservesAdmin} />
         <Route path="/book_admin" component={BooksAdmin} />
