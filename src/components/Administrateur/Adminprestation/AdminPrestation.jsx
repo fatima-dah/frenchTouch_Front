@@ -115,11 +115,10 @@ function Prestations() {
 
         <div>
             <h3 className="titleService">Ajouter une prestation</h3>
-          <div className="formServiceAdd">
             <form className="main-formAdd" onSubmit={handleSubmit}>
               <fieldset>
                 <legend className="colorLign"> Prestation </legend>
-                <div className="form_ServiceAdd">
+                <div >
                   <label>
                     nom: <span className="styleRequired">*</span>
                     <input
@@ -132,7 +131,7 @@ function Prestations() {
                     />
                   </label>
                 </div>
-                <div className="form_ServiceAdd">
+                <div >
                   <label>
                     prix : <span className="styleRequired">*</span>
                     <input
@@ -145,7 +144,7 @@ function Prestations() {
                     />
                   </label>
                 </div>
-                <div className="form_ServiceAdd">
+                <div >
                   <label>
                     durée :<span className="styleRequired">*</span>
                     <input
@@ -158,7 +157,7 @@ function Prestations() {
                     />
                   </label>
                 </div>
-                <div className="form_ServiceAdd">
+                <div >
                   <label>
                     Description : <span className="styleRequired">*</span>
                     <textarea
@@ -171,7 +170,7 @@ function Prestations() {
                     />
                   </label>
                 </div>
-                <div className="form_actualityAdd">
+                <div>
                   <label>
                     sous category : <span className="styleRequired">*</span>
                     <select
@@ -189,11 +188,11 @@ function Prestations() {
                     </select>
                   </label>
                 </div>
-                <div className="form_ServiceAdd">
+                <div className="imageForm">
                   <label>
                     Image :
                     <FileUpload
-                      className="imageForm"
+                      className="imageForms"
                       method={(e) => {
                         e.preventDefault();
                         handleUpload();
@@ -211,7 +210,7 @@ function Prestations() {
                 </p>
                 <button
                   type="submit"
-                  className="submitAdd"
+                  className="submitPrestation"
                   value="Submit"
                   onClick={handleValid}
                 >
@@ -220,7 +219,6 @@ function Prestations() {
                 <span className="msgValid">{valid}</span>
               </fieldset>
             </form>
-          </div>
         </div>
       </div>
       <DeleteService />

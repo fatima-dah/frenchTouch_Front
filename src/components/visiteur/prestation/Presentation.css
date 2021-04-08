@@ -6,6 +6,7 @@
   object-fit: cover;
 }
 
+
 .alignTitleService{
     position:absolute;
     border:1px solid white;
@@ -15,6 +16,7 @@
 } 
 
 .titleAcceuilServices{
+
         font-size:60px;
         color:rgb(41, 40, 40);
         padding-top:0;

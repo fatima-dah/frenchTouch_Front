@@ -24,7 +24,6 @@ function NavBar() {
         </Link>
         <div className="menu-items">
 
-          {openFirst === true ? (
             <div>
               <div className="items" id="menu" onClick={showOpen}>
                 <Link className="router" to="/prestations">
@@ -58,39 +57,7 @@ function NavBar() {
                 </a>
               </div>
             </div>
-          ) : (
-            <div className="items" id="menu" onClick={showOpen}>
-              <Link className="router" to="/prestations">
-                PRESTATIONS
-              </Link>
-
-              <Link className="router" to="/book">
-                BOOK{" "}
-              </Link>
-              <Link className="router" to="/rendezvous">
-                PRENDRE RDV{" "}
-              </Link>
-              <Link className="router" to="/about">
-                CONTACT{" "}
-              </Link>
-              <Link className="router" to="/shop">
-                SHOP{" "}
-              </Link>
-              <Link className="router" to="/nuancier">
-                NUANCIER{" "}
-              </Link>
-              <Link className="router" to="/login">
-                LOGIN
-              </Link>
-              <Link className="router" to="/panier">
-                PANIER
-              </Link>
-
-              <a href="#" className="close">
-                X
-              </a>
-            </div>
-          )}
+       
           <a href="#menu" className="burger" onClick={showOpen}>
             <div></div>
             <div></div>

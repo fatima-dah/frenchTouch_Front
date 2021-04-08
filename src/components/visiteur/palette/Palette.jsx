@@ -3,6 +3,7 @@ import './Palette.css'
 import axios from "axios";
 import { FETCH } from "./../../../Fetch";
 
+
 function Palette() {
   const [palette, setPalette] = useState([]);
   const [home, setHome] = useState([]);

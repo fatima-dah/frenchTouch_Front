@@ -9,11 +9,10 @@ const Calendar = () => {
   });
 
   return (
-    <div >
-      <InlineWidget
-        className="Calendly"
-        url="https://calendly.com/dahnini-fatima"
-      />
+    <div>
+      <div className="calendlyCart">
+        <InlineWidget className="" url="https://calendly.com/dahnini-fatima" />
+      </div>
     </div>
   );
 };

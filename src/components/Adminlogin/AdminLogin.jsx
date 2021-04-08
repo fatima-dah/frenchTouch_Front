@@ -59,7 +59,7 @@ const AdminLogin = (props) => {
 
           // console.log(data);
          
-          history.push(`./admin` )
+          history.push(`./admin`)
           window.history.go();
 
           

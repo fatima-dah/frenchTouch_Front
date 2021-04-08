@@ -99,7 +99,7 @@ function SubCategory() {
           </p>
           <button
             type="submit"
-            className="submitAdd"
+            className="submitPrestation"
             value="Submit"
             onClick={handleValid}
           >

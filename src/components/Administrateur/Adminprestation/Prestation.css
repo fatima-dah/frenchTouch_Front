@@ -42,7 +42,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 2%;
-    width: 40%;
+    width: 45%;
     height: 100%;
     align-items: center;
     justify-items: center;
@@ -56,29 +56,19 @@
     width: 80%;
   }
   
-  .submitAdd {
-    display: block;
-    margin: auto;
-    box-shadow: rgba(14, 14, 15, 0.2) 0px 1px 5px 1px;
-    background-color: #f7f9fc;
-    color: #3f3f3f;
-    border-radius: 20px;
-    border: #1a1b1b;
-    padding: 8px;
-    padding-left: 24px;
-    padding-right: 24px;
-    margin-top: 8%;
-    font-size: 18px;
+  .submitPrestation {
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: var(--secondary-color-light);
+    color: white;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    border: none;
+    font-size: 14px; */
   }
-  .submitAdd:hover {
-    background-color: #3f3f3f;
-    color: #f7f9fc;
-    border-radius: 20px;
-    border: #1a1b1b;
-    padding-left: 28px;
-    padding-right: 28px;
-    font-size: 18px;
-  }
+
   .AddformService {
     margin-top: 140px;
   }
@@ -106,24 +96,23 @@
     margin-bottom: 2%;
     margin-top: 4%;
   }
-  .imageAcceptNews {
+  .imageForm {
     height: auto;
-    width: 350px;
+    width: auto;
     border-radius: 5px;
   }
   
   @media screen and (max-width: 768px) {
-    .imageAcceptNews {
-      height: auto;
-      width: 180px;
-      border-radius: 5px;
-    }
+ 
+   
     .form-inputCategoryAdd {
       display: block;
       min-width: 88%;
     }
     .main-formAdd {
       width: 80%;
+      margin-left:auto;
+      margin-right:auto;
       margin-bottom: 20px;
     }
   
@@ -136,3 +125,17 @@
     }
   }
   
+  @media screen and (max-width: 568px) {
+    .imageForm {
+      display: flex;
+      width: 150px;
+      border-radius: 5px;
+    }
+    .main-formAdd {
+      width: 90%;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom: 20px;
+    }
+
+  }
