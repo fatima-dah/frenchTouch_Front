@@ -1,4 +1,4 @@
-import Cart from "./../shop/Cart"
+import Cart from "./Cart"
 
 
 
@@ -7,7 +7,7 @@ function Panier(){
 
   return(
     <div>
-      <Cart cart={Cart} />
+      <Cart  />
     </div>
   )
 } 

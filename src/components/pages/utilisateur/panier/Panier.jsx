@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Header from "../navBar/NavBar";
-import Paniers from "../../../visiteur/panier/Panier";
+import Paniers from "../../../visiteur/panier/Cart";
 
 
 function Panier() {

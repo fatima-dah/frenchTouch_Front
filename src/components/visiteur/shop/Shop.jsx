@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./Shop.css";
-import Cart from "./Cart";
+import Cart from "../panier/Cart";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { FETCH } from "./../../../Fetch";
 
-const PAGE_CART = 'Cart';
+const Shops = (props) => {
+  
 
-function Shops() {
   const [product, setProduct] = useState([]);
-
-  const [cart, setCart] = useState([]);
-  const [page, setPage] = useState(PAGE_CART);
+  const [cart , setCart] = useState([]); 
   const [home, setHome] = useState([]);
-
+  
   useEffect(() => {
     axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
   }, []);
@@ -20,17 +19,25 @@ function Shops() {
   useEffect(() => {
     axios.get(`${FETCH}/products`).then((res) => setProduct(res.data));
   }, []);
+
+  useEffect(()=>{
+    if(props.panier)
+    setCart(props.panier);
+    console.log("props.cart : " +props.panier);
+    console.log("cart : " +cart);
+    console.log("props : " +props);
+  },[props]);
   
-  const navigateTo = (nextPage) => {
-    setPage(nextPage);
-  };
+  useEffect(()=>{
+    if(cart)
+      props.setPanier(cart);
+  },[cart]);
+  // function getCartTotal(){
+  //   console.log(props.panier);
+  //   return props.panier.reduce((sum, { quantity }) => sum + quantity, 0);
+  // };
 
-  const getCartTotal = () => {
-    console.log(cart)
-    return cart.reduce((sum, { quantity }) => sum + quantity, 0);
-  };
-
-  const addToCart = (product) => {
+  function addToCart(product){
     let newCart = [...cart];
     let itemInCart = newCart.find((item) => product.id === item.id);
     if (itemInCart) {
@@ -49,7 +56,6 @@ function Shops() {
 
   return (
     <div className="">
-
       <div>
         <div className="imageAboutServices">
           <div className="alignTitleService App">
@@ -66,10 +72,11 @@ function Shops() {
           ))}
         </div>
       </div>
-      <button onClick={() => navigateTo(PAGE_CART)}>Go to Cart ({getCartTotal()})</button>
+      {/* <Link to="./panier">
+        <button>Go to Cart ({getCartTotal()})</button>
+      </Link> */}
 
       <div className="cartesService">
-
         {product.map((product, idx) => (
           <div className="carteService" key={idx}>
             <div className="imageServiceLign">
@@ -86,14 +93,11 @@ function Shops() {
               <h4 className="priceService">{product.price}€</h4>
             </div>
             <button onClick={() => addToCart(product)}>Add to Cart</button>
-
           </div>
-
         ))}
-
       </div>
 
-      <Cart cart={cart} setCart={setCart} />
+      {/* <Cart cart={cart} setCart={setCart} /> */}
     </div>
   );
 }

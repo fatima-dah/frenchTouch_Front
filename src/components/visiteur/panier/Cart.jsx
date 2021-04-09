@@ -2,20 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FETCH } from "../../../Fetch";
 
-function Cart({ cart, setCart}) {
+function Cart(props) {
+
+  const [cart , setCart] = useState([]); 
   
 
-  const getTotalSum = () => {
+  function getTotalSum(){
     console.log("salut");
 
     return cart.reduce((sum, { price, quantity }) => sum + price * quantity, 0);
   };
 
-  const clearCart = () => {
+  function clearCart(){
     setCart([]);
   };
 
-  const setQuantity = (product, amount) => {
+  function setQuantity(product, amount){
     console.log("bou");
 
     const newCart = [...cart];
@@ -23,14 +25,19 @@ function Cart({ cart, setCart}) {
     setCart(newCart);
   };
 
-  const removeFromCart = (productToRemove) => {
+  function removeFromCart(productToRemove){
     setCart(cart.filter((product) => product !== productToRemove));
   };
 
-  return (
-    <>
-     
+  useEffect(()=>{
+    if(props.panier)
+    setCart(props.panier);
+    console.log("props.cart : " +props.panier);
+    console.log("cart : " +cart);
+  },[]);
 
+  return (
+    <div>
       {cart.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
       <div className="products">
         {cart.map((product, idx) => (
@@ -56,7 +63,7 @@ function Cart({ cart, setCart}) {
 
       <div>Total Cost: ${getTotalSum()}</div>
 
-    </>
+    </div>
   );
 }
 

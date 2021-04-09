@@ -35,7 +35,10 @@ function getToken() {
 }
 
 function App() {
+
+  const [cart , setCart] = useState([]); 
   
+
   return (
     <div className="">
       <Switch>
@@ -48,9 +51,13 @@ function App() {
         <Route path="/Gifts" component={CartGifts} />
         <Route path="/rendezvous" component={Reserves} />
         <Route path="/book" component={Books} />
-        <Route path="/shop" component={Shops} />
+        <Route path="/shop" component={Shops}>
+        <Shops panier={cart} setPanier={setCart} />
+          </Route>
         <Route path="/nuancier" component={Palettes} />
-        <Route path="/panier" component={Paniers}  />
+        <Route path="/panier" component={Paniers} >
+        <Paniers panier={cart} setPanier={setCart} />
+          </Route>
 
         <Route path="/admin" component={Admin}>
           {getToken() ? <Admin /> : <AdminLogin setToken={setToken} />}
