@@ -14,6 +14,7 @@ import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import { Link } from "react-router-dom";
 import Header from "../pages/utilisateur/navBar/NavBar";
+import Footer from './../visiteur/footer/Footer'
 
 
 
@@ -157,6 +158,7 @@ const AdminLogin = (props) => {
           <Box mt={8}></Box>
         </Container>
       </div>
+      <Footer />
     </div>
   );
 };

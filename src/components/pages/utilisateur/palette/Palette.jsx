@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import NavBar from '../navBar/NavBar';
 import Palette from './../../../visiteur/palette/Palette';
+import Footer from "./../../../visiteur/footer/Footer"
+
 
 
 
@@ -14,6 +16,7 @@ function Palettes() {
     <div>
       <NavBar />
       <Palette />
+      <Footer />
  
     </div>
   );

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import NavBar from '../navBar/NavBar'
 import CartGift from "../../../visiteur/prestation/CartGift";
+import Footer from "./../../../visiteur/footer/Footer"
+
 
 function CartGifts() {
   useEffect(() => {
@@ -11,6 +13,7 @@ function CartGifts() {
     <div>
       <NavBar />
       <CartGift />
+      <Footer />
     </div>
   );
 }

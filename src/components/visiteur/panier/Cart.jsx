@@ -1,68 +1,70 @@
 import React, { useState, useEffect } from "react";
+import Footer from './../footer/Footer'
+
+
 import axios from "axios";
 import { FETCH } from "../../../Fetch";
 
-function Cart(props) {
+function Cart({ cart, setCart }) {
+  const [home, setHome] = useState([]);
 
-  const [cart , setCart] = useState([]); 
-  
-
-  function getTotalSum(){
-    console.log("salut");
-
-    return cart.reduce((sum, { price, quantity }) => sum + price * quantity, 0);
+  useEffect(() => {
+    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
+  }, []);
+  const getTotalSum = () => {
+    return cart.reduce((sum, { cost, quantity }) => sum + cost * quantity, 0);
   };
 
-  function clearCart(){
+  const clearCart = () => {
     setCart([]);
   };
 
-  function setQuantity(product, amount){
-    console.log("bou");
-
+  const setQuantity = (product, amount) => {
     const newCart = [...cart];
     newCart.find((item) => item.name === product.name).quantity = amount;
     setCart(newCart);
   };
 
-  function removeFromCart(productToRemove){
+  const removeFromCart = (productToRemove) => {
     setCart(cart.filter((product) => product !== productToRemove));
   };
 
-  useEffect(()=>{
-    if(props.panier)
-    setCart(props.panier);
-    console.log("props.cart : " +props.panier);
-    console.log("cart : " +cart);
-  },[]);
-
   return (
     <div>
+      <div>
+        <div className="imageAboutServices">
+          <div className="alignTitleService App">
+            <h1 className="titleAcceuilServices">Panier</h1>
+          </div>
+          {home.map((home) => (
+            <div>
+              <img
+                src={home.picture_about}
+                className="imageAbout"
+                alt="image_acceuil"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
       {cart.length > 0 && <button onClick={clearCart}>Clear Cart</button>}
       <div className="products">
         {cart.map((product, idx) => (
-          <div className="carteService" key={idx}>
-            <div className="imageServiceLign">
-              <img
-                className="imageService"
-                src={product.image}
-                alt={product.name}
-              />
-            </div>
-            <h3 className="nameService">{product.name}</h3>
-            <p className="descriptionService"> {product.description} </p>
-            <h4 className="priceService">{product.price}€</h4>
+          <div className="product" key={idx}>
+            <h3>{product.name}</h3>
+            <h4>${product.price}</h4>
             <input
               value={product.quantity}
               onChange={(e) => setQuantity(product, parseInt(e.target.value))}
             />
+            <img src={product.image} alt={product.name} />
             <button onClick={() => removeFromCart(product)}>Remove</button>
           </div>
         ))}
       </div>
 
       <div>Total Cost: ${getTotalSum()}</div>
-
+      <Footer />
     </div>
   );
 }

@@ -6,9 +6,9 @@ import NavBar from "../../../visiteur/navBar/NavBar";
 
 
 function Prestations() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // });
 
   return (
     <div>

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import Header from "../navBar/NavBar";
 import Paniers from "../../../visiteur/panier/Cart";
+import Footer from "./../../../visiteur/footer/Footer"
+
 
 
 function Panier() {
@@ -12,6 +14,7 @@ function Panier() {
     <div>
       <Header />
       <Paniers />
+      <Footer />
    
     </div>
   );

@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./Shop.css";
-import Cart from "../panier/Cart";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { FETCH } from "./../../../Fetch";
+import Footer from './../footer/Footer'
+import { FETCH } from "../../../Fetch";
 
-const Shops = (props) => {
+function Products({cart, setCart}){
   
-
-  const [product, setProduct] = useState([]);
-  const [cart , setCart] = useState([]); 
+  const [products, setProducts] = useState([]);
   const [home, setHome] = useState([]);
   
   useEffect(() => {
@@ -17,29 +14,15 @@ const Shops = (props) => {
   }, []);
 
   useEffect(() => {
-    axios.get(`${FETCH}/products`).then((res) => setProduct(res.data));
+    axios.get(`${FETCH}/products`).then((res) => setProducts(res.data));
   }, []);
 
-  useEffect(()=>{
-    if(props.panier)
-    setCart(props.panier);
-    console.log("props.cart : " +props.panier);
-    console.log("cart : " +cart);
-    console.log("props : " +props);
-  },[props]);
-  
-  useEffect(()=>{
-    if(cart)
-      props.setPanier(cart);
-  },[cart]);
-  // function getCartTotal(){
-  //   console.log(props.panier);
-  //   return props.panier.reduce((sum, { quantity }) => sum + quantity, 0);
-  // };
 
-  function addToCart(product){
+  const addToCart = (product) => {
     let newCart = [...cart];
-    let itemInCart = newCart.find((item) => product.id === item.id);
+    let itemInCart = newCart.find(
+      (item) => product.name === item.name
+    );
     if (itemInCart) {
       itemInCart.quantity++;
     } else {
@@ -48,11 +31,10 @@ const Shops = (props) => {
         quantity: 1,
       };
       newCart.push(itemInCart);
-      console.log(itemInCart);
     }
     setCart(newCart);
-    console.log(newCart);
   };
+
 
   return (
     <div className="">
@@ -72,12 +54,10 @@ const Shops = (props) => {
           ))}
         </div>
       </div>
-      {/* <Link to="./panier">
-        <button>Go to Cart ({getCartTotal()})</button>
-      </Link> */}
+ 
 
       <div className="cartesService">
-        {product.map((product, idx) => (
+        {products.map((product, idx) => (
           <div className="carteService" key={idx}>
             <div className="imageServiceLign">
               <img
@@ -96,10 +76,9 @@ const Shops = (props) => {
           </div>
         ))}
       </div>
-
-      {/* <Cart cart={cart} setCart={setCart} /> */}
+<Footer />
     </div>
   );
 }
 
-export default Shops;
+export default Products;
