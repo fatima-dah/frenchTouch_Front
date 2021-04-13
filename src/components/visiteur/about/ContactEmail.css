@@ -3,7 +3,6 @@
 .Contact-M {
   margin-bottom: 32px;
   color: var(--dark);
-  -ms-overflow-style: none ;
 
 }
 
@@ -18,14 +17,20 @@
   padding-left: 16px;
 
 }
+.scroll::placeholder {
+  color: var(--dark);
+  font-weight: bold;
+} 
 .scroll{
   height: 100px;
-} 
+  font-weight: bold;
+  font-size: 14px;
 
+
+} 
 .form-inputContact::placeholder {
   color: var(--dark);
-  opacity: 1;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .titleContact {
@@ -33,6 +38,8 @@
   font-size:32px;
   margin-bottom:50px;
 }
+textarea{ resize: none;
+} 
 
 .submitContact {
   cursor: pointer;

@@ -1,11 +1,13 @@
 .btnPanierShop{
-   
-    cursor: pointer;
-
     background-color: var(--secondary-color-light);
     color:var(--light-color);
     padding:10px;
     border: none;
     font-size:16px;
     font-weight: bold;
+} 
+
+.BtnFlex{
+    display: flex;
+    flex-direction: column;
 } 

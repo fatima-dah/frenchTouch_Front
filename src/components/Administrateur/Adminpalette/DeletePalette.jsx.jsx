@@ -32,6 +32,8 @@ function Palette() {
               .catch(function (erreur) {
                 console.log(erreur);
               });
+              window.history.go();
+
           },
         },
         {

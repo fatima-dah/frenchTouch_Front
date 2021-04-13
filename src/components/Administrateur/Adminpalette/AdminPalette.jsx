@@ -70,7 +70,7 @@ function Prestations() {
           {
             name: name,
             ref_palette:reference,
-            image: uploadedFile.filePath,
+            picture: uploadedFile.filePath,
           },
           {
             headers: {
@@ -84,6 +84,8 @@ function Prestations() {
         .catch(function (error) {
           console.log(error);
         });
+        window.history.go();
+
       console.log(uploadedFile);
     }
   };

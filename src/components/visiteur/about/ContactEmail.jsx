@@ -72,7 +72,7 @@ export default function ContactUs() {
                     <input
                       type="text"
                       value={lastname}
-                      placeholder="nom"
+                      placeholder="Nom"
                       onChange={(e) => setLastname(e.target.value)}
                       className="form-inputContact"
                       name="user_lastname"

@@ -26,6 +26,9 @@ const Nav = () => {
       <div className="menu-items">
           <div>
             <div className="items" id="menu" onClick={showOpen}>
+            <Link className="router" to="/home_admin">
+                HOME
+              </Link>
               <Link className="router" to="/prestations_admin">
                 PRESTATIONS
               </Link>

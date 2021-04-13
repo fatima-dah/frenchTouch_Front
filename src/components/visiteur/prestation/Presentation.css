@@ -5,14 +5,17 @@
   height: 250px;
   object-fit: cover;
 }
-
+.imageAboutServices{
+  position : relative;
+} 
 
 .alignTitleService{
     position:absolute;
     border:1px solid white;
     width:85%;
     height: 150px;
-    margin-top:56px;
+    margin-top:64px;
+    filter: grayscale(50%); 
 } 
 
 .titleAcceuilServices{

@@ -1,7 +1,6 @@
 import "./App.css";
-
-// import Header from "./components/visiteur/header/Header";
 import Home from "./components/pages/utilisateur/home/Home";
+import HomeAdmin from './components/Administrateur/Adminhome/AdminHome'
 import { Route, Switch } from "react-router-dom";
 import AdminLogin from "./components/Adminlogin/AdminLogin";
 import Prestations from "./components/pages/utilisateur/prestation/Prestation";
@@ -22,7 +21,7 @@ import PalettesAdmin from "./components/Administrateur/Adminpalette/AdminPalette
 import AboutsAdmin from "./components/Administrateur/Adminabout/AdminAbout";
 import Admin from "./components/Administrateur/Admin/Admin";
 import NavBar from "./components/pages/utilisateur/navBar/NavBar";
-import { useEffect, useState } from "react";
+import { useLayoutEffect, useEffect, useState } from "react";
 
 function setToken(userToken) {
   sessionStorage.setItem("token", JSON.stringify(userToken));
@@ -34,8 +33,17 @@ function getToken() {
 }
 
 function App() {
+  const savedCart = localStorage.getItem("cart");
+  const [openFirst, setOpenFirst] = useState(false);
+  const [cart, setCart] = useState(savedCart ? JSON.parse(savedCart) : []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   return (
     <div className="">
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={AdminLogin}>
@@ -48,33 +56,41 @@ function App() {
         <Route path="/book" component={Books} />
         <Route path="/nuancier" component={Palettes} />
 
+        <Route path="/product" component={Products}>
+          <Products cart={cart} setCart={setCart} />
+        </Route>
+        <Route path="/cart" component={Cart}>
+          {" "}
+          <Cart cart={cart} setCart={setCart} />
+        </Route>
+
         <Route path="/admin" component={Admin}>
           {getToken() ? <Admin /> : <AdminLogin setToken={setToken} />}
         </Route>
-        <Route path="/services" component={PrestationsAdmin}>
-          {getToken() ? (
-            <PrestationsAdmin />
-          ) : (
-            <AdminLogin setToken={setToken} />
-          )}
+        <Route path="/home_admin" component={HomeAdmin}>
+          {getToken() ? <HomeAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
-
         <Route path="/about_admin" component={AboutsAdmin}>
           {getToken() ? <AboutsAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
-
         <Route path="/prestations_admin" component={PrestationsAdmin}>
-          {getToken() ? (
-            <PrestationsAdmin />
-          ) : (
-            <AdminLogin setToken={setToken} />
-          )}
+          {getToken() ? <PrestationsAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
-        <Route path="/Gifts_admin" component={CartGiftsAdmin} />
-        <Route path="/rendezvous_admin" component={ReservesAdmin} />
-        <Route path="/book_admin" component={BooksAdmin} />
-        <Route path="/shop_admin" component={ShopsAdmin} />
-        <Route path="/nuancier_admin" component={PalettesAdmin} />
+        <Route path="/Gifts_admin" component={CartGiftsAdmin}>
+          {getToken() ? <CartGiftsAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
+        <Route path="/rendezvous_admin" component={ReservesAdmin}>
+          {getToken() ? <ReservesAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
+        <Route path="/book_admin" component={BooksAdmin}>
+          {getToken() ? <BooksAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
+        <Route path="/shop_admin" component={ShopsAdmin}>
+          {getToken() ? <ShopsAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
+        <Route path="/nuancier_admin" component={PalettesAdmin}>
+          {getToken() ? <PalettesAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
       </Switch>
     </div>
   );

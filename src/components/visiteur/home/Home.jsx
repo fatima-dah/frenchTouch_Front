@@ -49,7 +49,7 @@ function Home() {
                 </div>
                 <div className="contentPosition">
                   <div className="imgAboutContent App">
-                    <img src={res.picture_about} alt="" />
+                    <img src={res.picture_home} alt="" />
                   </div>
                   <div className="cadreContent App">
                     <h6>{res.content_about}</h6>

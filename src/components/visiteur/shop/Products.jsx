@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
+import Header from './../navBar/NavBar'
+
 import "./Shop.css";
 import axios from "axios";
-import Footer from './../footer/Footer'
+import Footer from "./../footer/Footer";
 import { FETCH } from "../../../Fetch";
 
-function Products({cart, setCart}){
-  
+function Products({ cart, setCart }) {
   const [products, setProducts] = useState([]);
   const [home, setHome] = useState([]);
-  
+
   useEffect(() => {
     axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
   }, []);
@@ -17,12 +18,9 @@ function Products({cart, setCart}){
     axios.get(`${FETCH}/products`).then((res) => setProducts(res.data));
   }, []);
 
-
   const addToCart = (product) => {
     let newCart = [...cart];
-    let itemInCart = newCart.find(
-      (item) => product.name === item.name
-    );
+    let itemInCart = newCart.find((item) => product.name === item.name);
     if (itemInCart) {
       itemInCart.quantity++;
     } else {
@@ -35,9 +33,19 @@ function Products({cart, setCart}){
     setCart(newCart);
   };
 
+  // const getCartReduce = () => {
+  //   return cart.reduce(
+  //     (sum, { quantity }) => sum + quantity,
+  //     0
+  //   );
+  // };
 
   return (
     <div className="">
+      <Header getCartReduce={cart.reduce(
+      (sum, { quantity }) => sum + quantity,
+      0
+    )}   />
       <div>
         <div className="imageAboutServices">
           <div className="alignTitleService App">
@@ -54,7 +62,6 @@ function Products({cart, setCart}){
           ))}
         </div>
       </div>
- 
 
       <div className="cartesService">
         {products.map((product, idx) => (
@@ -68,15 +75,25 @@ function Products({cart, setCart}){
             </div>
 
             <div className="servicePresta">
-              <h3 className="nameService">{product.name}</h3>
-              <p className="descriptionService">{product.description} </p>
-              <h4 className="priceService">{product.price}€</h4>
+              <div>
+                <h3 className="nameService">{product.name}</h3>
+                <p className="descriptionService">{product.description} </p>
+              </div>
+              <div>
+                <h4 className="priceService">{product.price}€</h4>
+              </div>{" "}
             </div>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+
+            <button
+              className="btnPanierShop"
+              onClick={() => addToCart(product)}
+            >
+              Ajouter au panier
+            </button>
           </div>
         ))}
       </div>
-<Footer />
+      <Footer />
     </div>
   );
 }

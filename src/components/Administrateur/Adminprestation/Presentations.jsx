@@ -16,7 +16,7 @@ function Presentations() {
   const [title, setTitle] = useState({ title: "" });
   const [description, setDescription] = useState({ description: "" });
   const [file, setFile] = useState("");
-  const [fileName, setFilename] = useState("");
+  const [fileName, setFileName] = useState("");
 
   useEffect(() => {
     axios
@@ -70,54 +70,25 @@ function Presentations() {
     });
   };
 
-  const onChange = (e) => {
-    setFile(e.target.files[0]);
-    setFilename(e.target.files[0].name);
-  };
-
-  const handleUpload = async (id) => {
-    const formData = new FormData();
-    formData.append("file", file);
-
-    try {
-      const res = await axios.post(`${FETCH}/upload`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      const { filePath } = res.data;
-
-      axios
-        .put(`${FETCH}/services_presentation/${id}`, {
-          image_service: filePath,
-        })
-        .catch(function (erreur) {
-          console.log(erreur);
-        });
-    } catch (erreur) {
-      if (erreur.response.status === 500) {
-        console.log("There was a problem with the server");
-      } else {
-        console.log(erreur.response.data.msg);
-      }
-    }
-  };
+ 
 
   const onSubmitPicture = (id) => {
+    
     let idxDot = fileName.lastIndexOf(".") + 1;
     let extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
     if (extFile === "jpg" || extFile === "jpeg" || extFile === "png") {
       confirmAlert({
         title: "Confirmation",
-        message: "Êtes-vous sûr de vouloir modifier la photo de presentation ?",
+        message: "Êtes-vous sûr de vouloir modifier la photo de ce presentation?",
         buttons: [
           {
             label: "Oui",
+            
             onClick: async () => {
               handleUpload(id);
-              window.history.go();
+              
             },
+            
           },
           {
             label: "Non",
@@ -136,6 +107,42 @@ function Presentations() {
       });
     }
   };
+
+  const onChange = (e) => {
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+  };
+
+  const handleUpload = async (id) => {
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await axios.post(`${FETCH}/upload`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      const { filePath } = res.data;
+
+      axios
+        .put(`${FETCH}/services_presentation/${id}`, { image_service : filePath })
+        .catch(function (erreur) {
+          console.log(erreur);
+        });
+        window.history.go();
+
+    } catch (erreur) {
+      if (erreur.response.status === 500) {
+        console.log("There was a problem with the server");
+      } else {
+        console.log(erreur.response.data.msg);
+      }
+    }
+  };
+
+  
 
   return (
     <div ClassName="admin_presentation_service">

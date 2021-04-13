@@ -9,7 +9,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App />
 
-      <Nav />
+      {/* <Nav /> */}
     </BrowserRouter>
   ,
 

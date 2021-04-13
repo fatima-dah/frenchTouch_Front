@@ -4,7 +4,7 @@ import "./Prestation.css";
 import axios from "axios";
 import { FETCH } from "./../../../Fetch";
 
-function Prestation() {
+function Prestation( ) {
   const [service, setService] = useState([]);
   const [serviceFiltre, setServiceFiltre] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -35,9 +35,10 @@ function Prestation() {
     axios.get(`${FETCH}/categorys`).then((res) => setCategory(res.data));
   }, []);
 
+
   return (
     <div>
-      <h2 className="titleService">Prestation</h2>
+      <h2 className="titleService">Prestation  </h2>
       <div className="filterCategory">
         <label className="styleCategory">
           <div className="filterButtonCategory">
