@@ -2,11 +2,14 @@
 import { FETCH } from "./../../../Fetch";
 // import nails from "../../../assets/nails.jpg";
 import { useEffect, useState } from "react";
+import Header from './../navBar/NavBar'
+import Footer from './../footer/Footer'
+
 import axios from "axios";
 import Calendar from "./Calendar";
 import AdminReserve from "./Admin_reserve";
 
-function Reserve() {
+function Reserve({cart}) {
   const [home, setHome] = useState([]);
 
   useEffect(() => {
@@ -18,6 +21,9 @@ function Reserve() {
 
   return (
     <div >
+       <Header 
+              getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+              />
       <div>
         <div className="imageAboutServices">
           <div className="alignTitleService App">
@@ -39,6 +45,8 @@ function Reserve() {
 
         {/* <AdminReserve /> */}
       </div>
+      <Footer />
+
     </div>
   );
 }

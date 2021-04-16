@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./AdminLogin.css";
+import { FETCH } from "../../../Fetch";
+
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -13,15 +15,17 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 import { Link } from "react-router-dom";
-import Nav from "./../visiteur/navBar/NavBar";
-import Footer from './../visiteur/footer/Footer'
+import Header from "./../navBar/NavBar";
+import Footer from "../footer/Footer";
 
-
-
-
-const AdminLogin = (props) => {
+const AdminLogin = ({ cart, setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
+  }, []);
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -56,14 +60,12 @@ const AdminLogin = (props) => {
         })
         .then((res) => res.data)
         .then((data) => {
-          props.setToken(data.token);
+          setToken(data.token);
 
           // console.log(data);
-         
-          history.push(`./admin`)
-          window.history.go();
 
-          
+          history.push(`./admin`);
+          window.history.go();
         })
         .catch((err) => {
           confirmAlert({
@@ -90,7 +92,25 @@ const AdminLogin = (props) => {
 
   return (
     <div>
-      <Nav />
+      <Header
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+      />
+      <div>
+        <div className="imageAboutServices">
+          <div className="alignTitleService App">
+            <h1 className="titleAcceuilServices">Se connecter</h1>
+          </div>
+          {home.map((home) => (
+            <div>
+              <img
+                src={home.picture_about}
+                className="imageAbout"
+                alt="image_acceuil"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
       <div>
         <Container component="main" maxWidth="xs">
           <CssBaseline />

@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import './Palette.css'
+import Header from "./../navBar/NavBar";
+import Footer from './../footer/Footer'
+
 import axios from "axios";
 import { FETCH } from "./../../../Fetch";
 
 
-function Palette() {
+function Palette({cart}) {
   const [palette, setPalette] = useState([]);
   const [home, setHome] = useState([]);
 
@@ -18,6 +21,9 @@ function Palette() {
 
   return (
     <div>
+        <Header
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+      />
       <div className="imageAboutServices">
         <div className="alignTitleService App">
           <h1 className="titleAcceuilServices">Nuancier</h1>
@@ -48,6 +54,8 @@ function Palette() {
         </div>
       ))}
       </div>
+      <Footer />
+
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from './../navBar/NavBar'
+import Header from "./../navBar/NavBar";
 
 import "./Shop.css";
 import axios from "axios";
@@ -42,10 +42,9 @@ function Products({ cart, setCart }) {
 
   return (
     <div className="">
-      <Header getCartReduce={cart.reduce(
-      (sum, { quantity }) => sum + quantity,
-      0
-    )}   />
+      <Header
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+      />
       <div>
         <div className="imageAboutServices">
           <div className="alignTitleService App">
@@ -63,33 +62,35 @@ function Products({ cart, setCart }) {
         </div>
       </div>
 
-      <div className="cartesService">
+      <div className="cartesShop App ">
         {products.map((product, idx) => (
-          <div className="carteService" key={idx}>
-            <div className="imageServiceLign">
+          <div className="carteShop " key={idx}>
+             <div className="imageShopLign">
               <img
-                className="imageService"
+                className="imageShop"
                 src={product.image}
                 alt={product.name}
               />
             </div>
-
-            <div className="servicePresta">
-              <div>
-                <h3 className="nameService">{product.name}</h3>
+           
+            <div className="shopDescription "> 
+            <div>
+              <h3 className="nameShop">{product.name}</h3>
+              <div className="descriptionPrice">
                 <p className="descriptionService">{product.description} </p>
-              </div>
-              <div>
-                <h4 className="priceService">{product.price}€</h4>
-              </div>{" "}
-            </div>
 
+                <h4 className="priceService">{product.price}€</h4>
+                </div>
             <button
               className="btnPanierShop"
               onClick={() => addToCart(product)}
             >
               Ajouter au panier
             </button>
+            </div>
+            </div>
+            
+
           </div>
         ))}
       </div>

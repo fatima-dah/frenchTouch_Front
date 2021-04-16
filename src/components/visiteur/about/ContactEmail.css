@@ -21,6 +21,10 @@
   color: var(--dark);
   font-weight: bold;
 } 
+
+::placeholder{
+color:black;
+} 
 .scroll{
   height: 100px;
   font-weight: bold;

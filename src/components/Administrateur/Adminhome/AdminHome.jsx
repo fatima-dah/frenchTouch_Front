@@ -168,7 +168,6 @@ function Home() {
             label: "Oui",
             onClick: async () => {
               handleUpload2(id);
-              // window.history.go();
             },
           },
           {

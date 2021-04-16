@@ -14,7 +14,7 @@ function Homes() {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <Home />
       <Footer />
  

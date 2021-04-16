@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Footer from "./../footer/Footer";
 import Header from "./../navBar/NavBar";
+import "./Cart.css";
 
 import axios from "axios";
 import { FETCH } from "../../../Fetch";
@@ -29,19 +30,15 @@ function Cart({ cart, setCart }) {
     setCart(cart.filter((product) => product !== productToRemove));
   };
 
-
   // const getCartReduce = () => {
   //   return cart.reduce((sum, { quantity }) => sum + quantity, 0);
   // }
 
-
-
   return (
     <div>
-      <Header getCartReduce={cart.reduce(
-      (sum, { quantity }) => sum + quantity,
-      0
-    )} />
+      <Header
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+      />
       <div>
         <div className="imageAboutServices">
           <div className="alignTitleService App">
@@ -60,24 +57,33 @@ function Cart({ cart, setCart }) {
       </div>
       <div>
         {cart.length > 0 && (
-          <button onClick={clearCart}>Vider le panier</button>
+          <button onClick={clearCart} className="DeletePanier">Vider le panier</button>
+          
         )}
-        <div className="products">
+        <div>Total Prix: {getTotalSum()}</div>
+        <div className="Shop App">
           {cart.map((product, idx) => (
-            <div className="product" key={idx}>
-              <h3>{product.name}</h3>
-              <h4>${product.price}</h4>
+            <div className="carteShop" key={idx}>
+              <div className="imageShopLign">
+                <img className="imageShop"  src={product.image} alt={product.name} />
+              </div>
+              <div className="shopDesciption">
+                <h3>{product.name}</h3>
+                <p>{product.description} </p>
+                <h4>${product.price}</h4>
+              </div>
+              <div className="RemoveBtn">
               <input
                 value={product.quantity}
                 onChange={(e) => setQuantity(product, parseInt(e.target.value))}
               />
-              <img src={product.image} alt={product.name} />
-              <button onClick={() => removeFromCart(product)}>Remove</button>
+              <button onClick={() => removeFromCart(product)}>Supprimer</button>
+            </div>
             </div>
           ))}
         </div>
 
-        <div>Total Prix: {getTotalSum()}</div>
+        
       </div>
 
       <Footer />

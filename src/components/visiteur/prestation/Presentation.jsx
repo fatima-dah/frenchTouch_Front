@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-
+import Header from './../navBar/NavBar'
 import "./Presentation.css";
 import axios from "axios";
+import Footer from './../footer/Footer'
 import { FETCH } from "./../../../Fetch";
+import Prestation from './Prestation'
+import Gift from './Gift'
 
-function Presentation() {
+function Presentation({cart} ) {
   const [servicePresentation, setServicePresentation] = useState([]);
   const [home, setHome] = useState([]);
 
@@ -22,6 +25,9 @@ function Presentation() {
 
   return (
     <div className="ServicePrestation">
+      <Header 
+              getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+              />
       <div>
       <div className="imageAboutServices">
       <div className="alignTitleService App">
@@ -60,6 +66,9 @@ function Presentation() {
           </div>
         ))}
         </div>
+        <Prestation />
+        <Gift />
+        <Footer />
       </div>
   );
 }

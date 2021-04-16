@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 import { FETCH } from "../../../../src/Fetch";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-// import imgAccueil from "../../../assets/img.acceuil.jpg"
 import "./Home.css";
 import CarouselComent from "./CarouselComent";
+import Header from "./../navBar/NavBar";
 import Social from "../Social";
+import Footer from './../footer/Footer'
 
-function Home() {
+function Home({cart}) {
   const [getHome, setGetHome] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
@@ -26,12 +27,15 @@ function Home() {
 
   return (
     <div className="Home">
+      <Header
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+      />
       {isLoading
         ? getHome.map((res, index) => (
             <div>
               <div className="homeImgTop">
                 <div className="black-filter">
-                <img className="imgHome" src={res.picture_about} alt="" />
+                  <img className="imgHome" src={res.picture_about} alt="" />
                 </div>
                 <div className="alignTitle App">
                   <h1 className="titleAcceuil">French Touch</h1>
@@ -86,6 +90,7 @@ function Home() {
         <h2>Votre avis compte !</h2>
       </div>
       <CarouselComent />
+      <Footer />
     </div>
   );
 }

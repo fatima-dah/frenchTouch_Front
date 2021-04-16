@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --light: rgb(253, 250, 253);
   --dark: rgb(14, 0, 15);
 
@@ -7,7 +7,7 @@
   --spacing-4: calc(var(--spacing) * 4);
 
   --navbar-height: 50px;
-}
+} */
 
 .NavBar {
   margin-bottom: 100px;
@@ -94,7 +94,7 @@ a.router.rdv {
 }
 
 .logoPanier{
-  height:30px;
+  height:20px;
 } 
 
 @media screen and (max-width: 1350px) {

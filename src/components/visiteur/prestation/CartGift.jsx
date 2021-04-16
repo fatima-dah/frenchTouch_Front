@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./CartGift.css";
 import axios from "axios";
+import Header from './../navBar/NavBar';
+import Footer from './../footer/Footer';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import imageLogo from "./../../../assets/entier couleurs-480px.jpg";
 import { FETCH } from "./../../../Fetch";
 
-function CartGift() {
+function CartGift({cart} ) {
   const [gift, setGift] = useState([]);
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
@@ -65,6 +67,9 @@ function CartGift() {
 
   return (
     <div className="Gift">
+      <Header 
+              getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+/>
       <h2 className="titleGift">Cheque cadeaux</h2>
       <div className="cartGifts">
         <div className="CartGift">
@@ -217,6 +222,7 @@ function CartGift() {
           <div className="msgValid">{valid}</div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 }
