@@ -21,7 +21,7 @@ function AboutCart() {
                   <h5>Adresse :</h5>
                   <p>{Cart.address} <br/>
                     {Cart.PostalCode} {Cart.city}
-                  </p>
+                  </p > 
                 </div>
                 <div>
                   <h5>Carte :</h5>

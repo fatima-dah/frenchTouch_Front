@@ -56,28 +56,33 @@ function Cart({ cart, setCart }) {
         </div>
       </div>
       <div>
-        {cart.length > 0 && (
-          <button onClick={clearCart} className="DeletePanier">Vider le panier</button>
+        <div className='infosPanier App'>
+        <div>Total Prix: {getTotalSum()} €</div>
+          {cart.length > 0 && (
+            <button onClick={clearCart} className="btn DeletePanier">Vider le panier</button>
+            
+          )}
           
-        )}
-        <div>Total Prix: {getTotalSum()}</div>
-        <div className="Shop App">
+        </div>
+        <div className="cartesShop App">
           {cart.map((product, idx) => (
             <div className="carteShop" key={idx}>
               <div className="imageShopLign">
                 <img className="imageShop"  src={product.image} alt={product.name} />
               </div>
-              <div className="shopDesciption">
-                <h3>{product.name}</h3>
-                <p>{product.description} </p>
-                <h4>${product.price}</h4>
-              </div>
-              <div className="RemoveBtn">
+              <div className="shopDescription "> 
+                <h3 className="nameShop">{product.name}</h3>
+                <p className="descriptionProduct">{product.description} </p>
+                <p className="priceShop">{product.price} €</p>
+                <div className=" RemoveBtn">
               <input
+              className="input"
                 value={product.quantity}
                 onChange={(e) => setQuantity(product, parseInt(e.target.value))}
               />
-              <button onClick={() => removeFromCart(product)}>Supprimer</button>
+              <button onClick={() => removeFromCart(product)} className="btn suppBtn">Supprimer</button>
+            </div>
+
             </div>
             </div>
           ))}

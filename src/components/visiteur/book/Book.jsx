@@ -3,6 +3,7 @@ import axios from "axios";
 import Header from "./../navBar/NavBar";
 import Footer from './../footer/Footer';
 import { FETCH } from "./../../../Fetch";
+import Instafeed from 'react-instafeed'
 
 
 
@@ -16,27 +17,14 @@ function Book({cart}){
 		  .get(`${FETCH}/homes`)
 		  .then((res) => setHome(res.data));
 	  }, []);
-// const [data, setData] = useState([]); 
 
-// // Touch Instagram API using fetch
-// useEffect(()=>{
-//   axios.get(`https://api.instagram.com/v1/users/356910872413649/media/recent/?count=99&access_token=IGQVJVSWxkQlJIZA1M3Nmx6LU9MVklYM2VQR3FTd3JnQTY3TjFtT01zZAldLYzBrT2ZAJS0FVY0FwdmNPSVpZAVHRoQ0R3YkdpV1BRdTU1dkFJUGYxcWxMcXo3SFVCa1N6RkJtUE95dGMzOV9TbTE3ZAkRVXwZDZD`)
-//     .then(res =>res.json())
-//     .then((responseJson) => {
-//     	// testing promise to see if I can get data in console
-//     	// console.log(responseJson.data);
-//     	let instaFeed = responseJson.data.map((el, i, arr) => {
-//     		return {
-//     			images: el.images.standard_resolution.url
-//     		};
-//     	});
-//     	setData( { data: instaFeed });
-//     	// return responseJson.data;
-//     })
-//     .catch((error) => {
-//     	console.error(error);
-//     });
-// } )
+	//   <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+	//   const userFeed = new Instafeed({
+	// 	  get: 'user',
+	// 	  target: "instafeed-container",
+	// 	  resolution: 'low_resolution',
+	// 	  accessToken: 'IGQVJWTWdMdHVhU281ZA2Fwd1VfbTJ0c0pJcHNYVnJiUHlkcEFzQnBabEVIaGZAJQlRPRVRET2djZAktFN2NUYm5DbmVTTWxmQ2VTLThWNzVYTUExYnJMNF9QdEtqczQ2WEN3bU02cVlYd2lvWXlwMDZANcgZDZD'
+	//   });
 	
 
 
@@ -56,13 +44,13 @@ function Book({cart}){
        ))} 
       
        </div>
-       
-  	      {/* {
-	      	data.map((el, i, arr) => <div className="posts-default" key={i} style={{backgroundImage: `url(${el.images})`}}>
-          </div>)
-	      } */}
-        <div>hey</div>
-        <div id="instafeed"></div>
+	   {/* <h1 style="text-align: center">Show Instagram Feed on your Website</h1>
+    	<div id="instafeed-container"></div> */}
+
+
+
+
+	 {/* <div>userFeed.run() </div> */}
 		<Footer />
 
 	    </div>

@@ -71,6 +71,7 @@ export default function ContactUs() {
                   <label>
                     <input
                       type="text"
+                      required
                       value={lastname}
                       placeholder="Nom"
                       onChange={(e) => setLastname(e.target.value)}
@@ -83,6 +84,7 @@ export default function ContactUs() {
                   <label>
                     <input
                       type="text"
+                      required
                       value={firstname}
                       placeholder="Prénom"
                       onChange={(e) => setFirstname(e.target.value)}
@@ -95,6 +97,7 @@ export default function ContactUs() {
                   <label>
                     <input
                       type="email"
+                      required
                       value={email}
                       placeholder="Email"
                       onChange={(e) => setEmail(e.target.value)}
@@ -108,6 +111,7 @@ export default function ContactUs() {
                   <label>
                     <textarea
                       name="message"
+                      required
                       value={message}
                       placeholder="Message"
                       onChange={(e) => setMessage(e.target.value)}

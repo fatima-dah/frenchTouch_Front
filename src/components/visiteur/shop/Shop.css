@@ -1,21 +1,30 @@
 .carteShop {
-
-    width: 640px;
+    display: flex;
+    width: 46%;
+    margin-right:8%;
     padding: 8px;
-    margin-bottom:4px;
+    margin-bottom:35px;
     background-color: var(--light-color);
     border: 1px solid rgb(253, 253, 253);
+    box-sizing: border-box;
+    align-items: flex-start;
+
   }
+.carteShop:nth-child(even){
+  margin-right:0;
+}
 
   .shopDescription{
-    display: flex;
+   display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-left:28px;
+    min-height: 250px;
+    padding:7px 0 0px 28px;
+    position:relative; 
 
   } 
   .nameShop{
-      font-size: 26px;
+      font-size: 32px;
       margin:0;
   } 
 
@@ -25,6 +34,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     color: var(--dark);
+    min-height: calc(100vh - (254px + 200px + 46px + 25px + 50px));
   }
 
   .imageShop{
@@ -39,7 +49,7 @@
     margin-left: 0;
 
   } 
-  .imageShopLign::after,
+  /* .imageShopLign::after, */
   .imageShopLign::before {
     position: absolute;
     height: 100%;
@@ -57,15 +67,13 @@
     width: 275px;
   }
 
+  .descriptionProduct{
+    font-size: 16px;
+  }
 
-.btnPanierShop{
+.btnPanierShop,
+.suppBtn{
     width: 180px;
-    background-color: var(--secondary-color-light);
-    color:white;
-    padding:10px;
-    border: none;
-    font-size:16px;
-    font-weight: bold;
 } 
 
 .BtnFlex{
@@ -73,7 +81,12 @@
     flex-direction: column;
 } 
 
-.descriptionPrice{
-    display: flex;
-    align-items: center;
+.priceShop{
+    position: absolute;
+    bottom:-32px;
+    right:15px;
+    font-family: var(--secondary-font);
+    font-weight: 700;
+    color:var(--dark);
+    font-size: 28px;
 } 

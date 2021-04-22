@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./CartGift.css";
 import axios from "axios";
-import Header from './../navBar/NavBar';
-import Footer from './../footer/Footer';
+import Header from "./../navBar/NavBar";
+import Footer from "./../footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import imageLogo from "./../../../assets/entier couleurs-480px.jpg";
 import { FETCH } from "./../../../Fetch";
 
-function CartGift({cart} ) {
+function CartGift({ cart }) {
   const [gift, setGift] = useState([]);
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
@@ -20,6 +20,12 @@ function CartGift({cart} ) {
 
   const [valid, setValid] = useState("");
   const [statusBtn, setStatusBtn] = useState(true);
+
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
+  }, []);
 
   useEffect(() => {
     axios.get(`${FETCH}/gifts`).then((res) => setGift(res.data));
@@ -67,10 +73,25 @@ function CartGift({cart} ) {
 
   return (
     <div className="Gift">
-      <Header 
-              getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
-/>
-      <h2 className="titleGift">Cheque cadeaux</h2>
+      <Header
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+      />
+      <div>
+        <div className="imageAboutServices">
+          <div className="alignTitleService App">
+            <h1 className="titleAcceuilServices">Cheque cadeaux </h1>
+          </div>
+          {home.map((home) => (
+            <div>
+              <img
+                src={home.picture_about}
+                className="imageAbout"
+                alt="image_acceuil"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="cartGifts">
         <div className="CartGift">
           <img className="imageLogoGift" src={imageLogo} alt="" />
@@ -96,7 +117,6 @@ function CartGift({cart} ) {
         </div>
         <div className="lignVerticalGift"></div>
         <form className="main-form-gift" onSubmit={handleSubmit}>
-      
           <div className="inputGiftPrices">
             <label>
               {" "}

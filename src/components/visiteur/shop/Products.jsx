@@ -74,23 +74,18 @@ function Products({ cart, setCart }) {
             </div>
            
             <div className="shopDescription "> 
-            <div>
-              <h3 className="nameShop">{product.name}</h3>
-              <div className="descriptionPrice">
-                <p className="descriptionService">{product.description} </p>
-
-                <h4 className="priceService">{product.price}€</h4>
-                </div>
-            <button
-              className="btnPanierShop"
-              onClick={() => addToCart(product)}
-            >
-              Ajouter au panier
-            </button>
-            </div>
+                <h3 className="nameShop">{product.name}</h3>
+                <p className="descriptionProduct">{product.description} </p>
+                <p className="priceShop">{product.price} €</p>
+                <button
+                  className="btn btnPanierShop"
+                  onClick={() => addToCart(product)}
+                >  Ajouter au panier
+                </button>
             </div>
             
-
+           
+            
           </div>
         ))}
       </div>

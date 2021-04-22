@@ -1,12 +1,13 @@
 import "./App.css";
 import Home from "./components/visiteur/home/Home";
 import HomeAdmin from "./components/Administrateur/Adminhome/AdminHome";
-import { Route, Switch } from "react-router-dom";
-import AdminLogin from "./components/visiteur/Adminlogin/AdminLogin";
+import { Route, Switch, Redirect } from "react-router-dom";
+import AdminLogin from "./components/Adminlogin/AdminLogin";
 import Prestations from "./components/visiteur/prestation/Presentation";
 import CartGifts from "./components/visiteur/prestation/CartGift";
 import Reserves from "./components/visiteur/reserve/Reserve";
 import Cart from "./components/visiteur/panier/Cart";
+import RouteAdmin from './components/RouteAdmin';
 
 import Books from "./components/visiteur/book/Book";
 import Products from "./components/visiteur/shop/Products";
@@ -20,32 +21,26 @@ import ShopsAdmin from "./components/Administrateur/Adminshop/AdminShop";
 import PalettesAdmin from "./components/Administrateur/Adminpalette/AdminPalette";
 import AboutsAdmin from "./components/Administrateur/Adminabout/AdminAbout";
 import Admin from "./components/Administrateur/Admin/Admin";
-import { useLayoutEffect, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-function setToken(userToken) {
-  sessionStorage.setItem("token", JSON.stringify(userToken));
+function setToken(usersToken) {
+  localStorage.setItem("token", JSON.stringify(usersToken));
 }
 function getToken() {
   const tokenString = localStorage.getItem("token");
-  // const userToken = JSON.parse(tokenString);
   return tokenString;
 }
 
 function App() {
   const savedCart = localStorage.getItem("cart");
   const [openFirst, setOpenFirst] = useState(false);
-  const [cart, setCart] = useState(savedCart ? JSON.parse(savedCart) : []);
+  const [cart, setCart] = useState(savedCart ? JSON.parse(savedCart) : []); 
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  //  const getCartReduce = () => {
-  //   return cart.reduce(
-  //     (sum, { quantity }) => sum + quantity,
-  //     0
-  //   );
-  // };
+ 
 
   return (
     <div className="">
@@ -84,18 +79,18 @@ function App() {
         <Route path="/login" component={AdminLogin}>
           <AdminLogin cart={cart} setToken={setToken} />
         </Route>
-        <Route path="/admin" component={Admin}>
-          {getToken() ? <Admin /> : <AdminLogin setToken={setToken} />}
-        </Route>
-        <Route path="/home_admin" component={HomeAdmin}>
-          {getToken() ? <HomeAdmin /> : <AdminLogin setToken={setToken} />}
-        </Route>
+        <Route path="/admin" component={Admin} >
+          {getToken() ?  <Admin />  : <AdminLogin setToken={setToken} />}
+        </Route> 
+        <RouteAdmin path="/home_admin" component={HomeAdmin} isAuth={getToken()} />
+
+
         <Route path="/about_admin" component={AboutsAdmin}>
           {getToken() ? <AboutsAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
         <Route path="/prestations_admin" component={PrestationsAdmin}>
           {getToken() ? (
-            <PrestationsAdmin />
+            <PrestationsAdmin /> 
           ) : (
             <AdminLogin setToken={setToken} />
           )}
@@ -115,6 +110,8 @@ function App() {
         <Route path="/nuancier_admin" component={PalettesAdmin}>
           {getToken() ? <PalettesAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
+
+      
       </Switch>
     </div>
   );

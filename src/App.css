@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
 @font-face {
   font-family: 'Canvas';
   src: local('Font-titre'), url(./assets/Font-titre.otf) format('opentype');
@@ -8,7 +8,7 @@
 
 :root {
   --main-font: "Canvas";
-  --secondary-font: "Montserrat" ;
+  --secondary-font: "Poppins" ;
   /* --third-font:; */
   --main-color-font: ;
   --secondary-color-font: ;
@@ -17,6 +17,7 @@
   --dark: rgb(42,33,37);
   --light-color:rgb(245,223,217) ;
   --secondary-color-light:  rgb(216,138,125);
+  --blanc:rgb(255,255,255);
 }
 
 * {
@@ -43,3 +44,19 @@ html {
   font-family:var(--secondary-font);
 
  }  
+
+.btn{
+  font-family:var(--secondary-font);
+  background-color: var(--secondary-color-light);
+  color:var(--blanc);
+  padding:10px;
+  border: none;
+  font-size:16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+ } 
+ .btn:hover{
+  background-color:var(--dark);
+ }
+
