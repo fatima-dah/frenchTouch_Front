@@ -1,9 +1,11 @@
-import {useState, useEffect} from 'react';  
+import {useState, useEffect, Fragment} from 'react';  
 import axios from "axios";
 import Header from "./../navBar/NavBar";
 import Footer from './../footer/Footer';
 import { FETCH } from "./../../../Fetch";
-import Instafeed from 'react-instafeed'
+import InstagramFeed  from 'react-ig-feed';
+import 'react-ig-feed/dist/index.css';
+import './Book.css';
 
 
 
@@ -11,6 +13,7 @@ import Instafeed from 'react-instafeed'
 function Book({cart}){
 	const [home, setHome] = useState([]);
 
+	
 
 	useEffect(() => {
 		axios
@@ -18,13 +21,6 @@ function Book({cart}){
 		  .then((res) => setHome(res.data));
 	  }, []);
 
-	//   <script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
-	//   const userFeed = new Instafeed({
-	// 	  get: 'user',
-	// 	  target: "instafeed-container",
-	// 	  resolution: 'low_resolution',
-	// 	  accessToken: 'IGQVJWTWdMdHVhU281ZA2Fwd1VfbTJ0c0pJcHNYVnJiUHlkcEFzQnBabEVIaGZAJQlRPRVRET2djZAktFN2NUYm5DbmVTTWxmQ2VTLThWNzVYTUExYnJMNF9QdEtqczQ2WEN3bU02cVlYd2lvWXlwMDZANcgZDZD'
-	//   });
 	
 
 
@@ -44,13 +40,11 @@ function Book({cart}){
        ))} 
       
        </div>
-	   {/* <h1 style="text-align: center">Show Instagram Feed on your Website</h1>
-    	<div id="instafeed-container"></div> */}
+	  
+<div className="instaFeed">
+<InstagramFeed className="instagramPicture" token="IGQVJXVmg2dXBzN19DQVVab3FBdTBueUthWTJDRlNjSFZA1UWFTaTdlTlN0d0U1b1FZAZAi1qZAjdUb2NiU2NfamdxTno0bEoxa25tNTFIWGZAtZA1RTb0RqZAGhNRGF2VlplNm9XZA3REU0ZA2aXFRTnBWVVRKTAZDZD"  counter="6"/> 
+</div>
 
-
-
-
-	 {/* <div>userFeed.run() </div> */}
 		<Footer />
 
 	    </div>

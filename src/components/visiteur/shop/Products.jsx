@@ -89,6 +89,7 @@ function Products({ cart, setCart }) {
           </div>
         ))}
       </div>
+
       <Footer />
     </div>
   );

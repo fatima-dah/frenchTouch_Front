@@ -67,18 +67,22 @@ function Prestation( ) {
         </label>
       </div>
 
-      <div className="cartesService">
+      <div className="cartesService App">
         {serviceFiltre.map((service) => (
           <div className="carteService">
             <div className="imageServiceLign">
               <img className="imageService" src={service.image} alt="" />{" "}
             </div>
             <div className="servicePresta">
-              <h4 className="nameService">{service.name} </h4>
+              <h3 className="nameService">{service.name} </h3>
               <p className="descriptionService">{service.description} </p>
+              <div className="timePrice">
               <p className="timeService">Durée {service.duration} </p>
+              <p className="priceService">{service.price}€</p>
+              </div>
+
             </div>
-            <p className="priceService">{service.price}€</p>
+
           </div>
         ))}
       </div>

@@ -6,7 +6,7 @@
   --spacing-2: calc(var(--spacing) * 2);
   --spacing-4: calc(var(--spacing) * 4);
 
-  --navbar-height: 50px;
+  --navbar-height: 68px;
 }
 
 .NavBar {
@@ -20,8 +20,9 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-  width: 85vw;
-  height: 55px;
+  width: 85%;
+
+  height: var(--navbar-height);
   border: 1px solid transparent;
   background: transparent;
   z-index: 10;
@@ -80,7 +81,7 @@ main {
 
 a.router {
   color: var(--dark);
-  padding: 18px 18px 18px 18px;
+  padding: 29px 16px 23px 16px;
   letter-spacing: 1.5px;
 }
 

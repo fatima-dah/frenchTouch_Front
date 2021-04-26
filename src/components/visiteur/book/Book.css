@@ -1,0 +1,44 @@
+._2R-kh{
+    margin: 0 7.5vw;
+    justify-content: space-between;
+}
+
+.instaFeed{
+   
+    min-height: calc(100vh - (183px + 200px + 46px + 25px + 50px)); 
+
+} 
+/* 
+._3xnQP{
+
+} 
+
+._3xnQP {
+    width: 100%;
+    position: relative;
+  }
+  
+  ._3xnQP::after,
+  ._3xnQP::before {
+    position: absolute;
+    height: 100%;
+    content: "";
+    width: 80%;
+  }
+  
+  ._3xnQP::before {
+    border: 1px solid rgb(88, 87, 87);
+    padding: 0;
+    bottom: 10px;
+    left: calc(50% - 10px);
+    transform: translateX(-50%);
+  }
+  
+  ._3xnQP::after {
+    background-color: var(--light-color);
+    padding: 0;
+    top: 10px;
+    left: calc(50% + 10px);
+    transform: translateX(-50%);
+    z-index: -1;
+  } */

@@ -24,10 +24,10 @@ import Admin from "./components/Administrateur/Admin/Admin";
 import { useEffect, useState } from "react";
 
 function setToken(usersToken) {
-  localStorage.setItem("token", JSON.stringify(usersToken));
+  sessionStorage.setItem("token", JSON.stringify(usersToken));
 }
 function getToken() {
-  const tokenString = localStorage.getItem("token");
+  const tokenString = sessionStorage.getItem("token");
   return tokenString;
 }
 
@@ -83,8 +83,10 @@ function App() {
           {getToken() ?  <Admin />  : <AdminLogin setToken={setToken} />}
         </Route> 
         <RouteAdmin path="/home_admin" component={HomeAdmin} isAuth={getToken()} />
-
-
+        <Route path="/home_admin" component={HomeAdmin}>
+          {getToken() ? <HomeAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
+       
         <Route path="/about_admin" component={AboutsAdmin}>
           {getToken() ? <AboutsAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>

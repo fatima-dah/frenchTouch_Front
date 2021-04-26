@@ -1,41 +1,41 @@
 .carteShop {
-    display: flex;
-    width: 46%;
-    margin-right:8%;
-    padding: 8px;
-    margin-bottom:35px;
-    background-color: var(--light-color);
-    border: 1px solid rgb(253, 253, 253);
-    box-sizing: border-box;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 700px;
+  margin-top:2%;
+  margin-bottom:2%;
+  padding: 8px;
+  background-color: var(--light-color);
+  border: 1px solid rgb(253, 253, 253);
 
   }
-.carteShop:nth-child(even){
-  margin-right:0;
-}
-
-  .shopDescription{
-   display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 250px;
-    padding:7px 0 0px 28px;
-    position:relative; 
-
-  } 
-  .nameShop{
-      font-size: 32px;
-      margin:0;
-  } 
-
 
   .cartesShop {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
     color: var(--dark);
     min-height: calc(100vh - (254px + 200px + 46px + 25px + 50px));
   }
+
+  .shopDescription{
+    display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     min-height: 250px;
+     padding:7px 0 0px 28px;
+     position:relative; 
+ 
+   } 
+   .nameShop{
+    color: var(--dark);
+    font-size: 32px;
+    margin:0;
+   } 
 
   .imageShop{
     height: 250px;
@@ -90,3 +90,71 @@
     color:var(--dark);
     font-size: 28px;
 } 
+
+@media screen and (max-width: 1754px) {
+    
+  .cartesShop {
+    flex-direction: column;
+  }
+
+  .carteShop {  
+    align-items: center;
+    width: 700px;
+  }
+}
+
+@media screen and (max-width: 838px) {
+.carteShop {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  width:80%;
+  margin: 3%;
+}
+.cartesShop {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.descriptionProduct {
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.imageShop {
+  height: 250px;
+  width: 300px;
+}
+
+.imageShopLign::after {
+  display: none;
+}
+.imageShopLign::before {
+  display: none;
+}
+}
+@media screen and (max-width: 568px) {
+.carteShop {
+  width:90%;
+}
+.cartesShop {
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.imageShop {
+  height: 250px;
+  width: 250px;
+}
+
+}

@@ -31,7 +31,7 @@
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.15.5",
     "react-icons": "^4.2.0",
-    "react-instafeed": "^1.0.0",
+    "react-ig-feed": "^1.0.4",
     "react-multiple-image-input": "^1.0.0",
     "react-responsive-carousel": "^3.2.13",
     "react-router-dom": "^5.2.0",
@@ -67,6 +67,7 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "2.2.1"
   }
 }

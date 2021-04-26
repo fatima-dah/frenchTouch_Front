@@ -9,6 +9,8 @@ function RegisterLogin() {
     const [lastname, setLastname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmedPassword, setConfirmedPassword] = useState("");
+
     const [statusBtn, setStatusBtn] = useState(true);
 
 
@@ -17,8 +19,14 @@ function RegisterLogin() {
       }, [user]);
 
     
-  
+     function handleSubmitPassword() {
+        if (password !== confirmedPassword) {
+            alert("le mots de passe est incorect");
+        }
+    }
+
     const handleSubmit = (e) => {
+
         e.preventDefault();
         if (statusBtn === true) {
           setStatusBtn(false);
@@ -30,12 +38,17 @@ function RegisterLogin() {
                 lastname : lastname,
                 email : email,
                 password : password,
+                confirmedPassword : confirmedPassword,
+
               },
-            
+              handleSubmitPassword()
+
             )
             .then(function (response) {
+              window.history.go();
               console.log(response);
             })
+            
             .catch(function (error) {
               console.log(error);
             });
@@ -99,6 +112,21 @@ function RegisterLogin() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+          />
+            </label>
+            </div>
+            <div className="Contact-M">
+              <label>
+          <input
+        
+            required
+            className="form-inputRegister"
+            name="confirmpassword"
+            placeholder="Confimer le mot de passe"
+            type="password"
+            value={confirmedPassword}
+            onChange={(e) => setConfirmedPassword(e.target.value)}
+            
           />
             </label>
             </div>
