@@ -1,330 +1,342 @@
-
 h2{
-font-size: 3.5em;
-position:relative;
-width: 40vw;
-text-align: center;
-z-index: 0;
-font-family: var(--main-font);
-}
-h2::after,
-h2::before{
-    position: absolute;
-    height:100%;
-    content:"";
-    width: 200%;
-    padding: 20px 0px;
-}
-h2::before{
-    background-color: rgba(241,216,204,255);
-    right:10px;
-    top:-15px;
-    z-index: -1;
-}
-h2::after{
-    border: 1px solid black;
-    background-color: transparent;
-    right:15px;
-    top:-20px;
-}
-.cadreContentAbout {
-    position:relative;
-    width: auto;
-    height: 100%;
-    z-index: 0;
-    padding: 30px;
-    font-size: 1.1rem;
-}
-.cadreContentAbout::after,
-.cadreContentAbout::before{
-    position: absolute;
-    height:100%;
-    content:"";
-    width: 100%;
-    padding: 20px 0px
-}
-.cadreContentAbout::after{
-    border: 1px solid black;
-    background-color: transparent;
-    right:0;
-    top:5px;
-}
-.cadreContentAbout::before{
-    background-color: rgba(241,216,204,255);
-    left:5px;
-    top:10px;
-    z-index: -1;
-}
-
-.aboutRelative {
-    position: relative;
-    bottom: 350px;
-}
-
-.homeImgTop {
-    object-fit: cover;
-    width: 100%;
-    height: 1000px;
-    clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
-}
-
-.imgHome {
-    position: absolute;
-    object-fit: cover;
-
-    width: 100%;
-    height: 1000px;
-    z-index: -1;
-}
-
-
-
-
-img::after {
-    position: absolute;
-    width: 100vw;
-    height: 1000px;
-    background-color: black;
-}
-
-.alignTitle {
-    width: 85vw;
-    height: 466px;
-    border: 1px solid white;
-    top: 59px;
-    position: relative;
-}
-
-.titleAcceuil {
-    margin: 0;
-    font-size: 5em;
-    width: 300px;
-    margin-left: 25px;
-    margin-top: 150px;
-
-}
-p{
-    font-family: var(--secondary-font);
-    line-height: 170%;
-}
-
-.prenezRdv {
-    width: 14vw;
-    height: 60px;
-    margin-top: 80px;
-    text-align: center;
-    background-color: rgba(199,127,115,255);
-}
-
-.prenezRdv a {
-    position: relative;
-
-    text-decoration: none;
-    color: white;
-}
-
-
-.bottonRdvHome {
-    margin: 0;
-    padding-top: 20px;
-    
-}
-
-
-.aboutHome {
-    position: relative;
-    bottom: 160px;
-    background-color: rgba(241,216,204,255);
-    width: 200px;
-    height: 100px;
-    margin-left: 5px;
-}
-
-
-.aboutContent {
-    position: relative;
-    top: 10px;
-    right: 10px;
-    background-color: rgba(241,216,204,255);
-    width: 45vw;
-    height: 500px;  
-}
-
-.aboutContent p{
-    padding: 20px;
-    line-height: 1.5em;
-    letter-spacing: 0.1em;
-}
-
-.contentPosition {
-    height: 450px;
-    display: flex;
-    flex-direction: row-reverse;
-}
- 
-
-
-.imgAboutContent {
-    border: 1px solid;
-    width: 30vw;
-    height: 350px;
-    position: relative;
-    top: 140px;
-    margin-left: 0;
-}
-
-.imgAboutContent img {
-    width: 30vw;
-    height: 350px;
-    object-fit: cover;
-} 
-
-.titleComent {
-    background-color: rgba(241,216,204,255);
-    width: 30vw;
-    height: 90px;
-    margin-left: 10px;
-}
-
-
-
-.comentCarousel {
-    width: 85vw;
-    height: 200px;
-    background-color: rgba(0, 0, 255, 0.226);
-    margin-top: 50px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.comentContent {
-    padding-top: 20px;
-}
-
-.nameComentUser {
-    margin-top: 15px;
-}
-
-@media screen and (max-width: 1024px) {
-    .aboutContent{
-        margin-left: 10vw;
-    }
-    .columnSocial {
-        left: 20px;
-    }
-}
-
-
-@media screen and (max-width: 768px) {
-  h2 {
     font-size: 3.5em;
-    position: relative;
-    width: 280px;
-    margin-left: auto;
-    margin-right: auto;
+    position:relative;
+    width: 45vw;
+    top: 50px;
     text-align: center;
     z-index: 0;
-  }
-  h2::after,
-  h2::before {
-    position: absolute;
-    height: 100%;
-    width: 65%;
-    padding: 20px;
-  }
-  h2::before {
-    background-color: rgba(241, 216, 204, 255);
-    padding-left: 40px;
-
-    right: 10px;
-    top: -15px;
-    z-index: -1;
-  }
-  h2::after {
-    border: 1px solid black;
-    background-color: transparent;
-    padding-left: 40px;
-
-    right: 15px;
-    top: -20px;
-  }
-
-    .contentPosition {
-        height: 1000px;
-        flex-direction: column;
-        position: initial;
-
+    font-family: var(--main-font);
     }
-    .columnSocial {
-        display: none;
-        height: 100px;
-        width: 25vw;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+    h2::after,
+    h2::before{
+        position: absolute;
+        height:100%;
+        content:"";
+        width: 200%;
+        padding: 20px 0px;
+    }
+    h2::before{
+        background-color: rgba(241,216,204,255);
+        right:10px;
+        top:-5px;
+        z-index: -1;
+    }
+    h2::after{
+        border: 1px solid black;
+        background-color: transparent;
+        right:15px;
+        top:-10px;
+    }
+    h6 {
+        position:relative;
+        width: auto;
+        height: 100%;
+        z-index: 0;
+        padding: 30px;
+        font-size: 1.1rem;
+    }
+    h6::after,
+    h6::before{
+        position: absolute;
+        height:100%;
+        content:"";
+        width: 100%;
+        padding: 20px 0px
+    }
+    h6::after{
+        border: 1px solid black;
+        background-color: transparent;
+        right:5px;
+        top:0px;
+    }
+    h6::before{
+        background-color: rgba(241,216,204,255);
+        left:5px;
+        top:10px;
+        z-index: -1;
+    }
+    .aboutRelative {
         position: relative;
-        bottom: 95px;
-        margin-left: 65vw;
+        bottom: 350px;
+    }
+    .homeImgTop {
+        position: relative;
+        width: 100%;
+        height: 1000px;
+        clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
+    }
+    .imgHome {
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+        height: 1000px;
+        z-index: -1;
+    }
+    .first-block { 
+        height: 1500px;
+    }
+    .alignTitle {
+        width: 85vw;
+        height: 466px;
+        border: 1px solid white;
+        top: 55px;
+        position: relative;
     }
     .titleAcceuil {
-        text-align: center;
-        font-size: 4em;
+        margin: 0;
+        font-size: 5em;
+        width: 300px;
+        margin-left: 25px;
+        margin-top: 150px;
+    }
+    p{
+        font-family: var(--secondary-font);
+        line-height: 170%;
     }
     .prenezRdv {
-        margin-top: 100px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        width: 17vw;
-        font-size: 0.8em;
+        width: 14vw;
+        height: 60px;
+        margin-top: 80px;
+        text-align: center;
+        background-color: rgba(199,127,115,255);
     }
-    .cadreAboutHome {
-        margin-left: 36vw;
-        margin-right: 10vw;
-        border-left: 1px solid;
+    .prenezRdv a {
+        text-decoration: none;
+        color: white;
+    }
+    .bottonRdvHome {
+        margin: 0;
+        padding-top: 20px;
     }
     .aboutHome {
-        margin-left: 38vw;
-    }
-    .aboutHome h2 {
-        padding-left: 0;
-        text-align: center;
-    }
-    .imgAboutContent {
-        position: initial;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 100px;
-        margin-bottom: 50px;
-        width: 60vw;
-    }
-    .imgAboutContent img {
-        width: 60vw;
+        position: relative;
+        bottom: 160px;
+        background-color: rgba(241,216,204,255);
+        width: 200px;
+        height: 100px;
+        margin-left: 5px;
     }
     .aboutContent {
         position: relative;
-        width: 85vw;
+        top: 10px;
+        right: 10px;
+        background-color: rgba(241,216,204,255);
+        width: 45vw;
+        height: 500px;  
     }
-    .cadreAboutContent {
-        width: 85vw;
-        top: 1500px;
+    .aboutContent p{
+        padding: 20px;
+        line-height: 1.5em;
+        letter-spacing: 0.1em;
     }
-    .homeComent {
-        height: 100px;
+    .contentPosition {
+        margin-top: 140px;
+        height: 450px;
+        display: flex;
+        flex-direction: row-reverse;
     }
-    .cadreTitleComent {
-        position: initial;
-        margin-top: 100px;
-        margin-left: auto;
-        margin-right: auto;
+    .imgAboutContent img {
+        width: 30vw;
+        height: 350px;
+        object-fit: cover;
+    } 
+    .imgAboutContent {
+        width: 30vw;
+        height: 350px;
+        position: relative;
+        top: 80px;
+        margin-left: 0;
+    }
+    .imgAboutContent::after,
+    .imgAboutContent::before{
+        position: absolute;
+        height:100%;
+        content:"";
+        width: 100%;
+        padding: 20px 0px
+    }
+    .imgAboutContent::before {
         border: 1px solid;
+        padding: 0;
+        bottom: 6px;
+        right: 6px;
+    }
+    .imgAboutContent::after{
+        position: absolute;
+        left: 0;
+        height: 100%;
+        content: "";
+        width: 100%;
     }
     .titleComent {
-        position: relative;
-        bottom: 105px;
-        margin-left: 31.5vw;
-        z-index: -1;
+        background-color: rgba(241,216,204,255);
+        width: 30vw;
+        height: 90px;
+        margin-left: 10px;
     }
-}
-
-
+    .comentCarousel {
+        width: 85vw;
+        height: 200px;
+        background-color: rgba(0, 0, 255, 0.226);
+        margin-top: 50px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .comentContent {
+        padding-top: 20px;
+    }
+    .nameComentUser {
+        margin-top: 15px;
+    }
+    @media screen and (max-width: 1024px) {
+      h2 {
+        font-size: 3.5em;
+        position: relative;
+        width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        z-index: 0;
+      }
+      h2::after,
+      h2::before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+      }
+      h2::before {
+        background-color: rgba(241, 216, 204, 255);
+        padding-left: 40px;
+        right: 10px;
+        top: 0px;
+        z-index: -1;
+      }
+      h2::after {
+        border: 1px solid black;
+        background-color: transparent;
+        padding-left: 40px;
+        right: 15px;
+        top: -5px;
+      }
+        .contentPosition {
+            height: 1000px;
+            flex-direction: column;
+            position: initial;
+            margin-top: 0;
+        }
+        .columnSocial {
+            display: none;
+            height: 100px;
+            width: 25vw;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+            bottom: 95px;
+            margin-left: 65vw;
+        }
+        .titleAcceuil {
+            text-align: center;
+            font-size: 4em;
+        }
+        .prenezRdv {
+            margin-top: 100px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 17vw;
+            font-size: 0.8em;
+        }
+        .cadreAboutHome {
+            margin-left: 36vw;
+            margin-right: 10vw;
+            border-left: 1px solid;
+        }
+        .aboutHome {
+            margin-left: 38vw;
+        }
+        .aboutHome h2 {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 0;
+            text-align: center;
+        }
+        .homeImgTop {
+            width: 100%;
+            height: 1000px;
+            clip-path: polygon(0 0, 100% 0, 100% 61%, 0 81%);
+        }
+        .imgAboutContent {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 100px;
+            margin-bottom: 50px;
+            width: 60vw;
+        }
+        .imgAboutContent::after,
+        .imgAboutContent::before{
+            position: absolute;
+            height:100%;
+            content:"";
+            width: 100%;
+            padding: 20px 0px
+    }
+        .imgAboutContent::before {
+            border: 1px solid;
+            padding: 0;
+            bottom: 6px;
+            right: 6px;
+    }
+        .imgAboutContent::after{
+            left: 0;
+            height: 100%;
+            content: "";
+            width: 100%;
+    }
+        .imgAboutContent img {
+            width: 60vw;
+        }
+        .aboutContent {
+            position: relative;
+            width: 85vw;
+        }
+        .cadreAboutContent {
+            width: 85vw;
+            top: 1500px;
+        }
+        .homeComent {
+            height: 500px;
+        }
+        .homeComent h2{
+            top: 430px;
+        }
+        .cadreContent h6 {
+            top: 90px;
+        }
+        .cadreTitleComent {
+            position: initial;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid;
+        }
+        .titleComent {
+            position: relative;
+            bottom: 105px;
+            margin-left: 31.5vw;
+            z-index: -1;
+        }
+    }
+    @media screen and (max-width: 425px) {
+       .homeComent h2{
+           top: 570px;
+       }
+       .imgAboutContent{
+           top: 0px;
+       }
+       .cadreContent h6{
+           top: 0px; 
+    }
+    } 

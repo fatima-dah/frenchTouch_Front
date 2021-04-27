@@ -1,14 +1,13 @@
 import "./App.css";
 import Home from "./components/visiteur/home/Home";
 import HomeAdmin from "./components/Administrateur/Adminhome/AdminHome";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import AdminLogin from "./components/Adminlogin/AdminLogin";
 import Prestations from "./components/visiteur/prestation/Presentation";
 import CartGifts from "./components/visiteur/prestation/CartGift";
 import Reserves from "./components/visiteur/reserve/Reserve";
 import Cart from "./components/visiteur/panier/Cart";
 import RouteAdmin from './components/RouteAdmin';
-
 import Books from "./components/visiteur/book/Book";
 import Products from "./components/visiteur/shop/Products";
 import Palettes from "./components/visiteur/palette/Palette";
@@ -16,7 +15,6 @@ import Abouts from "./components/visiteur/about/About";
 import PrestationsAdmin from "./components/Administrateur/Adminprestation/AdminPrestation";
 import CartGiftsAdmin from "./components/Administrateur/Adminprestation/AdminGift";
 import ReservesAdmin from "./components/Administrateur/Adminreserve/AdminReserve";
-import BooksAdmin from "./components/Administrateur/Adminbook/AdminBook";
 import ShopsAdmin from "./components/Administrateur/Adminshop/AdminShop";
 import PalettesAdmin from "./components/Administrateur/Adminpalette/AdminPalette";
 import AboutsAdmin from "./components/Administrateur/Adminabout/AdminAbout";
@@ -80,7 +78,7 @@ function App() {
           <AdminLogin cart={cart} setToken={setToken} />
         </Route>
         <Route path="/admin" component={Admin} >
-          {getToken() ?  <Admin />  : <AdminLogin setToken={setToken} />}
+          {getToken() ?  <Admin />  : <AdminLogin cart={cart}  setToken={setToken} />}
         </Route> 
         <RouteAdmin path="/home_admin" component={HomeAdmin} isAuth={getToken()} />
         <Route path="/home_admin" component={HomeAdmin}>
@@ -103,9 +101,7 @@ function App() {
         <Route path="/rendezvous_admin" component={ReservesAdmin}>
           {getToken() ? <ReservesAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
-        <Route path="/book_admin" component={BooksAdmin}>
-          {getToken() ? <BooksAdmin /> : <AdminLogin setToken={setToken} />}
-        </Route>
+        
         <Route path="/shop_admin" component={ShopsAdmin}>
           {getToken() ? <ShopsAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>

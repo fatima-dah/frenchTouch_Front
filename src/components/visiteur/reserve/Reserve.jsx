@@ -1,4 +1,4 @@
-// import "./Reserve.css";
+import "./Reserve.css";
 import { FETCH } from "./../../../Fetch";
 // import nails from "../../../assets/nails.jpg";
 import { useEffect, useState } from "react";
@@ -7,7 +7,7 @@ import Footer from './../footer/Footer'
 
 import axios from "axios";
 import Calendar from "./Calendar";
-import AdminReserve from "./Admin_reserve";
+import AdminReserve from "../../Administrateur/Adminreserve/Admin_reserve";
 
 function Reserve({cart}) {
   const [home, setHome] = useState([]);

@@ -24,6 +24,7 @@ function Home() {
   const [file2, setFile2] = useState("");
   const [fileName2, setFilename2] = useState("");
 
+
   useEffect(() => {
     axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
   }, []);
@@ -193,6 +194,20 @@ function Home() {
   return (
     <div>
       <Nav />
+      <div className="imageAboutServices">
+        <div className="alignTitleService App">
+          <h1 className="titleAcceuilServices">Accueil</h1>
+        </div>
+        {home.map((home) => (
+          <div>
+            <img
+              src={home.picture_about}
+              className="imageAbout"
+              alt="image_acceuil"
+            />
+          </div>
+        ))}
+      </div>
       <div ClassName="">
       {home.map((res) => (
         <div>

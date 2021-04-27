@@ -18,6 +18,11 @@ function Prestations() {
   const [fileName, setFileName] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
   const token = localStorage.getItem("TOKEN");
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
+  }, []);
 
   const onChange = (e) => {
     setFile(e.target.files[0]);
@@ -93,6 +98,20 @@ function Prestations() {
   return (
     <div>
       <NavBar />
+      <div className="imageAboutServices">
+        <div className="alignTitleService App">
+          <h1 className="titleAcceuilServices">Palette</h1>
+        </div>
+        {home.map((home) => (
+          <div>
+            <img
+              src={home.picture_about}
+              className="imageAbout"
+              alt="image_acceuil"
+            />
+          </div>
+        ))}
+      </div>
       <div className="PaletteAdmin">
         <div>
           <h3 className="titleService">Ajouter une nuance</h3>

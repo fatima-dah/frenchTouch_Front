@@ -28,7 +28,10 @@ function RegisterLogin() {
     const handleSubmit = (e) => {
 
         e.preventDefault();
-        if (statusBtn === true) {
+        if (password !== confirmedPassword) {
+          alert("le mots de passe est incorect");
+      }
+        else if (statusBtn === true) {
           setStatusBtn(false);
           axios
             .post(
@@ -41,7 +44,7 @@ function RegisterLogin() {
                 confirmedPassword : confirmedPassword,
 
               },
-              handleSubmitPassword()
+            
 
             )
             .then(function (response) {

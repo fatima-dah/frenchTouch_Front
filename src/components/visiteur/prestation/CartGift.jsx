@@ -164,7 +164,7 @@ function CartGift({ cart }) {
           <div className="inputGift">
             <label>
               {" "}
-              Nom béneficiaire :
+              Prénom du béneficiaire :
               <input
                 type="text"
                 name="firstname"

@@ -6,7 +6,7 @@ function Admin_reserve() {
     <div className="redirectRdv">
 
       <a href="https://calendly.com/event_types/user/me">
-      <button>Admin</button>
+      <button className="btn App">Admin Calendly</button>
       </a>
     </div>
   );

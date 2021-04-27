@@ -10,7 +10,7 @@ const Calendar = () => {
 
   return (
     <div>
-      <div className="calendlyCart">
+      <div className="calendlyCart App">
         <InlineWidget className="" url="https://calendly.com/dahnini-fatima" />
       </div>
     </div>

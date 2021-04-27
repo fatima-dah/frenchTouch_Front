@@ -65,7 +65,7 @@ const handleLogin = async (e) => {
   return (
     <div>
       <Header
-        // getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
+        getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
       />
       <div>
         <div className="imageAboutServices">

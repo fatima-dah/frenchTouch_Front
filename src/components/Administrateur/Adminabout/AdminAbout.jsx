@@ -20,6 +20,11 @@ function About() {
   const [city, setCity] = useState({city : ""});   
   const [file, setFile] = useState("");
   const [fileName, setFilename] = useState("");
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
+  }, []);
 
   useEffect(() => {
     axios.get(`${FETCH}/aboutCarts`).then((res) => setAboutCart(res.data));
@@ -166,9 +171,23 @@ function About() {
   return (
     <div>
          <Nav />
-
+         <div className="imageAboutServices">
+        <div className="alignTitleService App">
+          <h1 className="titleAcceuilServices">Contact</h1>
+        </div>
+        {home.map((home) => (
+          <div>
+            <img
+              src={home.picture_about}
+              className="imageAbout"
+              alt="image_acceuil"
+            />
+          </div>
+        ))}
+      </div>
       <div className="Contacts App">
         {aboutCart.map((Cart) => (
+          <div className="cartAbout ">
           <div className="margContact">
             <div className="CartContact">
               <div>
@@ -188,9 +207,10 @@ function About() {
                   />
                 </div>
               </div>
+              </div>
             </div>
-            <div>
-            <div className="ModifyService">
+            <div className="AboutFlex">
+            <div className="ModifyAbout">
             <Accordion>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}

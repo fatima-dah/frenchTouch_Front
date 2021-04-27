@@ -20,7 +20,7 @@ const Nav = () => {
   return (
     <section>
     <nav className="App">
-      <Link to="/" onClick={handleSubmit}>
+      <Link to="/" >
           <img className="logo" src={LogoSVG} alt="logo" />
         </Link>
       <div className="menu-items">
@@ -33,9 +33,7 @@ const Nav = () => {
                 PRESTATIONS
               </Link>
 
-              <Link className="router" to="/book_admin">
-                BOOK{" "}
-              </Link>
+             
               <Link className="router" to="/rendezvous_admin">
                 PRENDRE RDV{" "}
               </Link>
@@ -48,6 +46,9 @@ const Nav = () => {
               <Link className="router" to="/nuancier_admin">
                 NUANCIER{" "}
               </Link>
+              <Link className="router" to="/" onClick={handleSubmit}>
+                DÉCONNEXION
+             </Link>
             
 
               <a href="#" className="close">

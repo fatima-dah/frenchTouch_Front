@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import './Palette.css'
+import "./Palette.css";
 import Header from "./../navBar/NavBar";
-import Footer from './../footer/Footer'
+import Footer from "./../footer/Footer";
 
 import axios from "axios";
 import { FETCH } from "./../../../Fetch";
 
-
-function Palette({cart}) {
+function Palette({ cart }) {
   const [palette, setPalette] = useState([]);
   const [home, setHome] = useState([]);
 
@@ -21,7 +20,7 @@ function Palette({cart}) {
 
   return (
     <div>
-        <Header
+      <Header
         getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
       />
       <div className="imageAboutServices">
@@ -39,23 +38,22 @@ function Palette({cart}) {
         ))}
       </div>
       <div className="Palettes App">
-      {palette.map((palette) => (
-        <div className="margPalette">
-        <div className="palette">
-          <img
-            className="picturePalettes"
-            src={palette.picture}
-            alt="picture palette"
-          />
+        {palette.map((palette) => (
+          <div className="margPalette">
+            <div className="palette">
+              <img
+                className="picturePalettes"
+                src={palette.picture}
+                alt="picture palette"
+              />
+            </div>
+            <div>
+              <p>{palette.name} </p>
+            </div>
           </div>
-          <div>
-          <p>{palette.name} </p>
-        </div>
-        </div>
-      ))}
+        ))}
       </div>
       <Footer />
-
     </div>
   );
 }

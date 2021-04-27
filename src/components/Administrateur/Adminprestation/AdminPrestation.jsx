@@ -22,7 +22,11 @@ function Prestations() {
   const [file, setFile] = useState("");
   const [fileName, setFileName] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
-  const token = localStorage.getItem("TOKEN");
+  const [home, setHome] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
+  }, []);
 
   const onChange = (e) => {
     setFile(e.target.files[0]);
@@ -68,7 +72,7 @@ function Prestations() {
     if (name === "" || description === "" || price === "" || duration === "") {
       setValid("");
     } else {
-      setValid("Actualité ajoutée avec succès.");
+      setValid("Préstation ajoutée avec succès.");
     }
   };
 
@@ -87,11 +91,7 @@ function Prestations() {
             sub_category_id: subCategorys,
             image: uploadedFile.filePath,
           },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
+         
         )
         .then(function (response) {
           console.log(response);
@@ -107,6 +107,22 @@ function Prestations() {
   return (
     <div >
       <NavBar />
+      <div className="imageAboutServices">
+        <div className="alignTitleService App">
+          <h1 className="titleAcceuilServices">Prestation</h1>
+        </div>
+        {home.map((home) => (
+          <div>
+            <img
+              src={home.picture_about}
+              className="imageAbout"
+              alt="image_acceuil"
+            />
+          </div>
+        ))}
+      </div>
+      
+      
       <div>
     <Presentations />
     </div>
