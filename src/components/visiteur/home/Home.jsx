@@ -65,7 +65,7 @@ function Home({ cart }) {
         : getHome.map((res) => (
             <div>
               <div className="homeImgTop" style={{ backgroundImage: "" }}>
-                <div className="alignTitle">
+                <div className="alignTitle App">
                   <h1 className="titleAcceuil">French Touch</h1>
                 </div>
                 <div className="prenezRdv">
