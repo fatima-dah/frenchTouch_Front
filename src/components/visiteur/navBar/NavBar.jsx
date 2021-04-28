@@ -35,7 +35,7 @@ function NavBar({getCartReduce} ) {
               <Link className="router" to="/book">
                 BOOK{" "}
               </Link>
-              <Link className="router" to="/rendezvous">
+              <Link className="router navRdv" to="/rendezvous">
                 PRENDRE RDV{" "}
               </Link>
               <Link className="router" to="/about">

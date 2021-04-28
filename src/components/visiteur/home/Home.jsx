@@ -48,15 +48,13 @@ function Home({ cart }) {
                 <Social />
               </div>
               <div className="aboutRelative">
-                <div className="aboutH2">
-                  <h2>Á Propos</h2>
-                </div>
+                  <h2 className="App Homeabout">A Propos</h2>
                 <div className="contentPosition">
                   <div className="imgAboutContent App">
-                    <img src={res.picture_home} alt="" />
+                    <img className="imageAbout" src={res.picture_home} alt="" />
                   </div>
                   <div className="cadreContent App">
-                    <h6>{res.content_about}</h6>
+                    <p className="contentAbout">{res.content_about}</p>
                   </div>
                 </div>
               </div>
@@ -75,7 +73,7 @@ function Home({ cart }) {
                 </div>
                 <Social />
               </div>
-              <h2>Á Propos</h2>
+              <h2 className="App Homeabout">A Propos</h2>
               <div className="contentPosition">
                 <div className="imgAboutContent App">
                   <img src="" alt="Chargement" />
@@ -86,8 +84,8 @@ function Home({ cart }) {
               </div>
             </div>
           ))}
-      <div className="homeComent App">
-        <h2>Votre avis compte !</h2>
+      <div className="homeComent">
+        <h2 className="App notice">Votre avis compte !</h2>
       </div>
       <CarouselComent />
       <Footer />

@@ -1,9 +1,8 @@
 import React from 'react';
-import Insta from "../../assets/insta.png";
-import Facebook from "../../assets/facebook.png";
-import Pinterest from "../../assets/pinterest.png";
+import Insta from "../../assets/instagramBlack.png";
+import Facebook from "../../assets/facebookBlack.png";
+import Pinterest from "../../assets/pinterestBlack.png";
 import "./Social.css";
-
 function Social() {
     return (
         <div className="social">
@@ -34,5 +33,4 @@ function Social() {
         </div>
     )
 }
-
 export default Social
