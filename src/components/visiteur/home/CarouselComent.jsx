@@ -12,25 +12,24 @@ function CarouselComent() {
   const [display, setDisplay] = useState(false);
 
   useEffect(() => {
-console.log(comment);
-    if(!comment){
-    axios
-      .get(`${FETCH}/notices`)
-      .then((res) => {
-        setComment(res.data);
-        setLoading(true);
-        changeDisplay();
-        if (res.data.length > 0) {
-          setDisplay(true);
-        } else {
-          setDisplay(false);
-        }
-      })
-      .catch(function (erreur) {
-        console.log(erreur);
-      });
-    
-  }
+    console.log(comment);
+    if (!comment) {
+      axios
+        .get(`${FETCH}/notices`)
+        .then((res) => {
+          setComment(res.data);
+          setLoading(true);
+          changeDisplay();
+          if (res.data.length > 0) {
+            setDisplay(true);
+          } else {
+            setDisplay(false);
+          }
+        })
+        .catch(function (erreur) {
+          console.log(erreur);
+        });
+    }
   });
 
   const changeDisplay = () => {
@@ -45,9 +44,10 @@ console.log(comment);
     }
   };
 
-  
   return (
     <div>
+      <h2 className=" notice">Votre avis compte !</h2>
+
       {display ? (
         <div className="full App">
           <Carousel
@@ -70,7 +70,6 @@ console.log(comment);
                   ))
               : null}
           </Carousel>
-          
         </div>
       ) : null}
     </div>

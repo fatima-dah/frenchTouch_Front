@@ -30,13 +30,11 @@ function Home({ cart }) {
       <Header
         getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
       />
-      {isLoading
+      {isLoading 
         ? getHome.map((res, index) => (
             <div className="first-block">
               <div className="homeImgTop">
-                <div className="black-filter">
                   <img className="imgHome" src={res.picture_about} alt="" />
-                </div>
                 <div className="alignTitle App">
                   <h1 className="titleAcceuil">French Touch</h1>
                 </div>
@@ -48,12 +46,12 @@ function Home({ cart }) {
                 <Social />
               </div>
               <div className="aboutRelative">
-                  <h2 className="App Homeabout">A Propos</h2>
-                <div className="contentPosition">
-                  <div className="imgAboutContent App">
+                  <h2 className=" Homeabout">A Propos</h2>
+                <div className="contentPosition App">
+                  <div className="imgAboutContent ">
                     <img className="imageAbout" src={res.picture_home} alt="" />
                   </div>
-                  <div className="cadreContent App">
+                  <div className="cadreContent ">
                     <p className="contentAbout">{res.content_about}</p>
                   </div>
                 </div>
@@ -84,9 +82,6 @@ function Home({ cart }) {
               </div>
             </div>
           ))}
-      <div className="homeComent">
-        <h2 className="App notice">Votre avis compte !</h2>
-      </div>
       <CarouselComent />
       <Footer />
     </div>

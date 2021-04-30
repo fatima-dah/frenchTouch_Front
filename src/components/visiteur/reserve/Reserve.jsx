@@ -21,7 +21,7 @@ function Reserve({cart}) {
 
   return (
     <div >
-       <Header 
+       <Header className="NavRendezVous"
               getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
               />
       <div>

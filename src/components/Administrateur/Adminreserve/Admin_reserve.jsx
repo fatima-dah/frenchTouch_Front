@@ -1,3 +1,4 @@
+import './AdminReserve.css';
 
 function Admin_reserve() {
 
@@ -6,7 +7,7 @@ function Admin_reserve() {
     <div className="redirectRdv">
 
       <a href="https://calendly.com/event_types/user/me">
-      <button className="btn App">Admin Calendly</button>
+      <button className="btn AdminCalendly App">Admin Calendly</button>
       </a>
     </div>
   );

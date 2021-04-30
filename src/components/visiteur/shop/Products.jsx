@@ -61,7 +61,7 @@ function Products({ cart, setCart }) {
           ))}
         </div>
       </div>
-
+<div className="shopcart">
       <div className="cartesShop App ">
         {products.map((product, idx) => (
           <div className="carteShop " key={idx}>
@@ -83,13 +83,13 @@ function Products({ cart, setCart }) {
                 >  Ajouter au panier
                 </button>
             </div>
-            
+            </div>
            
             
-          </div>
         ))}
       </div>
-
+      </div>
+ 
       <Footer />
     </div>
   );

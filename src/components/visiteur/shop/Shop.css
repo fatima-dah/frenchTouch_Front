@@ -21,6 +21,9 @@
     color: var(--dark);
     min-height: calc(100vh - (254px + 200px + 46px + 25px + 50px));
   }
+  .shopcart{
+    margin-top:50px;
+  } 
 
   .shopDescription{
     display: flex;

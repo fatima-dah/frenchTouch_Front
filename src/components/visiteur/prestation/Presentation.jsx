@@ -35,7 +35,7 @@ function Presentation({cart} ) {
        </div>
        {home.map((home) => (
          <div>
-           <img src={home.picture_about} className="imageAbout" alt="image_acceuil" />
+           <img   className="imageAbout" src={home.picture_about} alt="image_acceuil" />
          </div>
        ))} 
       

@@ -6,7 +6,7 @@ import "./NavBar.css";
 
 import { useState } from "react";
 
-import LogoSVG from "../../../assets/entier noir.svg";
+import LogoSVG from "../../../assets/entier blanc.svg";
 
 function NavBar({getCartReduce} ) {
   const [openFirst, setOpenFirst] = useState(false);
