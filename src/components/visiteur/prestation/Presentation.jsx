@@ -47,15 +47,15 @@ function Presentation({cart} ) {
       <div className="ServicePrestations">
         {servicePresentation.map((servicePresentation) => (
           <div className="PresentationStyle">
-            <div className="imagePresentation">
+            <div className="imagePresentations">
               <img
-                className="imagePresentationFrenchTouch"
+                className="imagePresentationsFrenchTouch"
                 src={servicePresentation.image_service}
                 alt=""
               />
             </div>
             <div className="vertical-line"></div>
-            <div className="textPresentation">
+            <div className="textePresentation">
               <h3 className="titlePresentation">
                 {servicePresentation.title}{" "}
               </h3>

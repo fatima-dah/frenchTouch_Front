@@ -14,6 +14,7 @@ h2 {
   margin-top: 50px;
 }
 
+
 h2::after,
 h2::before {
   position: absolute;
@@ -200,10 +201,16 @@ h2::after {
 @media screen and (max-width: 868px) {
   h2 {
     display: flex;
+    font-size: 1.9em;
+
     justify-content: center;
     position: relative;
     text-align: center;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 20px;
+    margin-bottom:50px;
     z-index: 0;
   }
 
@@ -223,6 +230,13 @@ h2::after {
     margin-left: auto;
     margin-right: auto;
   }
+  .CommentTitle{
+    width: 60%;
+    margin-bottom:80px;
+
+    margin-left: auto;
+    margin-right: auto;
+  } 
 
   .contentPosition {
     flex-direction: column;
@@ -282,6 +296,10 @@ h2::after {
   .notice {
     width: 80%;
   }
+  .CommentTitle{
+    width: 80%;
+    font-size: 1.5em;
+  } 
   .imgAboutContent {
     border: 2px solid var(--light-color);
     width: 300px;

@@ -59,14 +59,7 @@
   .submitPrestation {
     display: flex;
     justify-content: flex-end;
-    /* background-color: var(--secondary-color-light);
-    color: white;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    font-weight: bold;
-    border: none;
-    font-size: 14px; */
+   
   }
 
   .AddformService {
@@ -101,7 +94,8 @@
     width: auto;
     border-radius: 5px;
   }
-  
+
+
   @media screen and (max-width: 768px) {
  
    

@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import CarouselComent from "./CarouselComent";
+import CommentCarousel from './CommentCarousel'
 import Header from "./../navBar/NavBar";
 import Social from "../Social";
 import Footer from "./../footer/Footer";
@@ -64,25 +65,29 @@ function Home({ cart }) {
                 <div className="alignTitle App">
                   <h1 className="titleAcceuil">French Touch</h1>
                 </div>
-                <div className="prenezRdv">
+                <div className="prenezRdv App">
                   <Link to="/rendezvous">
                     <h4 className="bottonRdvHome">PRENEZ RDV</h4>
                   </Link>
                 </div>
                 <Social />
               </div>
-              <h2 className="App Homeabout">A Propos</h2>
-              <div className="contentPosition">
-                <div className="imgAboutContent App">
+              <div className="aboutRelative">
+
+              <h2 className=" Homeabout">A Propos</h2>
+              <div className="contentPosition App">
+                <div className="imgAboutContent ">
                   <img src="" alt="Chargement" />
                 </div>
                 <div className="cadreContent">
-                  <h6>Chargement</h6>
+                  <p>Chargement</p>
                 </div>
+              </div>
               </div>
             </div>
           ))}
       <CarouselComent />
+      <CommentCarousel />
       <Footer />
     </div>
   );

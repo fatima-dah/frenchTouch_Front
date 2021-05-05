@@ -22,9 +22,9 @@
   font-weight: bold;
 } 
 
-::placeholder{
+/* ::placeholder{
 color:black;
-} 
+}  */
 .scroll{
   height: 100px;
   font-weight: bold;

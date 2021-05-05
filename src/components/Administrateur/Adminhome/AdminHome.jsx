@@ -1,5 +1,5 @@
 import Nav from "./../NavBar/Nav";
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { Button } from "reactstrap";
@@ -9,6 +9,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "./AdminHome.css";
+import AcceptComment from "./AcceptComment";
 import { useHistory } from "react-router-dom";
 
 import axios from "axios";
@@ -23,7 +24,6 @@ function Home() {
   const [fileName, setFilename] = useState("");
   const [file2, setFile2] = useState("");
   const [fileName2, setFilename2] = useState("");
-
 
   useEffect(() => {
     axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
@@ -82,8 +82,7 @@ function Home() {
         .catch(function (erreur) {
           console.log(erreur);
         });
-        window.history.go();
-
+      window.history.go();
     } catch (erreur) {
       if (erreur.response.status === 500) {
         console.log("There was a problem with the server");
@@ -113,8 +112,7 @@ function Home() {
         .catch(function (erreur) {
           console.log(erreur);
         });
-        window.history.go();
-
+      window.history.go();
     } catch (erreur) {
       if (erreur.response.status === 500) {
         console.log("There was a problem with the server");
@@ -136,8 +134,7 @@ function Home() {
             label: "Oui",
             onClick: async () => {
               handleUpload(id);
-
-            }, 
+            },
           },
           {
             label: "Non",
@@ -189,8 +186,6 @@ function Home() {
     }
   };
 
- 
-
   return (
     <div>
       <Nav />
@@ -209,124 +204,174 @@ function Home() {
         ))}
       </div>
       <div ClassName="">
-      {home.map((res) => (
-        <div>
-          <div className="">
-            <div className="imagePresentation">
-              <img
-                className="imagePresentationFrenchTouch"
-                src={res.picture_home}
-                alt=""
-              />
-            </div>
-            <div className="imagePresentation">
-              <img
-                className="imagePresentationFrenchTouch"
-                src={res.picture_about}
-                alt=""
-              />
-            </div>
-            <div className="textPresentation">
-              <p className="descriptionPrestation">{res.content_about}</p>
-            </div>
-          </div>
-          <div className="ModifyService">
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls=""
-                id=""
-              >
-                <Typography>Modifier</Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <div className="mb-2">
-                 
-                  <form
-                    className="form-modify"
-                    onSubmit={function (e) {
-                      e.preventDefault();
-
-                      handleSubmitContentAbout(res.id);
-                    }}
-                  >
-                    <textarea
-                      rows="4"
-                      cols="32"
-                      required
-                      type="text"
-                      placeholder="Texte"
-                      className="mb-2"
-                      onChange={(e) =>
-                        setContentAbout({
-                          content_about: e.target.value,
-                        })
-                      }
-                    />
-                    <Button className="button-card">Ok</Button>
-                  </form>
-                  <form
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      onSubmitPicture(res.id);
-                    }}
-                  >
-                    <div className="custom-file mb-2 mt-2">
-                      image de couverture :
-                      <input
-                        required
-                        type="file"
-                        className="custom-file-input"
-                        id="customFile"
-                        onChange={onChange}
-                        accept="image/*"
+        {home.map((res) => (
+          <div>
+            <div className="App">
+              <div className="AdminHomeImage">
+                <div className="adminHomeMargin">
+                  <div className="imagePresentation">
+                    <div>
+                      <img
+                        className="imagePresentationFrenchTouchAdmin"
+                        src={res.picture_home}
+                        alt=""
                       />
-                      <label className="custom-file-label" htmlFor="customFile">
-                        {fileName}
-                      </label>
                     </div>
+                    <div>
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls=""
+                          id=""
+                        >
+                          <Typography>Modifier</Typography>
+                        </AccordionSummary>
 
-                    <input
-                      type="submit"
-                      value="Télécharger"
-                      className="btn btn-primary btn-block mt-2"
-                    />
-                  </form>
-                  <form
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      onSubmitPicture2(res.id);
-                    }}
-                  >
-                    <div className="custom-file mb-2 mt-2">
-                      image :
-                      <input
-                        required
-                        type="file"
-                        className="custom-file-input"
-                        id="customFile"
-                        onChange={onChange2}
-                        accept="image/*"
-                      />
-                      <label className="custom-file-label" htmlFor="customFile">
-                        {fileName2}
-                      </label>
+                        <AccordionDetails>
+                          <div className="mb-2">
+                            <form
+                              onSubmit={function (e) {
+                                e.preventDefault();
+                                onSubmitPicture(res.id);
+                              }}
+                            >
+                              <div className="custom-file mb-2 mt-2">
+                                <input
+                                  required
+                                  type="file"
+                                  className="custom-file-input "
+                                  id="customFile"
+                                  onChange={onChange}
+                                  accept="image/*"
+                                />
+                                <label
+                                  className="custom-file-label"
+                                  htmlFor="customFile"
+                                >
+                                  {fileName}
+                                </label>
+                              </div>
+
+                              <input
+                                type="submit"
+                                value="Télécharger"
+                                className="btn-primary btn-block mt-2"
+                              />
+                            </form>
+                          </div>
+                        </AccordionDetails>
+                      </Accordion>
                     </div>
-
-                    <input
-                      type="submit"
-                      value="Télécharger"
-                      className="btn btn-primary btn-block mt-2"
-                    />
-                  </form>
+                  </div>
                 </div>
-              </AccordionDetails>
-            </Accordion>
+                <div className="adminHomeMargin">
+                  <div className="imagePresentation">
+                    <div>
+                      <img
+                        className="imagePresentationFrenchTouchAdmin"
+                        src={res.picture_about}
+                        alt=""
+                      />
+                    </div>
+                    <div>
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls=""
+                          id=""
+                        >
+                          <Typography>Modifier</Typography>
+                        </AccordionSummary>
+
+                        <AccordionDetails>
+                          <div className="mb-2">
+                            <form
+                              onSubmit={function (e) {
+                                e.preventDefault();
+                                onSubmitPicture2(res.id);
+                              }}
+                            >
+                              <div className="custom-file mb-2 mt-2">
+                                <input
+                                  required
+                                  type="file"
+                                  className="custom-file-input"
+                                  id="customFile"
+                                  onChange={onChange2}
+                                  accept="image/*"
+                                />
+                                <label
+                                  className="custom-file-label"
+                                  htmlFor="customFile"
+                                >
+                                  {fileName2}
+                                </label>
+                              </div>
+
+                              <input
+                                type="submit"
+                                value="Télécharger"
+                                className=" btn-primary btn-block mt-2"
+                              />
+                            </form>
+                          </div>
+                        </AccordionDetails>
+                      </Accordion>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              < div className="adminHomeMargin">
+                <div className="textPresentation">
+                  <div>
+                    <p className="descriptionPrestation">{res.content_about}</p>
+                  </div>
+                  <div>
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls=""
+                        id=""
+                      >
+                        <Typography>Modifier</Typography>
+                      </AccordionSummary>
+
+                      <AccordionDetails>
+                        <div className="mb-2">
+                          <form
+                            className="form-modify"
+                            onSubmit={function (e) {
+                              e.preventDefault();
+
+                              handleSubmitContentAbout(res.id);
+                            }}
+                          >
+                            <textarea
+                              rows="4"
+                              cols="32"
+                              required
+                              type="text"
+                              placeholder="Texte"
+                              className="mb-2"
+                              onChange={(e) =>
+                                setContentAbout({
+                                  content_about: e.target.value,
+                                })
+                              }
+                            />
+                            <Button className="button-card">Ok</Button>
+                          </form>
+                        </div>
+                      </AccordionDetails>
+                    </Accordion>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
       </div>
+      <AcceptComment />
     </div>
   );
 }

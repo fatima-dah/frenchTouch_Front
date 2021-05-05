@@ -8,16 +8,17 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Nav from './../NavBar/Nav'
-import "./AdminAbout.css"
+import Nav from "./../NavBar/Nav";
+import ContactAbout from './ContactAbout';
+import "./AdminAbout.css";
 
 import { FETCH } from "./../../../Fetch";
 
 function About() {
   const [aboutCart, setAboutCart] = useState([]);
-  const [address, setAdress] = useState({address : ""});
-  const [PostalCode, setPostalCode] = useState({PostalCode : ""});
-  const [city, setCity] = useState({city : ""});   
+  const [address, setAdress] = useState({ address: "" });
+  const [PostalCode, setPostalCode] = useState({ PostalCode: "" });
+  const [city, setCity] = useState({ city: "" });
   const [file, setFile] = useState("");
   const [fileName, setFilename] = useState("");
   const [home, setHome] = useState([]);
@@ -124,8 +125,7 @@ function About() {
         .catch(function (erreur) {
           console.log(erreur);
         });
-        window.history.go();
-
+      window.history.go();
     } catch (erreur) {
       if (erreur.response.status === 500) {
         console.log("There was a problem with the server");
@@ -147,8 +147,7 @@ function About() {
             label: "Oui",
             onClick: async () => {
               handleUpload(id);
-
-            }, 
+            },
           },
           {
             label: "Non",
@@ -170,8 +169,8 @@ function About() {
 
   return (
     <div>
-         <Nav />
-         <div className="imageAboutServices">
+      <Nav />
+      <div className="imageAboutServices">
         <div className="alignTitleService App">
           <h1 className="titleAcceuilServices">Contact</h1>
         </div>
@@ -185,138 +184,142 @@ function About() {
           </div>
         ))}
       </div>
+      <ContactAbout />
       <div className="Contacts App">
         {aboutCart.map((Cart) => (
           <div className="cartAbout ">
-          <div className="margContact">
-            <div className="CartContact">
-              <div>
-                <h3 className="titleContact">Coordonnées</h3>
-                <div  className="ContactAdress">
-                  <h5>Adresse :</h5>
-                  <p>{Cart.address} <br/>
-                    {Cart.PostalCode} {Cart.city}
-                  </p>
-                </div>
+            <div className="margContact">
+              <div className="CartContact">
                 <div>
-                  <h5>Carte :</h5>
-                  <img
-                    className="pictureContact"
-                    src={Cart.imageCart}
-                    alt="image cart"
-                  />
+                  <h3 className="titleContact">Coordonnées</h3>
+                  <div className="ContactAdress">
+                    <h5>Adresse :</h5>
+                    <p>
+                      {Cart.address} <br />
+                      {Cart.PostalCode} {Cart.city}
+                    </p>
+                  </div>
+                  <div>
+                    <h5>Carte :</h5>
+                    <img
+                      className="pictureContact"
+                      src={Cart.imageCart}
+                      alt="image cart"
+                    />
+                  </div>
                 </div>
-              </div>
               </div>
             </div>
             <div className="AboutFlex">
-            <div className="ModifyAbout">
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls=""
-                id=""
-              >
-                <Typography>Modifier</Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <div className="mb-2">
-                <form
-                    className="form-modify"
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      handleSubmitAdress(Cart.id);
-                    }}
+              <div className="ModifyAbout">
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls=""
+                    id=""
                   >
-                    <input
-                      required
-                      type="text"
-                      placeholder="Code postal"
-                      className="mb-2"
-                      onChange={(e) =>
-                        setAdress({
-                          address: e.target.value,
-                        })
-                      }
-                    />
-                    <Button className="button-card">Ok</Button>
-                  </form>
+                    <Typography>Modifier</Typography>
+                  </AccordionSummary>
 
+                  <AccordionDetails>
+                    <div className="mb-2">
+                      <form
+                        className="form-modify"
+                        onSubmit={function (e) {
+                          e.preventDefault();
+                          handleSubmitAdress(Cart.id);
+                        }}
+                      >
+                        <input
+                          required
+                          type="text"
+                          placeholder="Adresse"
+                          className="mb-2"
+                          onChange={(e) =>
+                            setAdress({
+                              address: e.target.value,
+                            })
+                          }
+                        />
+                        <Button className="button-card">Ok</Button>
+                      </form>
 
-                  <form
-                    className="form-modify"
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      handleSubmitPostalCode(Cart.id);
-                    }}
-                  >
-                    <input
-                      required
-                      type="text"
-                      placeholder="Code postal"
-                      className="mb-2"
-                      onChange={(e) =>
-                        setPostalCode({
-                          PostalCode: e.target.value,
-                        })
-                      }
-                    />
-                    <Button className="button-card">Ok</Button>
-                  </form>
+                      <form
+                        className="form-modify"
+                        onSubmit={function (e) {
+                          e.preventDefault();
+                          handleSubmitPostalCode(Cart.id);
+                        }}
+                      >
+                        <input
+                          required
+                          type="text"
+                          placeholder="Code postal"
+                          className="mb-2"
+                          onChange={(e) =>
+                            setPostalCode({
+                              PostalCode: e.target.value,
+                            })
+                          }
+                        />
+                        <Button className="button-card">Ok</Button>
+                      </form>
 
-                  <form
-                    className="form-modify"
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      handleSubmitCity(Cart.id);
-                    }}
-                  >
-                    <input
-                      required
-                      type="text"
-                      placeholder="ville"
-                      className="mb-2"
-                      onChange={(e) =>
-                        setCity({
-                         city : e.target.value,
-                        })
-                      }
-                    />
-                    <Button className="button-card">Ok</Button>
-                  </form>
-           
-                  <form
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      onSubmitPicture(Cart.id);
-                    }}
-                  >
-                    <div className="custom-file mb-2 mt-2">
-                      Carte :
-                      <input
-                        required
-                        type="file"
-                        className="custom-file-input"
-                        id="customFile"
-                        onChange={onChange}
-                        accept="image/*"
-                      />
-                      <label className="custom-file-label" htmlFor="customFile">
-                        {fileName}
-                      </label>
+                      <form
+                        className="form-modify"
+                        onSubmit={function (e) {
+                          e.preventDefault();
+                          handleSubmitCity(Cart.id);
+                        }}
+                      >
+                        <input
+                          required
+                          type="text"
+                          placeholder="ville"
+                          className="mb-2"
+                          onChange={(e) =>
+                            setCity({
+                              city: e.target.value,
+                            })
+                          }
+                        />
+                        <Button className="button-card">Ok</Button>
+                      </form>
+
+                      <form
+                        onSubmit={function (e) {
+                          e.preventDefault();
+                          onSubmitPicture(Cart.id);
+                        }}
+                      >
+                        <div className="custom-file mb-2 mt-2">
+                          Carte :
+                          <input
+                            required
+                            type="file"
+                            className="custom-file-input"
+                            id="customFile"
+                            onChange={onChange}
+                            accept="image/*"
+                          />
+                          <label
+                            className="custom-file-label"
+                            htmlFor="customFile"
+                          >
+                            {fileName}
+                          </label>
+                        </div>
+
+                        <input
+                          type="submit"
+                          value="Télécharger"
+                          className="btn btn-primary btn-block mt-2"
+                        />
+                      </form>
                     </div>
-
-                    <input
-                      type="submit"
-                      value="Télécharger"
-                      className="btn btn-primary btn-block mt-2"
-                    />
-                  </form>
-                </div>
-              </AccordionDetails>
-            </Accordion>
-          </div>
+                  </AccordionDetails>
+                </Accordion>
+              </div>
             </div>
           </div>
         ))}
@@ -326,4 +329,3 @@ function About() {
 }
 
 export default About;
-

@@ -70,25 +70,21 @@ function Presentations() {
     });
   };
 
- 
-
   const onSubmitPicture = (id) => {
-    
     let idxDot = fileName.lastIndexOf(".") + 1;
     let extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
     if (extFile === "jpg" || extFile === "jpeg" || extFile === "png") {
       confirmAlert({
         title: "Confirmation",
-        message: "Êtes-vous sûr de vouloir modifier la photo de ce presentation?",
+        message:
+          "Êtes-vous sûr de vouloir modifier la photo de ce presentation?",
         buttons: [
           {
             label: "Oui",
-            
+
             onClick: async () => {
               handleUpload(id);
-              
             },
-            
           },
           {
             label: "Non",
@@ -127,12 +123,13 @@ function Presentations() {
       const { filePath } = res.data;
 
       axios
-        .put(`${FETCH}/services_presentation/${id}`, { image_service : filePath })
+        .put(`${FETCH}/services_presentation/${id}`, {
+          image_service: filePath,
+        })
         .catch(function (erreur) {
           console.log(erreur);
         });
-        window.history.go();
-
+      window.history.go();
     } catch (erreur) {
       if (erreur.response.status === 500) {
         console.log("There was a problem with the server");
@@ -142,111 +139,135 @@ function Presentations() {
     }
   };
 
-  
-
   return (
-    <div ClassName="admin_presentation_service">
+    <div ClassName="admin_presentation_service ">
       {servicePresentation.map((res) => (
         <div>
-          <div className="PresentationStyle">
-            <div className="imagePresentation">
-              <img
-                className="imagePresentationFrenchTouch"
-                src={res.image_service}
-                alt=""
-              />
-            </div>
-            <div className="vertical-line"></div>
-            <div className="textPresentation">
-              <h1 className="titlePresentation">{res.title} </h1>
-              <p className="descriptionPrestation">{res.description}</p>
-            </div>
-          </div>
-          <div className="ModifyService">
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls=""
-                id=""
-              >
-                <Typography>Modifier</Typography>
-              </AccordionSummary>
-
-              <AccordionDetails>
-                <div className="mb-2">
-                  <form
-                    className="form-modify"
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      handleSubmitTitle(res.id);
-                    }}
-                  >
-                    <input
-                      required
-                      type="text"
-                      placeholder="title"
-                      className="mb-2"
-                      onChange={(e) =>
-                        setTitle({
-                          title: e.target.value,
-                        })
-                      }
-                    />
-                    <Button className="button-card">Ok</Button>
-                  </form>
-                  <form
-                    className="form-modify"
-                    onSubmit={function (e) {
-                      e.preventDefault();
-
-                      handleSubmitDescription(res.id);
-                    }}
-                  >
-                    <textarea
-                      rows="4"
-                      cols="32"
-                      required
-                      type="text"
-                      placeholder="Description"
-                      className="mb-2"
-                      onChange={(e) =>
-                        setDescription({
-                          description: e.target.value,
-                        })
-                      }
-                    />
-                    <Button className="button-card">Ok</Button>
-                  </form>
-                  <form
-                    onSubmit={function (e) {
-                      e.preventDefault();
-                      onSubmitPicture(res.id);
-                    }}
-                  >
-                    <div className="custom-file mb-2 mt-2">
-                      image :
-                      <input
-                        required
-                        type="file"
-                        className="custom-file-input"
-                        id="customFile"
-                        onChange={onChange}
-                        accept="image/*"
-                      />
-                      <label className="custom-file-label" htmlFor="customFile">
-                        {fileName}
-                      </label>
-                    </div>
-
-                    <input
-                      type="submit"
-                      value="Télécharger"
-                      className="btn btn-primary btn-block mt-2"
-                    />
-                  </form>
+          <div className="App">
+            <div className="adminHomeMargin">
+              <div className="imagePresentation">
+                <div>
+                  <img
+                    className="imagePresentationFrenchTouchAdmin"
+                    src={res.image_service}
+                    alt=""
+                  />
                 </div>
-              </AccordionDetails>
-            </Accordion>
+                <div>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls=""
+                      id=""
+                    >
+                      <Typography>Modifier</Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails>
+                      <div className="mb-2">
+                        {" "}
+                        <form
+                          onSubmit={function (e) {
+                            e.preventDefault();
+                            onSubmitPicture(res.id);
+                          }}
+                        >
+                          <div className="custom-file mb-2 mt-2">
+                            image :
+                            <input
+                              required
+                              type="file"
+                              className="custom-file-input"
+                              id="customFile"
+                              onChange={onChange}
+                              accept="image/*"
+                            />
+                            <label
+                              className="custom-file-label"
+                              htmlFor="customFile"
+                            >
+                              {fileName}
+                            </label>
+                          </div>
+
+                          <input
+                            type="submit"
+                            value="Télécharger"
+                            className=" btn-primary btn-block mt-2"
+                          />
+                        </form>
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
+              </div>
+              <div className="adminHomeMargin"></div>
+              <div className="textPresentation">
+                <div>
+                  <h1 className="titlePresentation">{res.title} </h1>
+                  <p className="descriptionPrestation">{res.description}</p>
+                </div>
+                <div>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls=""
+                      id=""
+                    >
+                      <Typography>Modifier</Typography>
+                    </AccordionSummary>
+
+                    <AccordionDetails>
+                      <div className="mb-2">
+                        <form
+                          className="form-modify"
+                          onSubmit={function (e) {
+                            e.preventDefault();
+                            handleSubmitTitle(res.id);
+                          }}
+                        >
+                          <input
+                            required
+                            type="text"
+                            placeholder="title"
+                            className="mb-2"
+                            onChange={(e) =>
+                              setTitle({
+                                title: e.target.value,
+                              })
+                            }
+                          />
+                          <Button className="button-card">Ok</Button>
+                        </form>
+                        <form
+                          className="form-modify"
+                          onSubmit={function (e) {
+                            e.preventDefault();
+
+                            handleSubmitDescription(res.id);
+                          }}
+                        >
+                          <textarea
+                            rows="4"
+                            cols="32"
+                            required
+                            type="text"
+                            placeholder="Description"
+                            className="mb-2"
+                            onChange={(e) =>
+                              setDescription({
+                                description: e.target.value,
+                              })
+                            }
+                          />
+                          <Button className="button-card">Ok</Button>
+                        </form>
+                      </div>
+                    </AccordionDetails>
+                  </Accordion>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       ))}
