@@ -64,10 +64,11 @@ function AccetptComment() {
 
   return (
     <div>
-      <div>
+      <h2 className="CommentNoticeTitle">Accepter/Rejeter un commentaire</h2>
+      <div className="App">
         {notice.map((notice) => (
-          <div className="">
-            <div className="">
+          <div className="adminHomeMargin">
+            <div className="textPresentation">
               <div>
                 <p>Nom :{notice.name}</p>
                 <p>Adresse : {notice.adress}</p>
@@ -75,10 +76,10 @@ function AccetptComment() {
                 <p>Email : {notice.email}</p>
                 <p>Message : {notice.message}</p>
               </div>
-              <div className="">
+              <div className="bouttonCommentAdmin">
                 <button
                   type="button"
-                  className="btn"
+                  className="btn btnComment"
                   onClick={(e) => handleAccept(e, notice.id)}
                 >
                   {" "}
@@ -86,7 +87,7 @@ function AccetptComment() {
                 </button>
                 <button
                   type="button"
-                  className="btn"
+                  className="btn btnComment"
                   onClick={(e) => handleReject(e, notice.id)}
                 >
                   Rejeter

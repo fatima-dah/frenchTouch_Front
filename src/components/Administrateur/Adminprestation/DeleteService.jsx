@@ -24,11 +24,7 @@ function Prestation() {
           onClick: () => {
             window.history.go();
             axios
-              .delete(`${FETCH}/services/${id}`, {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              })
+              .delete(`${FETCH}/services/${id}`, )
               .catch(function (erreur) {
                 console.log(erreur);
               });

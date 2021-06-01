@@ -17,7 +17,7 @@ const FileUpload = (props) => {
         <div>
           <img className="imageUpload" src={props.filePath} alt='fileUploaded' />
         </div>
-      ) : null}
+      ) : null} 
     </div>
   );
 };

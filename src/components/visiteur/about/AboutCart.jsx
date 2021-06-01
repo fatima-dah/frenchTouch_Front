@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import googleMap from './../../../assets/googleMap.png'; 
 import "./AboutCart.css";
 import axios from "axios";
 import { FETCH } from "./../../../Fetch";
@@ -27,7 +28,7 @@ function AboutCart() {
                   <h5>Carte :</h5>
                   <img
                     className="pictureContact"
-                    src={Cart.imageCart}
+                    src={googleMap}
                     alt="image cart"
                   />
                 </div>

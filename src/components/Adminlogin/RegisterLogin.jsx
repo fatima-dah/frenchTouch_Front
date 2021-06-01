@@ -14,16 +14,9 @@ function RegisterLogin() {
     const [statusBtn, setStatusBtn] = useState(true);
 
 
-    useEffect(() => {
-        axios.get(`${FETCH}/users`).then((res) => setUser(res.data));
-      }, [user]);
+
 
     
-     function handleSubmitPassword() {
-        if (password !== confirmedPassword) {
-            alert("le mots de passe est incorect");
-        }
-    }
 
     const handleSubmit = (e) => {
 
@@ -35,7 +28,7 @@ function RegisterLogin() {
           setStatusBtn(false);
           axios
             .post(
-              `${FETCH}/login/user/register`,
+              `${FETCH}/loginUsers/register`,
               {
                 firstname: firstname,
                 lastname : lastname,
@@ -83,7 +76,7 @@ function RegisterLogin() {
             required
             className="form-inputRegister"
 
-            placeholder="nom"
+            placeholder="Nom"
             name="lastname"
             value={lastname}
             onChange={(e) => setLastname(e.target.value)}
@@ -111,7 +104,7 @@ function RegisterLogin() {
             required
             className="form-inputRegister"
             name="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

@@ -2,7 +2,7 @@ import React from "react";
 
 const Logout = () => {
   const handleSubmit = () => {
-    localStorage.removeItem("TOKEN");
+    sessionStorage.removeItem("token");
     alert("Vous avez bien été déconnecter");
   };
 

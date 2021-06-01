@@ -7,22 +7,22 @@ function Social() {
     return (
         <div className="social">
             <div className="columnSocial">
-          <a href="https://www.facebook.com">
+          <a href="https://www.facebook.com/HeleneFT">
             <img
               className="columnSocialIcon"
               src={Facebook}
               alt="Réseau Social"
             />
           </a>
-          <a href="https://www.instagram.com">
-            <img
+          <a href="https://www.instagram.com/helene_french_touch/?hl=fr">
+            <img 
               className="columnSocialIcon"
               src={Insta}
               target="_blank"
               alt="Réseau Social"
             />
           </a>
-          <a href="https://www.pinterest.fr">
+          <a href="https://www.pinterest.fr/HeleneFT/_created/">
             <img
               className="columnSocialIcon"
               src={Pinterest}

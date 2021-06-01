@@ -9,59 +9,96 @@ import RegisterLogin from "./RegisterLogin";
 import { useHistory, Redirect } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 
-const AdminLogin = ({ cart, setToken }) => {
- 
+const AdminLogin = ({ cart, setToken, setTokenUser }) => {
   const [home, setHome] = useState([]);
 
   useEffect(() => {
     axios.get(`${FETCH}/homes`).then((res) => setHome(res.data));
   }, []);
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const history = useHistory();
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (email && password) {
+      await axios
+        .post(`http://localhost:8000/api/login/`, {
+          email,
+          password,
+        })
+        .then((res) => res.data)
+        .then((data) => {
+          setToken(data.token);
 
-
-const handleLogin = async (e) => {
-  e.preventDefault();
-  if (email && password) {
-    await axios
-      .post(`http://localhost:8000/api/login/`, {
-        email,
-        password,
-      })
-      .then((res) => res.data)
-      .then((data) => {
-        setToken(data.token);
-
-        // console.log(data);
-        history.push(`./admin`);
-        window.history.go();
-      })
-      .catch((err) => {
-        confirmAlert({
-          message: "Mot de passe ou adresse incorrect(e) ",
-          buttons: [
-            {
-              label: "Ok",
-            },
-          ],
+          // console.log(data);
+          history.push(`./admin`);
+          window.history.go();
+        })
+        .catch((err) => {
+          confirmAlert({
+            message: "Mot de passe ou adresse incorrect(e) ",
+            buttons: [
+              {
+                label: "Ok",
+              },
+            ],
+          });
         });
+    } else {
+      confirmAlert({
+        message:
+          "Veuillez entrer une adresse électronique et un mot de passe valides",
+        buttons: [
+          {
+            label: "Ok",
+          },
+        ],
       });
-  } else {
-    confirmAlert({
-      message:
-        "Veuillez entrer une adresse électronique et un mot de passe valides",
-      buttons: [
-        {
-          label: "Ok",
-        },
-      ],
-    });
-  }
-};
+    }
+  };
+
+  const handleUser = async (e) => {
+    e.preventDefault();
+    if (email && password) {
+      await axios
+        .post(`http://localhost:8000/api/loginUsers/singIn/`, {
+          email,
+          password,
+        })
+        .then((res) => res.data)
+        .then((data) => {
+          setTokenUser(data.user);
+
+          console.log(data);
+          history.push(`./users`);
+          window.history.go();
+        })
+        .catch((err) => {
+          confirmAlert({
+            message: "Mot de passe ou adresse incorrect(e) ",
+            buttons: [
+              {
+                label: "Ok",
+              },
+            ],
+          });
+        });
+    } else {
+      confirmAlert({
+        message:
+          "Veuillez entrer une adresse électronique et un mot de passe valides",
+        buttons: [
+          {
+            label: "Ok",
+          },
+        ],
+      });
+    }
+  };
+
   return (
     <div>
       <Header
@@ -84,58 +121,49 @@ const handleLogin = async (e) => {
         </div>
       </div>
       <div className="contactCart App">
+        <div>
+          <div className="form">
+            <form className="contact-form">
+              <h3 className="titleContact">Connectez vous </h3>
 
-      <div>
-      <div className="form">
-           
-           <form className="contact-form"   >
-           <h3 className="titleContact">Connectez vous </h3>
-   
-           <div className="Contact-M">
-                 <label>
-             <input
-             
-               required
-               className="form-inputContact"
-   
-               placeholder="Email "
-               name="email"
-               autoComplete="email"
-               value={email}
-               onChange={(e) => setEmail(e.target.value)}
-             />
+              <div className="Contact-M">
+                <label>
+                  <input
+                    required
+                    className="form-inputContact"
+                    placeholder="Email "
+                    name="email"
+                    autoComplete="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
                 </label>
-               </div>
-               <div className="Contact-M">
-                 <label>
-             <input
-           
-               required
-               className="form-inputContact"
-               name="password"
-               placeholder="Password"
-               type="password"
-               value={password}
-               onChange={(e) => setPassword(e.target.value)}
-             />
-               </label>
-               </div>
-               <input
-               type="submit"
-               className="submitContact"
-               value="Envoyer"
-               onClick={handleLogin}
-             />
-           
-           </form>
-   
-   
-         </div>       
-          
-      </div>
-      <div>
-        <RegisterLogin />
-      </div>
+              </div>
+              <div className="Contact-M">
+                <label>
+                  <input
+                    required
+                    className="form-inputContact"
+                    name="password"
+                    placeholder="Mot de passe"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </label>
+              </div>
+              <input
+                type="submit"
+                className="submitContact"
+                value="Envoyer"
+                onClick={handleLogin} 
+              />
+            </form>
+          </div>
+        </div>
+        <div>
+          <RegisterLogin />
+        </div>
       </div>
       <Footer />
     </div>

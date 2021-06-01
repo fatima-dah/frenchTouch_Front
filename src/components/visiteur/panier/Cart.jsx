@@ -30,10 +30,7 @@ function Cart({ cart, setCart }) {
     setCart(cart.filter((product) => product !== productToRemove));
   };
 
-  // const getCartReduce = () => {
-  //   return cart.reduce((sum, { quantity }) => sum + quantity, 0);
-  // }
-
+console.log(cart)
   return (
     <div>
       <Header

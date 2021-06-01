@@ -1,0 +1,31 @@
+
+
+.bouttonCommentAdmin{
+    display: flex;
+} 
+
+.btnComment{
+    margin:2%;
+    width:100px;
+} 
+
+.CommentNoticeTitle{
+
+    margin-bottom:80px;
+    margin-top:80px;
+
+
+  } 
+
+@media screen and (max-width:868px){
+
+    .CommentNoticeTitle{
+        width: 60%;
+        font-size: 1.8em;
+
+        margin-bottom:80px;
+    
+        margin-left: auto;
+        margin-right: auto;
+      } 
+} 

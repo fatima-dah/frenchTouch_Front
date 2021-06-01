@@ -94,6 +94,8 @@ function Prestations() {
          
         )
         .then(function (response) {
+          window.history.go();
+
           console.log(response);
         })
         .catch(function (error) {

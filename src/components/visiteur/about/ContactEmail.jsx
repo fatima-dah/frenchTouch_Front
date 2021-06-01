@@ -10,6 +10,7 @@ export default function ContactUs() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState(""); 
   const [message, setMessage] = useState("");
   const [statusBtn, setStatusBtn] = useState(true);
 
@@ -20,7 +21,7 @@ export default function ContactUs() {
   }, [about]);
 
   function verifEmpty() {
-    if (firstname === "" || lastname === "" || email === "" || message === "") {
+    if (firstname === "" || lastname === "" || email === "" || message === "" || phone === "") {
       setTextHidden("");
     } else {
       setTextHidden(
@@ -38,6 +39,7 @@ export default function ContactUs() {
         lastname: lastname,
         email: email,
         message: message,
+        phone:phone,
       });
       emailjs
         .sendForm(
@@ -90,6 +92,19 @@ export default function ContactUs() {
                       onChange={(e) => setFirstname(e.target.value)}
                       className="form-inputContact"
                       name="user_firstname"
+                    />
+                  </label>
+                </div>
+                <div className="Contact-M">
+                  <label>
+                    <input
+                      type="text"
+                      required
+                      value={phone}
+                      placeholder="Numero de téléphone"
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="form-inputContact"
+                      name="user_NumberPhone"
                     />
                   </label>
                 </div>

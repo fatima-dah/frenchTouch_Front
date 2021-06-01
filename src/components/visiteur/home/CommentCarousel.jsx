@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { FETCH } from "../../../Fetch";
 
 function CommentCarousel() {
-  const [notice, setNotice] = useState([]);
 
   const [name, setName] = useState("");
   const [postCode, setPostCode] = useState("");
@@ -13,16 +12,11 @@ function CommentCarousel() {
   const [message, setMessage] = useState("");
   const [textHidden, setTexthidden] = useState("");
 
-  const [statusBtn, setStatusBtn] = useState(true);
 
-  useEffect(() => {
-    axios.get(`${FETCH}/notices`).then((res) => setNotice(res.data));
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (statusBtn === true) {
-      setStatusBtn(false);
+
       axios
         .post(`${FETCH}/notices`, {
           name: name,
@@ -41,7 +35,6 @@ function CommentCarousel() {
 
           console.log(error);
         });
-    }
   };
 
   function verifEmpty() {

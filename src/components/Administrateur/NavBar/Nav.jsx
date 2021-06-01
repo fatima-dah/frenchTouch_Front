@@ -13,8 +13,8 @@ const Nav = () => {
       setOpenFirst(false);
     }
   }
-  const handleSubmit = () => {
-    localStorage.removeItem("TOKEN");
+  const handleRemove = () => {
+    sessionStorage.removeItem("token");
     alert("Vous ête deconnecté du compte administrateur");
   };
   return (
@@ -46,7 +46,7 @@ const Nav = () => {
               <Link className="router" to="/nuancier_admin">
                 NUANCIER{" "}
               </Link>
-              <Link className="router" to="/" onClick={handleSubmit}>
+              <Link className="router" to="/" onClick={handleRemove}>
                 DÉCONNEXION
              </Link>
             

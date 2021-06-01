@@ -1,12 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoPanier from "./../../../assets/logoPanier.png"
+import Insta from "./../../../assets/instagramBlack.png";
+
+import Facebook from "./../../../assets/facebookBlack.png";
+import Pinterest from "./../../../assets/pinterestBlack.png";
+
 
 import "./NavBar.css";
 
 import { useState } from "react";
 
-import LogoSVG from "../../../assets/entier blanc.svg";
+import LogoSVG from "../../../assets/entier noir.svg";
 
 function NavBar({getCartReduce} ) {
   const [openFirst, setOpenFirst] = useState(false);
@@ -55,6 +60,30 @@ function NavBar({getCartReduce} ) {
                {" "} {getCartReduce} 
 
               </Link>
+              <div className="socialNav">
+                <a href="https://www.facebook.com/HeleneFT">
+                  <img
+                    className="columnSocialIconFooter"
+                    src={Facebook}
+                    alt="Réseau Social"
+                  />
+                </a>
+                <a href="https://www.instagram.com/helene_french_touch/?hl=fr">
+                  <img
+                    className="columnSocialIconFooter"
+                    src={Insta}
+                    target="_blank"
+                    alt="Réseau Social"
+                  />
+                </a>
+                <a href="https://www.pinterest.fr/HeleneFT/_created/">
+                  <img
+                    className="columnSocialIconFooter"
+                    src={Pinterest}
+                    alt="Réseau Social"
+                  />
+                </a>
+              </div>
 
               <a href="#" className="close">
                 ✕

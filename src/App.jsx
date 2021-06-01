@@ -7,7 +7,6 @@ import Prestations from "./components/visiteur/prestation/Presentation";
 import CartGifts from "./components/visiteur/prestation/CartGift";
 import Reserves from "./components/visiteur/reserve/Reserve";
 import Cart from "./components/visiteur/panier/Cart";
-import RouteAdmin from './components/RouteAdmin';
 import Books from "./components/visiteur/book/Book";
 import Products from "./components/visiteur/shop/Products";
 import Palettes from "./components/visiteur/palette/Palette";
@@ -19,6 +18,7 @@ import ShopsAdmin from "./components/Administrateur/Adminshop/AdminShop";
 import PalettesAdmin from "./components/Administrateur/Adminpalette/AdminPalette";
 import AboutsAdmin from "./components/Administrateur/Adminabout/AdminAbout";
 import Admin from "./components/Administrateur/Admin/Admin";
+import PageUser from "./components/utilisateur/PageUser";
 import { useEffect, useState } from "react";
 
 function setToken(usersToken) {
@@ -26,6 +26,13 @@ function setToken(usersToken) {
 }
 function getToken() {
   const tokenString = sessionStorage.getItem("token");
+  return tokenString;
+}
+function setTokenUser(usersToken) {
+  sessionStorage.setItem("user", JSON.stringify(usersToken));
+}
+function getTokenUser() {
+  const tokenString = sessionStorage.getItem("user");
   return tokenString;
 }
 
@@ -75,12 +82,11 @@ function App() {
           <Cart cart={cart} setCart={setCart} />
         </Route>
         <Route path="/login" component={AdminLogin}>
-          <AdminLogin cart={cart} setToken={setToken} />
+          <AdminLogin cart={cart} setToken={setToken} setTokenUser={setTokenUser} />
         </Route>
         <Route path="/admin" component={Admin} >
           {getToken() ?  <Admin />  : <AdminLogin cart={cart}  setToken={setToken} />}
         </Route> 
-        <RouteAdmin path="/home_admin" component={HomeAdmin} isAuth={getToken()} />
         <Route path="/home_admin" component={HomeAdmin}>
           {getToken() ? <HomeAdmin /> : <AdminLogin setToken={setToken} />}
         </Route>
@@ -107,6 +113,10 @@ function App() {
         </Route>
         <Route path="/nuancier_admin" component={PalettesAdmin}>
           {getToken() ? <PalettesAdmin /> : <AdminLogin setToken={setToken} />}
+        </Route>
+
+        <Route path="/users" component={PageUser}>
+          {getTokenUser() ? <PageUser cart={cart}/> : <AdminLogin cart={cart} setTokenUser={setTokenUser} />}
         </Route>
 
       

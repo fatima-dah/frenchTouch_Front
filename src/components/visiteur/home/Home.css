@@ -97,8 +97,6 @@ h2::after {
 }
 .imgHome::after {
    filter: opacity(10%);
-  /* opacity:0.1; */
-  /* background-color: var(--secondary-color-light) ; */
   background-color: black;
 
  
@@ -158,15 +156,15 @@ h2::after {
 
 .imgAboutContent {
   border: 2px solid var(--light-color);
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   position: relative;
   top: 100px;
 }
 
 .imgAboutContent .imageAbout {
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
 }
 

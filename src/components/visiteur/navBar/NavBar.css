@@ -102,8 +102,12 @@ a.router.rdv {
 .logoPanier{
   height:20px;
 } 
+.socialNav{
+  display: none;
+} 
 
 @media screen and (max-width: 1350px) {
+ 
   .items {
     display: none;
 
@@ -118,7 +122,7 @@ a.router.rdv {
   }
 
   .burger div {
-    background-color: var(--blanc);
+    background-color: var(--dark);
   }
 
   .items:target {
@@ -136,7 +140,7 @@ a.router.rdv {
     opacity: 0.97;
   }
 .router{
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid var(--blanc);
   width: 70%;
   text-align:center;
   font-weight: 400;
@@ -145,7 +149,7 @@ a.router.rdv {
 
 } 
   .items:target a {
-    font-size: 34px;
+    font-size: 28px;
     padding:14px;
 
   }
@@ -163,6 +167,11 @@ a.router.rdv {
     top: var(--spacing);
     right: var(--spacing);
   }
+  .socialNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  } 
 }
 
 /* Restera un media query ipad ici*/
