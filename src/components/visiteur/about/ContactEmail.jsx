@@ -10,7 +10,7 @@ export default function ContactUs() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState(""); 
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [statusBtn, setStatusBtn] = useState(true);
 
@@ -21,12 +21,19 @@ export default function ContactUs() {
   }, [about]);
 
   function verifEmpty() {
-    if (firstname === "" || lastname === "" || email === "" || message === "" || phone === "") {
-      setTextHidden("");
+    if (
+      firstname === "" ||
+      lastname === "" ||
+      email === "" ||
+      message === "" ||
+      phone === ""
+    ) {
+      setTextHidden("Des champs obligatoires sont vides.");
     } else {
-      setTextHidden(
+      alert(
         "Nous accusons réception de votre demande et je vous engage à vous apporter une réponse dans les 48 heures ouvrées."
       );
+      window.history.go();
     }
   }
 
@@ -44,103 +51,101 @@ export default function ContactUs() {
       emailjs
         .sendForm(
           "service_48b182y",
-          "template_0f2j2rd",
+          "template_jyoiry5",
           e.target,
           "user_kCoI6na0uvUeXNsG3jZJg"
         )
         .then(function (response) {
-          window.history.go();
-
           console.log(response);
         })
         .catch(function (error) {
           console.log(error);
         });
-      e.target.reset();
+      // e.target.reset();
 
     }
   }
-
   return (
     <div className="FormContact ">
       <div className="FormulaireContact">
         <div className="form">
           <form className="contact-form" onSubmit={sendEmail}>
-          <h3 className="titleContact">Contactez nous !</h3>
+            <h3 className="titleContact">Contactez nous !</h3>
 
-           
-                <div className="Contact-M">
-                  <label>
-                    <input
-                      type="text"
-                      required
-                      value={lastname}
-                      placeholder="Nom"
-                      onChange={(e) => setLastname(e.target.value)}
-                      className="form-inputContact"
-                      name="user_lastname"
-                    />
-                  </label>
-                </div>
-                <div className="Contact-M">
-                  <label>
-                    <input
-                      type="text"
-                      required
-                      value={firstname}
-                      placeholder="Prénom"
-                      onChange={(e) => setFirstname(e.target.value)}
-                      className="form-inputContact"
-                      name="user_firstname"
-                    />
-                  </label>
-                </div>
-                <div className="Contact-M">
-                  <label>
-                    <input
-                      type="text"
-                      required
-                      value={phone}
-                      placeholder="Numero de téléphone"
-                      onChange={(e) => setPhone(e.target.value)}
-                      className="form-inputContact"
-                      name="user_NumberPhone"
-                    />
-                  </label>
-                </div>
-                <div className="Contact-M">
-                  <label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      placeholder="Email"
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="form-inputContact"
-                      name="user_email"
-                    />
-                  </label>
-                </div>
+            <div className="Contact-M">
+              <label>
+                <input
+                  name="lastname"
+                  type="text"
+                  required
+                  value={lastname}
+                  placeholder="Nom"
+                  onChange={(e) => setLastname(e.target.value)}
+                  className="form-inputContact"
+                />
+              </label>
+            </div>
+            <div className="Contact-M">
+              <label>
+                <input
+                  name="firstname"
+                  type="text"
+                  required
+                  value={firstname}
+                  placeholder="Prénom"
+                  onChange={(e) => setFirstname(e.target.value)}
+                  className="form-inputContact"
+                />
+              </label>
+            </div>
+            <div className="Contact-M">
+              <label>
+                <input
+                  name="phone"
+                  type="text"
+                  required
+                  value={phone}
+                  placeholder="Numero de téléphone"
+                  onChange={(e) => setPhone(e.target.value)}
+                  className="form-inputContact"
+                />
+              </label>
+            </div>
+            <div className="Contact-M">
+              <label>
+                <input
+                  name="email"
+                  type="email"
+                  required
+                  value={email}
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="form-inputContact"
+                />
+              </label>
+            </div>
 
-                <div className="Contact-M">
-                  <label>
-                    <textarea
-                      name="message"
-                      required
-                      value={message}
-                      placeholder="Message"
-                      onChange={(e) => setMessage(e.target.value)}
-                      className="form-inputContact scroll "
-                    />
-                  </label>
-                </div>
+            <div className="Contact-M">
+              <label>
+                <textarea
+                  name="message"
+                  required
+                  value={message}
+                  placeholder="Message"
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="form-inputContact scroll "
+                />
+              </label>
+            </div>
+            <span className="msgValidFormation">{textHidden}</span>
+            <div>
               <input
                 type="submit"
                 onClick={verifEmpty}
                 className="submitContact"
                 value="Envoyer"
               />
-            <span className="msgValidFormation">{textHidden}</span>
+            </div>
           </form>
         </div>
       </div>

@@ -6,12 +6,11 @@ import axios from "axios";
 import { FETCH } from "./../../../Fetch";
 
 function Prestation() {
-  const [gift, setGift] = useState([]);
+  const [giftPresentation, setGiftPrestentation] = useState([]);
 
   useEffect(() => {
-    axios.get(`${FETCH}/gifts`).then((res) => setGift(res.data));
+    axios.get(`${FETCH}/giftPresentation`).then((res) => setGiftPrestentation(res.data));
   }, []);
-  console.log({ gift });
   return (
     <div className="gift">
       <h2 className="titleGift">Cheque cadeaux</h2>
@@ -20,9 +19,9 @@ function Prestation() {
         {" "}
         <div className="link">
           <div className="cartesGift">
-            {gift.slice(0, 1).map((gift) => (
+            {giftPresentation.map((gift) => (
               <div className="containerGift">
-                <img className="pictureGift" src={gift.imageGift} alt="" />
+                <img className="pictureGift" src={gift.imagePresentation} alt="" />
               </div>
             ))}
           </div>

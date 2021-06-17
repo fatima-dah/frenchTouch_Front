@@ -33,12 +33,7 @@ function Products({ cart, setCart }) {
     setCart(newCart);
   };
 
-  // const getCartReduce = () => {
-  //   return cart.reduce(
-  //     (sum, { quantity }) => sum + quantity,
-  //     0
-  //   );
-  // };
+ 
 
   return (
     <div className="">

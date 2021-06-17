@@ -18,6 +18,7 @@ import ShopsAdmin from "./components/Administrateur/Adminshop/AdminShop";
 import PalettesAdmin from "./components/Administrateur/Adminpalette/AdminPalette";
 import AboutsAdmin from "./components/Administrateur/Adminabout/AdminAbout";
 import Admin from "./components/Administrateur/Admin/Admin";
+import PanierClient from "./components/Administrateur/panierClient/PanierClient"
 import PageUser from "./components/utilisateur/PageUser";
 import { useEffect, useState } from "react";
 
@@ -64,6 +65,7 @@ function App() {
         <Route path="/Gifts" component={CartGifts}>
           <CartGifts cart={cart} />
         </Route>
+       
         <Route path="/rendezvous" component={Reserves}>
           <Reserves cart={cart} />
         </Route>
@@ -117,6 +119,9 @@ function App() {
 
         <Route path="/users" component={PageUser}>
           {getTokenUser() ? <PageUser cart={cart}/> : <AdminLogin cart={cart} setTokenUser={setTokenUser} />}
+        </Route>
+        <Route path="/panier_admin" component={PanierClient}>
+          {getToken() ? <PanierClient cart={cart}/> : <AdminLogin cart={cart} setToken={setToken} />}
         </Route>
 
       

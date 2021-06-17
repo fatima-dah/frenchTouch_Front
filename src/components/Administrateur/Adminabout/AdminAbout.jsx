@@ -9,15 +9,18 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Nav from "./../NavBar/Nav";
-import ContactAbout from './ContactAbout';
+import ContactAbout from "./ContactAbout";
 import "./AdminAbout.css";
 
 import { FETCH } from "./../../../Fetch";
 
 function About() {
   const [aboutCart, setAboutCart] = useState([]);
-  const [address, setAdress] = useState({ address: "" });
+  const [adress, setAdress] = useState({ adress: "" });
   const [PostalCode, setPostalCode] = useState({ PostalCode: "" });
+  const [phone, setPhone] = useState({ phone: "" });
+  const [email, setEmail] = useState({ email: "" });
+
   const [city, setCity] = useState({ city: "" });
   const [file, setFile] = useState("");
   const [fileName, setFilename] = useState("");
@@ -40,7 +43,53 @@ function About() {
           label: "Oui",
           onClick: () => {
             axios
-              .put(`${FETCH}/aboutCarts/${id}`, address)
+              .put(`${FETCH}/aboutCarts/${id}`, adress)
+              .catch(function (erreur) {
+                console.log(erreur);
+              });
+            window.history.go();
+          },
+        },
+        {
+          label: "Non",
+        },
+      ],
+    });
+  };
+
+  const handleSubmitPhone = (id) => {
+    confirmAlert({
+      title: "Confirmation",
+      message: "Êtes-vous sûr de vouloir modifier votre numero de telephone ?",
+      buttons: [
+        {
+          label: "Oui",
+          onClick: () => {
+            axios
+              .put(`${FETCH}/aboutCarts/${id}`, phone)
+              .catch(function (erreur) {
+                console.log(erreur);
+              });
+            window.history.go();
+          },
+        },
+        {
+          label: "Non",
+        },
+      ],
+    });
+  };
+
+  const handleSubmitEmail = (id) => {
+    confirmAlert({
+      title: "Confirmation",
+      message: "Êtes-vous sûr de vouloir modifier votre email ?",
+      buttons: [
+        {
+          label: "Oui",
+          onClick: () => {
+            axios
+              .put(`${FETCH}/aboutCarts/${id}`, email)
               .catch(function (erreur) {
                 console.log(erreur);
               });
@@ -195,9 +244,11 @@ function About() {
                   <div className="ContactAdress">
                     <h5>Adresse :</h5>
                     <p>
-                      {Cart.address} <br />
+                      {Cart.adress} <br />
                       {Cart.PostalCode} {Cart.city}
                     </p>
+                    <p>{Cart.phone} </p>
+                    <p>{Cart.email} </p>
                   </div>
                   <div>
                     <h5>Carte :</h5>
@@ -237,7 +288,7 @@ function About() {
                           className="mb-2"
                           onChange={(e) =>
                             setAdress({
-                              address: e.target.value,
+                              adress: e.target.value,
                             })
                           }
                         />
@@ -280,6 +331,46 @@ function About() {
                           onChange={(e) =>
                             setCity({
                               city: e.target.value,
+                            })
+                          }
+                        />
+                        <Button className="button-card">Ok</Button>
+                      </form>
+                      <form
+                        className="form-modify"
+                        onSubmit={function (e) {
+                          e.preventDefault();
+                          handleSubmitPhone(Cart.id);
+                        }}
+                      >
+                        <input
+                          required
+                          type="text"
+                          placeholder="numero de telephone"
+                          className="mb-2"
+                          onChange={(e) =>
+                            setPhone({
+                              phone: e.target.value,
+                            })
+                          }
+                        />
+                        <Button className="button-card">Ok</Button>
+                      </form>
+                      <form
+                        className="form-modify"
+                        onSubmit={function (e) {
+                          e.preventDefault();
+                          handleSubmitEmail(Cart.id);
+                        }}
+                      >
+                        <input
+                          required
+                          type="text"
+                          placeholder="email"
+                          className="mb-2"
+                          onChange={(e) =>
+                            setEmail({
+                              email: e.target.value,
                             })
                           }
                         />

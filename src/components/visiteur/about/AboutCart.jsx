@@ -20,8 +20,8 @@ function AboutCart() {
                 <h3 className="titleContact">Coordonnées</h3>
                 <div  className="ContactAdress">
                   <h5>Adresse :</h5>
-                  <p>{Cart.address} <br/>
-                    {Cart.PostalCode} {Cart.city}
+                  <p>{Cart.adress} <br/>
+                    {Cart.PostalCode}{" "}{Cart.city}
                   </p > 
                 </div>
                 <div>

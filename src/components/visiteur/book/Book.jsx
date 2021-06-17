@@ -41,10 +41,12 @@ function Book({cart}){
       
        </div>
 	  
-<div className="instaFeed">
-<InstagramFeed className="instagramPicture" token="IGQVJXVmg2dXBzN19DQVVab3FBdTBueUthWTJDRlNjSFZA1UWFTaTdlTlN0d0U1b1FZAZAi1qZAjdUb2NiU2NfamdxTno0bEoxa25tNTFIWGZAtZA1RTb0RqZAGhNRGF2VlplNm9XZA3REU0ZA2aXFRTnBWVVRKTAZDZD"  counter="6"/> 
+<div className="instaFeed ">
+<InstagramFeed className="instagramPicture " token="IGQVJWck0tSDQyRTlBTm8xUFVjd1FvWlduNGMtdnEtRU5zTHMtQXlDNW1QUHl4eF9SYmJYVXItOGZAUXzNabElYck03OXFqdlgzUjBPdml1YTExSVpCSVNhS21GbkNXSV92djJtcHRCcmlXelpuSElfbAZDZD"  counter="90"/> 
 </div>
-
+<div className="bookBtnFlex">
+	<a href="https://www.instagram.com/helene_french_touch/?hl=fr"><button className="btn bookBtn">Voir plus</button></a>
+</div>
 		<Footer />
 
 	    </div>

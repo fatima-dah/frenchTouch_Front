@@ -321,7 +321,7 @@ function Home() {
                   </div>
                 </div>
               </div>
-              < div className="adminHomeMargin">
+              <div className="adminHomeMargin">
                 <div className="textPresentation">
                   <div>
                     <p className="descriptionPrestation">{res.content_about}</p>

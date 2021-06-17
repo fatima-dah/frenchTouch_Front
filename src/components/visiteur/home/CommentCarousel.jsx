@@ -4,38 +4,12 @@ import { useEffect, useState } from "react";
 import { FETCH } from "../../../Fetch";
 
 function CommentCarousel() {
-
   const [name, setName] = useState("");
   const [postCode, setPostCode] = useState("");
   const [adress, setAdress] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [textHidden, setTexthidden] = useState("");
-
-
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-      axios
-        .post(`${FETCH}/notices`, {
-          name: name,
-          postCode: postCode,
-          adress: adress,
-          email: email,
-          message: message,
-        })
-        .then(function (response) {
-          window.history.go();
-
-          console.log(response);
-        })
-        .catch(function (error) {
-          verifEmpty()
-
-          console.log(error);
-        });
-  };
 
   function verifEmpty() {
     if (
@@ -45,13 +19,36 @@ function CommentCarousel() {
       email === "" ||
       message === ""
     ) {
-      alert("Des champs obligatoires sont vides.");
+      setTexthidden("Des champs obligatoires sont vides.");
     } else {
-      setTexthidden(
-        "Votre association a bien été recensée et sera traitée dans les plus courts délais."
-      );
+      alert("Votre avis sera traitée dans les plus courts délais.");
     }
+    window.history.go();
   }
+
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post(`${FETCH}/notices`, {
+        name: name,
+        postCode: postCode,
+        adress: adress,
+        email: email,
+        message: message,
+      })
+      .then(function (response) {
+        verifEmpty()
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+
+
+
   return (
     <div>
       <h2 className="CommentTitle">Laisser nous un commentaire </h2>

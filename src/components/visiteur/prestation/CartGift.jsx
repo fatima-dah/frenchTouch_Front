@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import "./CartGift.css";
 import axios from "axios";
+import moment from "moment";
+
 import Header from "./../navBar/NavBar";
 import Footer from "./../footer/Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
 import imageLogo from "./../../../assets/entier couleurs-480px.jpg";
 import { FETCH } from "./../../../Fetch";
 
 function CartGift({ cart }) {
   const [gift, setGift] = useState([]);
-  const [title, setTitle] = useState("");
+  const [lastnameFirstname, setLastnameFirstname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [email, setEmail] = useState("");
+  const [event, setEvent] = useState("");
+  const [lastnameFirstnameGift, setLastnameFirstnameGift] = useState("");
+  const [emailGift, setEmailGift] = useState("");
 
   const [valid, setValid] = useState("");
-  const [statusBtn, setStatusBtn] = useState(true);
 
   const [home, setHome] = useState([]);
 
@@ -33,33 +34,39 @@ function CartGift({ cart }) {
 
   const handleValid = () => {
     if (
-      title === "" ||
+      event === "" ||
       message === "" ||
+      phone === "" ||
       price === "" ||
-      firstname === "" ||
-      lastname === "" ||
+      lastnameFirstname === "" ||
+      lastnameFirstnameGift === "" ||
       email === "" ||
-      image === ""
+      emailGift === ""
     ) {
-      alert("r");
+      setValid("veuillez remplir les champs obligatoires");
     } else {
-      setValid("Votre chèque cadeau va étre envoyé à l'étape suivante.");
+      alert(
+        "Nous vous recontactons dans les 48h, pour la commande de chéque cadeaux effectuer, merci."
+      );
+      window.history.go();
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (statusBtn === true) {
-      setStatusBtn(false);
+      var numberCommande = moment(new Date()).format("YYYYMMDDHHmmss");
+
       axios
         .post(`${FETCH}/gifts`, {
-          lastname: lastname,
-          firstname: firstname,
+          numberCommande: numberCommande,
+          lastnameFirstname: lastnameFirstname,
+          lastnameFirstnameGift: lastnameFirstnameGift,
           email: email,
+          emailGift: emailGift,
+          event: event,
           message: message,
-          title: title,
+          phone: phone,
           price: price,
-          image: image,
         })
         .then(function (response) {
           console.log(response);
@@ -67,19 +74,20 @@ function CartGift({ cart }) {
         .catch(function (error) {
           console.log(error);
         });
-    }
+    
   };
-  console.log({ image });
 
   return (
-    <div className="Gift">
+    <div className="Gift ">
       <Header
         getCartReduce={cart.reduce((sum, { quantity }) => sum + quantity, 0)}
       />
       <div>
         <div className="imageAboutServices">
           <div className="alignTitleService App">
-            <h1 className="titleAcceuilServices">Cheque cadeaux </h1>
+            <h1 className="titleAcceuilServices titleGiftFont">
+              Cheque cadeaux{" "}
+            </h1>
           </div>
           {home.map((home) => (
             <div>
@@ -92,155 +100,137 @@ function CartGift({ cart }) {
           ))}
         </div>
       </div>
-      <div className="cartGifts">
+
+      <div className="cartGifts App">
         <div className="CartGift">
           <img className="imageLogoGift" src={imageLogo} alt="" />
           <div className="LignCartGift"></div>
-          <div>{title}</div>
-
-          <Carousel className="CarouselGift">
-            {gift.slice(0, 4).map((gift) => (
-              <div className="imageLogoGiftCarousels">
-                <img
-                  type="image"
-                  className="imageLogoGiftCarousels"
-                  src={gift.image}
-                  alt=""
-                />
-              </div>
-            ))}
-          </Carousel>
+          <div>{event}</div>
 
           <div className="messageGift">{message}</div>
           <div className="LignCartGift"></div>
           <div>{price} </div>
         </div>
         <div className="lignVerticalGift"></div>
-        <form className="main-form-gift" onSubmit={handleSubmit}>
-          <div className="inputGiftPrices">
-            <label>
-              {" "}
-              Valeur du chèque :
-              <select
-                type="text"
-                name="price"
-                className="inputGiftsPrice"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              >
-                <option></option>
+        <div className="main-form-gift ">
+          <form className="main-gift "  onSubmit={handleSubmit}>
+            <div className="inputGiftPrices">
+              <label>
+                {" "}
+                Valeur du chèque :
+                <select
+                  type="text"
+                  placeholder="Valeur du chéque"
+                  name="price"
+                  className="inputGiftsPrice"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                >
+                  <option></option>
 
-                <option>50,00 €</option>
-                <option>60,00 €</option>
-                <option>70,00 €</option>
-                <option>80,00 €</option>
-                <option>90,00 €</option>
-                <option>100,00 €</option>
-              </select>
-              ou
+                  <option>50,00 €</option>
+                  <option>60,00 €</option>
+                  <option>70,00 €</option>
+                  <option>80,00 €</option>
+                  <option>90,00 €</option>
+                  <option>100,00 €</option>
+                </select>
+                ou
+                <input
+                  type="text"
+                  name="price"
+                  className="inputGiftsPrice"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />{" "}
+                €
+              </label>
+            </div>{" "}
+            <div className="Contact-M">
+            
+                <input
+                  type="text"
+                  placeholder="Nom/Prénom"
+                  name="lastname"
+                  className="form-inputCommentGift "
+                  value={lastnameFirstname}
+                  onChange={(e) => setLastnameFirstname(e.target.value)}
+                />
+            </div>{" "}
+            <div className="Contact-M">
+             
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  className="form-inputCommentGift "
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>{" "}
+            <div className="Contact-M">
               <input
                 type="text"
-                name="price"
-                className="inputGiftsPrice"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              />{" "}
-              €
-            </label>
-          </div>{" "}
-          <div className="inputGift">
-            <label>
-              {" "}
-              Title :
-              <input
-                type="text"
-                name="title"
-                className="inputGifts"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
+                placeholder="Numero de téléphone"
+                name="phone"
+                className="form-inputCommentGift "
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
-            </label>
-          </div>{" "}
-          <div className="inputGift">
-            <label>
-              {" "}
-              Prénom du béneficiaire :
+            </div>{" "}
+            <div className="Contact-M">
               <input
                 type="text"
+                placeholder="Type d'événenent"
+                name="event"
+                className="form-inputCommentGift "
+                value={event}
+                onChange={(e) => setEvent(e.target.value)}
+              />
+            </div>{" "}
+            <div className="Contact-M">
+              <input
+                type="text"
+                placeholder="Nom/Pénom du béneficiaire"
                 name="firstname"
-                className="inputGifts"
-                value={firstname}
-                onChange={(e) => setFirstname(e.target.value)}
+                className="form-inputCommentGift "
+                value={lastnameFirstnameGift}
+                onChange={(e) => setLastnameFirstnameGift(e.target.value)}
               />
-            </label>
-          </div>{" "}
-          <div className="inputGift">
-            <label>
-              {" "}
-              Nom du béneficiaire :
-              <input
-                type="text"
-                name="lastname"
-                className="inputGifts"
-                value={lastname}
-                onChange={(e) => setLastname(e.target.value)}
-              />
-            </label>
-          </div>
-          <div className="inputGift">
-            <label>
-              {" "}
-              Email du béneficiaire :
+            </div>{" "}
+            <div className="Contact-M">
               <input
                 type="email"
+                placeholder="Email du Béneficiaire"
                 name="email"
-                className="inputGifts"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                className="form-inputCommentGift "
+                value={emailGift}
+                onChange={(e) => setEmailGift(e.target.value)}
               />
-            </label>
-          </div>
-          <div className="inputGift">
-            <label>
-              {" "}
-              Message :
+            </div>
+            <div className="Contact-M">
               <textarea
-                className="inputGiftsMessage"
+                className="form-inputCommentGift scrolls "
                 rows="4"
                 type="text"
                 name="message"
+                placeholder="Message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-            </label>
-          </div>{" "}
-          <div className="inputGift">
-            <label>
-              Selectionnez le nom d'une image :
-              <select
-                type="text"
-                name="image"
-                className="inputGiftsImage"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-              >
-                <option></option>
-                {gift.slice(0, 4).map((gift) => (
-                  <option value={gift.image}>{gift.titleGift} </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <button
-            type="submit"
-            onClick={handleValid}
-            className="submitGift"
-            value="Submit"
-          >
-            Ajouter au panier
-          </button>
-          <div className="msgValid">{valid}</div>
-        </form>
+            </div>{" "}
+            <div className="msgValidFormation">{valid}</div>
+
+            <div className="submitComment">
+              <input
+                type="submit"
+                onClick={handleValid}
+                className=" btn "
+                value="Valider la commande"
+              />
+            </div>
+          </form>
+        </div>
       </div>
       <Footer />
     </div>

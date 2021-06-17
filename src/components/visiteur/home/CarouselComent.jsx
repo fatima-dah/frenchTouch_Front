@@ -24,7 +24,7 @@ function CarouselComent() {
   const counter = notice.length;
 
   return (
-    <div>
+    <div className="noticeComponant">
       <h2 className=" notice">Votre avis compte !</h2>
 
       <CarouselProvider

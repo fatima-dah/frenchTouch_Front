@@ -5,6 +5,10 @@
   color: var(--dark);
 
 }
+.msgValidFormation{
+  color:red;
+  margin:1%;
+} 
 
 .form-inputContact {
   color: var(--dark);

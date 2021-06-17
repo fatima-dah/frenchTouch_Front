@@ -9,7 +9,7 @@ import RegisterLogin from "./RegisterLogin";
 import { useHistory, Redirect } from "react-router-dom";
 import { confirmAlert } from "react-confirm-alert";
 
-const AdminLogin = ({ cart, setToken, setTokenUser }) => {
+const AdminLogin = ({ cart, setToken }) => {
   const [home, setHome] = useState([]);
 
   useEffect(() => {
@@ -60,44 +60,6 @@ const AdminLogin = ({ cart, setToken, setTokenUser }) => {
     }
   };
 
-  const handleUser = async (e) => {
-    e.preventDefault();
-    if (email && password) {
-      await axios
-        .post(`http://localhost:8000/api/loginUsers/singIn/`, {
-          email,
-          password,
-        })
-        .then((res) => res.data)
-        .then((data) => {
-          setTokenUser(data.user);
-
-          console.log(data);
-          history.push(`./users`);
-          window.history.go();
-        })
-        .catch((err) => {
-          confirmAlert({
-            message: "Mot de passe ou adresse incorrect(e) ",
-            buttons: [
-              {
-                label: "Ok",
-              },
-            ],
-          });
-        });
-    } else {
-      confirmAlert({
-        message:
-          "Veuillez entrer une adresse électronique et un mot de passe valides",
-        buttons: [
-          {
-            label: "Ok",
-          },
-        ],
-      });
-    }
-  };
 
   return (
     <div>
@@ -161,9 +123,9 @@ const AdminLogin = ({ cart, setToken, setTokenUser }) => {
             </form>
           </div>
         </div>
-        <div>
+        {/* <div>
           <RegisterLogin />
-        </div>
+        </div> */}
       </div>
       <Footer />
     </div>

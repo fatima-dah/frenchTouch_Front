@@ -46,6 +46,9 @@ const Nav = () => {
               <Link className="router" to="/nuancier_admin">
                 NUANCIER{" "}
               </Link>
+              <Link className="router" to="/panier_admin">
+                PANIER CLIENT{" "}
+              </Link>
               <Link className="router" to="/" onClick={handleRemove}>
                 DÉCONNEXION
              </Link>

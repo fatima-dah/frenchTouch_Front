@@ -1,20 +1,31 @@
-.titleGift{
-  margin-top:180px;
-} 
+
 
 .cartGifts {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   margin-top: 50px;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
+
+}
+.form-inputCommentGift {
+  display: block;
+  color: var(--dark);
+  width: 100%;
+  border: 1px solid var(--dark);
+  border-top: none;
+  border-right: none;
+  padding: 1%;
+  padding-bottom: 16px;
+  padding-left: 16px;
+}
+
+.form-inputCommentGift::placeholder {
+  color: var(--dark);
+  font-weight: bold;
 }
 .CartGift {
   display: flex;
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -23,7 +34,6 @@
 
   width: 400px;
   height: auto;
-  margin: 2%;
 }
 .imageLogoGift {
   width: 200px;
@@ -35,9 +45,7 @@
   margin: 2%;
 }
 
-.CarouselGift {
-  width: 90%;
-}
+
 .imageLogoGiftCarousels {
   width: 100%;
   height: 100%;
@@ -49,130 +57,75 @@
   height: 280px;
   margin: 6%;
 }
-.inputGift {
-  display: flex;
-  margin: 3%;
-}
-.inputGifts {
-  display: flex;
-  margin: 2%;
-  width: 300px;
-}
 
-.inputGiftsImage {
-  display: flex;
-  margin: 2%;
-  width: 200px;
-}
 .inputGiftsPrice {
   margin: 1%;
   width: 30px;
 }
 .inputGiftPrices {
-  margin: 3%;
-}
-
-.submitGift {
-  width: 180px;
-  margin-top:6%;
-  margin-left:18%;
-  color: var(--secondary-color-light);
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid var(--light-color);
-}
-.inputGiftsMessage{
-  display: flex;
-  width:320px;
   margin: 2%;
+  width: 120%;
 
+}
+.main-gift{
+  width: 120%;
 } 
-.main-form-gift{
-  width:80%;
-  margin-left: auto;
-  margin-right: auto;
-}  
-.inputGiftsImage {
-  display: flex;
-  margin: 2%;
-  width: 290px;
-}
 
-@media screen and (max-width: 768px) {
+.msgValid{
+  color: red;
+  margin:2%;
+} 
+
+@media screen and (max-width: 1018px) {
 
   .cartGifts {
     display: flex;
     flex-direction: column;
-    width:90%;
+    justify-content: flex-start;
+
+   
   }
-  .CartGift {
-    width: 450px;
-  }
+  .main-form-gift{
+    width: 400px;
+    margin-top:50px;
+  } 
+  .main-gift{
+    width: 380px;
+  } 
+  
+
   .lignVerticalGift {
  display: none;
   }
-  .inputGiftsMessage{
-    display: flex;
-    width:395px;
-    margin: 2%;
-  
-  } 
 
-  .inputGifts {
-    display: flex;
-    margin: 2%;
-    width:380px ;
-  }
-  
-  .inputGiftsImage {
-    display: flex;
-    margin: 2%;
-    width: 360px;
-  }
-  .inputGiftsPrice {
-    margin: 2%;
-    width: 50px;
-  }
+
 
 
 }
 
-@media screen and (max-width: 558px) {
+@media screen and (max-width: 468px) {
  
 
-  .CartGift {
-    width: 300px;
-  }
-
-  .inputGifts {
+  .cartGifts {
     display: flex;
-    margin: 2%;
-    width:260px ;
-  }
+    flex-direction: column;
+    justify-content: flex-start;
 
-  
-  .inputGiftsImage{
-    width:91%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .inputGiftsMessage{
-    width:270px ;
    
+  }
+  .CartGift {
+    width: 95%;
+  }
+  .main-form-gift{
+    width: 300px;
+    margin-top:50px;
   } 
-  .inputGiftsPrice {
-    margin: 2%;
-    width: 4px;
-  }
-  .submitGift {
-    width: 180px;
-    margin-top:6%;
-    margin-left:14%;
-    color: var(--secondary-color-light);
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid var(--light-color);
-  }
+  .main-gift{
+    width: 280px;
+  } 
+  .titleGiftFont{
+    font-size: 32px;
+  } 
+ 
 
 }
