@@ -17,7 +17,6 @@ function Prestations() {
   const [file, setFile] = useState("");
   const [fileName, setFileName] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
-  const token = localStorage.getItem("TOKEN");
   const [home, setHome] = useState([]);
 
   useEffect(() => {
@@ -55,44 +54,35 @@ function Prestations() {
     axios.get(`${FETCH}/palettes`).then((res) => setPalette(res.data));
   }, [palette]);
 
- 
+
 
   const handleValid = () => {
-    if (name === "" || reference === "" ) {
-      setValid("");
+    if (name === "" || reference === "") {
+      setValid("Des champs obligatoires manquent");
     } else {
-      setValid("la nuance à ajoutée avec succès.");
+      alert("La nuance a été ajoutée avec succès.");
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (statusBtn === true) {
-      setStatusBtn(false);
-      axios
-        .post(
-          `${FETCH}/palettes`,
-          {
-            name: name,
-            ref_palette:reference,
-            picture: uploadedFile.filePath,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    axios
+      .post(
+        `${FETCH}/palettes`,
+        {
+          name: name,
+          ref_palette: reference,
+          picture: uploadedFile.filePath,
+        },
+      )
+      .then(function (response) {
         window.history.go();
 
-      console.log(uploadedFile);
-    }
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -145,7 +135,7 @@ function Prestations() {
                     />
                   </label>
                 </div>
-               
+
                 <div className="form_ServiceAdd">
                   <label>
                     Image : <span className="styleRequired">*</span>

@@ -19,21 +19,21 @@ const Nav = () => {
   };
   return (
     <section>
-    <nav className="App">
-      <Link to="/" >
+      <nav className="App">
+        <Link to="/" >
           <img className="logo" src={LogoSVG} alt="logo" />
         </Link>
-      <div className="menu-items">
+        <div className="menu-items">
           <div>
             <div className="items" id="menu" onClick={showOpen}>
-            <Link className="router" to="/home_admin">
+              <Link className="router" to="/home_admin">
                 HOME
               </Link>
               <Link className="router" to="/prestations_admin">
                 PRESTATIONS
               </Link>
 
-             
+
               <Link className="router" to="/rendezvous_admin">
                 PRENDRE RDV{" "}
               </Link>
@@ -51,21 +51,21 @@ const Nav = () => {
               </Link>
               <Link className="router" to="/" onClick={handleRemove}>
                 DÉCONNEXION
-             </Link>
-            
+              </Link>
+
 
               <a href="#" className="close">
-              ✕
+                ✕
               </a>
             </div>
           </div>
-       
-        <a href="#menu" className="burger" onClick={showOpen}>
-          <div></div>
-          <div></div>
-          <div></div>
-        </a>
-      </div>{" "}
+
+          <a href="#menu" className="burger" onClick={showOpen}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </a>
+        </div>{" "}
       </nav>
     </section>
   );

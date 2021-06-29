@@ -8,11 +8,11 @@ import axios from "axios";
 function Dashboard({ cart }) {
   const history = useHistory();
 
- 
+
   function getTokenUser() {
     const tokenString = sessionStorage.getItem("user");
     return tokenString;
-    
+
   }
   const userss = getTokenUser();
 
@@ -42,7 +42,7 @@ function Dashboard({ cart }) {
     sessionStorage.removeItem("user");
     alert("Vous ête deconnecté du compte utilisateur");
   };
-console.log(userss)
+  console.log(userss)
   return (
     <div>
       <Header
@@ -62,10 +62,10 @@ console.log(userss)
           </div>
         ))}
       </div>
-      <div> 
-      
+      <div>
+
         <div>
-          bonjour{userss.id} 
+          bonjour{userss.id}
           {user.map((user) => (
             <div> {user.email} </div>))} !
           <input type="button" value="Logout" onClick={handleLogout} />
@@ -76,3 +76,4 @@ console.log(userss)
 }
 
 export default Dashboard;
+    

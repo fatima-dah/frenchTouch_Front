@@ -40,13 +40,13 @@ function getTokenUser() {
 function App() {
   const savedCart = localStorage.getItem("cart");
   const [openFirst, setOpenFirst] = useState(false);
-  const [cart, setCart] = useState(savedCart ? JSON.parse(savedCart) : []); 
+  const [cart, setCart] = useState(savedCart ? JSON.parse(savedCart) : []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
- 
+
 
   return (
     <div className="">
@@ -65,7 +65,7 @@ function App() {
         <Route path="/Gifts" component={CartGifts}>
           <CartGifts cart={cart} />
         </Route>
-       
+
         <Route path="/rendezvous" component={Reserves}>
           <Reserves cart={cart} />
         </Route>
@@ -87,44 +87,44 @@ function App() {
           <AdminLogin cart={cart} setToken={setToken} setTokenUser={setTokenUser} />
         </Route>
         <Route path="/admin" component={Admin} >
-          {getToken() ?  <Admin />  : <AdminLogin cart={cart}  setToken={setToken} />}
-        </Route> 
-        <Route path="/home_admin" component={HomeAdmin}>
-          {getToken() ? <HomeAdmin /> : <AdminLogin setToken={setToken} />}
+          {getToken() ? <Admin /> : <AdminLogin cart={cart} setToken={setToken} />}
         </Route>
-       
+        <Route path="/home_admin" component={HomeAdmin}>
+          {getToken() ? <HomeAdmin /> : <AdminLogin setToken={setToken} cart={cart} />}
+        </Route>
+
         <Route path="/about_admin" component={AboutsAdmin}>
-          {getToken() ? <AboutsAdmin /> : <AdminLogin setToken={setToken} />}
+          {getToken() ? <AboutsAdmin /> : <AdminLogin setToken={setToken} cart={cart} />}
         </Route>
         <Route path="/prestations_admin" component={PrestationsAdmin}>
           {getToken() ? (
-            <PrestationsAdmin /> 
+            <PrestationsAdmin />
           ) : (
-            <AdminLogin setToken={setToken} />
+            <AdminLogin setToken={setToken} cart={cart}  />
           )}
         </Route>
         <Route path="/Gifts_admin" component={CartGiftsAdmin}>
-          {getToken() ? <CartGiftsAdmin /> : <AdminLogin setToken={setToken} />}
+          {getToken() ? <CartGiftsAdmin /> : <AdminLogin setToken={setToken} cart={cart}  />}
         </Route>
         <Route path="/rendezvous_admin" component={ReservesAdmin}>
-          {getToken() ? <ReservesAdmin /> : <AdminLogin setToken={setToken} />}
+          {getToken() ? <ReservesAdmin /> : <AdminLogin setToken={setToken}cart={cart} />}
         </Route>
-        
+
         <Route path="/shop_admin" component={ShopsAdmin}>
-          {getToken() ? <ShopsAdmin /> : <AdminLogin setToken={setToken} />}
+          {getToken() ? <ShopsAdmin /> : <AdminLogin setToken={setToken} cart={cart}  />}
         </Route>
         <Route path="/nuancier_admin" component={PalettesAdmin}>
-          {getToken() ? <PalettesAdmin /> : <AdminLogin setToken={setToken} />}
+          {getToken() ? <PalettesAdmin /> : <AdminLogin setToken={setToken}  cart={cart} />}
         </Route>
 
         <Route path="/users" component={PageUser}>
-          {getTokenUser() ? <PageUser cart={cart}/> : <AdminLogin cart={cart} setTokenUser={setTokenUser} />}
+          {getTokenUser() ? <PageUser cart={cart} /> : <AdminLogin cart={cart} setTokenUser={setTokenUser} />}
         </Route>
         <Route path="/panier_admin" component={PanierClient}>
-          {getToken() ? <PanierClient cart={cart}/> : <AdminLogin cart={cart} setToken={setToken} />}
+          {getToken() ? <PanierClient cart={cart} /> : <AdminLogin cart={cart} setToken={setToken} />}
         </Route>
 
-      
+
       </Switch>
     </div>
   );

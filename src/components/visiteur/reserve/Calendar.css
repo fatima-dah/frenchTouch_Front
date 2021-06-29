@@ -1,16 +1,10 @@
 .calendlyCart {
-    width: 100vw;
-    
+  width: 100vw;
+  margin-bottom: 100px;
 }
-.calendly-inline-widget , html body{
-    overflow: hidden;
-    height: auto;
-    width: 100%;
-
-} 
-
-
-
-
-
-
+.calendly-inline-widget,
+html body {
+  overflow: hidden;
+  height: auto;
+  width: 100%;
+}

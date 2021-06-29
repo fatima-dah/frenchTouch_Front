@@ -21,7 +21,10 @@ function CarouselComent() {
     axios.get(`${FETCH}/notices`).then((res) => setNotice(res.data));
   }, []);
 
+
   const counter = notice.length;
+
+
 
   return (
     <div className="noticeComponant">
@@ -44,7 +47,6 @@ function CarouselComent() {
               return (
                 <Slide>
                   <div className="noticeCommentId">
-                    {/* <p>{notice.id}</p> */}
                     <p>{notice.message} </p>
                     <p className="noticeNamePostalCode">
                       {notice.name} ({notice.postCode}){" "}

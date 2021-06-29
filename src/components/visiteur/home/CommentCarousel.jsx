@@ -9,9 +9,10 @@ function CommentCarousel() {
   const [adress, setAdress] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  
   const [textHidden, setTexthidden] = useState("");
 
-  function verifEmpty() {
+  function verifyEmpty() {
     if (
       name === "" ||
       adress === "" ||
@@ -19,16 +20,16 @@ function CommentCarousel() {
       email === "" ||
       message === ""
     ) {
-      setTexthidden("Des champs obligatoires sont vides.");
+      setTexthidden("Des champs obligatoires manquent");
     } else {
-      alert("Votre avis sera traitée dans les plus courts délais.");
+      alert("Votre avis sera traité dans les plus courts délais.");
     }
-    window.history.go();
   }
 
 
   function handleSubmit(e) {
     e.preventDefault();
+
     axios
       .post(`${FETCH}/notices`, {
         name: name,
@@ -38,7 +39,8 @@ function CommentCarousel() {
         message: message,
       })
       .then(function (response) {
-        verifEmpty()
+        window.history.go();
+
         console.log(response);
       })
       .catch(function (error) {
@@ -57,8 +59,12 @@ function CommentCarousel() {
         <div className="FormulaireContact">
           <div className="form">
             <form className="contact-form " onSubmit={handleSubmit}>
+              <span className="msgValidFormation">{textHidden}</span>
+
               <div className="CommentCarousel ">
+
                 <div>
+
                   <div className="Contact-M">
                     <label>
                       <input
@@ -128,16 +134,17 @@ function CommentCarousel() {
                   </div>
                 </div>
                 <div className="submitComment">
+
                   <input
                     type="submit"
-                    onClick={verifEmpty}
+                    onClick={verifyEmpty}
                     className=" btn btnComent"
                     value="Envoyer"
                   />
                 </div>
+
               </div>
 
-              <span className="msgValidFormation">{textHidden}</span>
             </form>
           </div>
         </div>

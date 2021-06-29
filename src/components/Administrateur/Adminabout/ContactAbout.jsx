@@ -48,6 +48,7 @@ function ContactAbout() {
                 <p className=""> Prénom : {about.firstname} </p>
                 <p className=""> Nom : {about.lastname} </p>
                 <p className=""> Email : {about.email} </p>
+                <p className=""> téléphone : {about.phone} </p>
                 <p className="aboutAdminMsg">Message : {about.message} </p>
               </div>
               <div className="bouttonCommentAdmin">

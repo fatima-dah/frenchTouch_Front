@@ -10,7 +10,7 @@ const Calendar = () => {
     <div>
       <div className="calendlyCart ">
         <InlineWidget style=" height: auto;
-    overflow: hidden;" url="https://calendly.com/dahnini-fatima"  />
+    overflow: hidden;" url="https://calendly.com/mfmfrenchtouch"  />
       </div>
     </div>
   );

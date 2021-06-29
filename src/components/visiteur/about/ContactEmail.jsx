@@ -5,15 +5,13 @@ import "./ContactEmail.css";
 
 import emailjs from "emailjs-com";
 
-export default function ContactUs() {
+function ContactUs() {
   const [about, setAbout] = useState([]);
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [statusBtn, setStatusBtn] = useState(true);
-
   const [textHidden, setTextHidden] = useState("");
 
   useEffect(() => {
@@ -33,38 +31,35 @@ export default function ContactUs() {
       alert(
         "Nous accusons réception de votre demande et je vous engage à vous apporter une réponse dans les 48 heures ouvrées."
       );
-      window.history.go();
     }
   }
 
   function sendEmail(e) {
     e.preventDefault();
-    if (statusBtn === true) {
-      setStatusBtn(false);
-      axios.post(`${FETCH}/abouts`, {
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        message: message,
-        phone:phone,
-      });
-      emailjs
-        .sendForm(
-          "service_48b182y",
-          "template_jyoiry5",
-          e.target,
-          "user_kCoI6na0uvUeXNsG3jZJg"
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-      // e.target.reset();
+    axios.post(`${FETCH}/abouts`, {
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      message: message,
+      phone: phone,
+    });
+    emailjs
+      .sendForm(
+        "service_48b182y",
+        "template_jyoiry5",
+        e.target,
+        "user_kCoI6na0uvUeXNsG3jZJg"
+      )
+      .then(function (response) {
+        window.history.go();
 
-    }
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
+
   return (
     <div className="FormContact ">
       <div className="FormulaireContact">
@@ -152,3 +147,5 @@ export default function ContactUs() {
     </div>
   );
 }
+
+export default ContactUs;
