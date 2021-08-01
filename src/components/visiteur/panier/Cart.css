@@ -1,0 +1,33 @@
+@import "../shop/Shop.css";
+
+.input{
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  border:none;
+  padding:14px;
+  width: 50px;
+}
+
+
+.infosPanier{
+  width: 350px;
+  min-height: 44px;
+  display: flex;
+  flex-direction: row;
+  margin-bottom:25px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--secondary-font);
+  color:var(--dark);
+  font-weight: 700;
+  font-size: 18px;
+  padding-left:15px;
+  border: 1px solid var(--secondary-color-light);
+  margin-top:50px;
+
+}  
+
+.infosPanier button{
+  width:150px;
+} 

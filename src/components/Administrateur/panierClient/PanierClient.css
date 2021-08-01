@@ -1,0 +1,16 @@
+.commandeGiftFlex{
+    display: flex;
+    width:900px;
+} 
+
+.commandeGiftFlexLeft{
+    padding-left:5%;
+    width:900px;
+
+} 
+
+.commandeGiftFlexRight{
+    width:900px;
+
+
+} 

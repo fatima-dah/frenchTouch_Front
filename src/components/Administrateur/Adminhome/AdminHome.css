@@ -1,0 +1,58 @@
+.admin-home {
+  height: 100%;
+}
+
+.adminHomeMargin {
+  margin-top: 2%;
+}
+
+.textPresentation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 1%;
+}
+
+.imagePresentation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 2%;
+}
+
+.custom-file-input {
+  display: flex;
+  width: 180px;
+}
+
+.imagePresentationFrenchTouchAdmin {
+  width: 200px;
+  height: 200px;
+}
+
+
+
+@media screen and (max-width: 900px) {
+  .textPresentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .imagePresentation {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 2%;
+  }
+  .imagePresentationFrenchTouchAdmin {
+    margin-bottom: 2%;
+  }
+}

@@ -1,0 +1,15 @@
+.BtnDelete{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top:10px;
+
+} 
+
+.deleteBtn{
+  width:35px;
+} 
+
+.titleService{
+  font-family:var(--main-font);
+} 

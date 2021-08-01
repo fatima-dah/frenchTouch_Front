@@ -1,0 +1,70 @@
+.Palettes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  color: var(--dark);
+  text-align: center;
+  padding: 50px 0;
+}
+
+.palette {
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.margPalette {
+  width: calc((100% / 7));
+  margin-bottom: 50px;
+}
+
+.picturePalettes {
+  width: 80%;
+}
+
+.palette {
+  width: 100%;
+  position: relative;
+}
+
+.palette::after,
+.palette::before {
+  position: absolute;
+  height: 100%;
+  content: "";
+  width: 80%;
+}
+
+.palette::before {
+  border: 1px solid rgb(88, 87, 87);
+  padding: 0;
+  bottom: 10px;
+  left: calc(50% - 10px);
+  transform: translateX(-50%);
+}
+
+.palette::after {
+  background-color: var(--light-color);
+  padding: 0;
+  top: 10px;
+  left: calc(50% + 10px);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+@media screen and (max-width: 1000px) {
+  .margPalette {
+    width: calc((100% / 4));
+    margin-bottom: 50px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .margPalette {
+    width: calc((100% / 2));
+    margin-bottom: 50px;
+  }
+}

@@ -1,0 +1,24 @@
+.ModifyShop{
+    width:340px;
+} 
+
+.buttonModify{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family:var(--secondary-font);
+  background-color: var(--secondary-color-light);
+  color:var(--blanc);
+  padding:10px;
+  height: 18px;
+  border: none;
+  font-size:16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+} 
+
+.buttonModify:hover{
+    background-color:var(--dark);
+   }
+  

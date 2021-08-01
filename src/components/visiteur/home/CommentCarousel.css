@@ -1,0 +1,75 @@
+.CommentCarousel {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 6%;
+  margin-bottom: 6%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.form-inputComment {
+  display: block;
+  color: var(--dark);
+  width: 200%;
+  border: 1px solid var(--dark);
+  border-top: none;
+  border-right: none;
+  padding: 1%;
+  padding-bottom: 16px;
+  padding-left: 16px;
+}
+.form-inputComment::placeholder {
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.scrolls {
+  height: 88px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.submitComment {
+  margin-bottom: 2%;
+}
+
+.btnComent {
+  width: 100px;
+}
+
+@media screen and (max-width: 1368px) {
+  .form-inputComment {
+    width: 180%;
+  }
+}
+@media screen and (max-width: 1268px) {
+    .form-inputComment {
+      width: 160%;
+    }
+  }
+  @media screen and (max-width: 1168px) {
+    .form-inputComment {
+      width: 140%;
+    }
+  }
+  @media screen and (max-width: 1068px) {
+    .form-inputComment {
+      width: 120%;
+    }
+  }
+@media screen and (max-width: 938px) {
+  .CommentCarousel {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6%;
+    margin-bottom: 6%;
+   
+  }
+  .form-inputComment {
+    width: 95%;
+    
+  }
+}

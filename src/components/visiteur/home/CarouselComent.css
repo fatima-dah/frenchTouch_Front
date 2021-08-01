@@ -1,0 +1,46 @@
+.flexBackNext {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.notices {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 50px;
+  height: auto;
+}
+.back,
+.next {
+  background: white;
+  width: 60px;
+  margin-top: 80px;
+  border: none;
+}
+
+.carouselComment {
+  margin-bottom: 50px;
+}
+.noticeNamePostalCode{
+  color: var(--secondary-color-light);
+  margin-top:50px;
+} 
+
+
+
+@media screen and (max-width: 568px) {
+  .notices {
+    width: 100%;
+    margin-top: 10px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .notices {
+    width: 100%;
+    margin-top: 10px;
+    height: 200px;
+  }
+}

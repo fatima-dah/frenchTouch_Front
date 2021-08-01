@@ -1,0 +1,179 @@
+:root {
+  --light: rgb(253, 250, 253);
+  --dark: rgb(14, 0, 15);
+
+  --spacing: 8px;
+  --spacing-2: calc(var(--spacing) * 2);
+  --spacing-4: calc(var(--spacing) * 4);
+
+  --navbar-height: 68px
+  ;
+}
+
+.NavBar {
+  margin-bottom: 100px;
+}
+
+nav {
+  background-color: white;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 85%;
+
+  height: var(--navbar-height);
+  border: 1px solid transparent;
+  background: transparent;
+  z-index: 10;
+}
+
+.navRdv{
+  background-color: var(--blanc);
+} 
+
+nav a {
+  color: var(--light);
+  text-decoration: none;
+  padding-right: var(--spacing);
+}
+
+nav .router:hover {
+  background-color: rgba(241, 216, 204, 255);
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+nav .router .rdv {
+  background-color: white;
+}
+
+main {
+  padding: var(--spacing-2);
+}
+
+.menu-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.burger {
+  --burger-size: 30px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40px;
+  height: var(--burger-size);
+}
+
+.burger div {
+  height: calc(var(--burger-size) / 6);
+  background-color: var(--light);
+  border-radius: 1px;
+}
+
+.close {
+  display: none;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
+}
+
+a.router {
+  color: var(--dark);
+  padding: 29px 16px 23px 16px;
+  letter-spacing: 1.5px;
+}
+
+a.router.right {
+  padding-right: 3px;
+  margin-right: 0;
+}
+
+a.router.rdv {
+  background-color: white;
+}
+
+.logoPanier{
+  height:20px;
+} 
+.socialNav{
+  display: none;
+} 
+.cadenaAdmin{
+  width:20px;
+} 
+@media screen and (max-width: 1350px) {
+ 
+  .items {
+    display: none;
+
+  }
+ 
+  .burger {
+    display: flex;
+  }
+
+  a .burger div {
+    background-color: pink;
+  }
+
+  .burger div {
+    background-color: var(--dark);
+  }
+
+  .items:target {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--light-color);
+
+    opacity: 0.97;
+  }
+.router{
+  border-bottom: 1px solid var(--blanc);
+  width: 70%;
+  text-align:center;
+  font-weight: 400;
+    font-family:var(--secondary-font);
+
+
+} 
+  .items:target a {
+    font-size: 28px;
+    padding:14px;
+
+  }
+
+  .items:target a:hover {
+    color: var(--light);
+    text-decoration:none;
+    
+  }
+
+  .items:target .close {
+    display: block;
+    position: fixed;
+    color:var(--dark);
+    top: var(--spacing);
+    right: var(--spacing);
+  }
+  .socialNav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  } 
+}
+
+/* Restera un media query ipad ici*/

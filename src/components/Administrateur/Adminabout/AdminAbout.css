@@ -1,0 +1,33 @@
+.Contacts{
+   
+    padding-top:80px;
+    margin:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.AboutFlex{
+  
+    margin-top:50px;
+   } 
+
+.cartAbout{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    
+    
+} 
+
+.ModifyAbout{
+    width:500px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.form-modify{
+    display: flex;
+    margin:2%;
+} 

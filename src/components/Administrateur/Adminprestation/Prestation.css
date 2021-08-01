@@ -1,0 +1,135 @@
+.addTitle {
+    text-align: center;
+  }
+  .colorLign {
+    padding: 2%;
+    font-size: 18px;
+  }
+  .formServiceAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--third-font);
+  }
+
+  
+  .form-visibility {
+    margin: 1%;
+  }
+  
+  .styleRequired {
+    color: red;
+  }
+  
+  .form-inputAdd {
+    display: block;
+    width: 91%;
+    margin: 2%;
+  }
+  .form-inputCategoryAdd {
+    display: block;
+    min-width: 88.5%;
+    margin: 2%;
+  }
+  
+  .form-input_descriptionAdd {
+    display: block;
+    width: 93%;
+    margin: 2%;
+  }
+  
+  .main-formAdd {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    width: 45%;
+    height: 100%;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .form_ServiceAdd {
+    margin-top: 5%;
+    justify-content: flex-start;
+  }
+  .form_ServiceAdd select {
+    width: 80%;
+  }
+  
+  .submitPrestation {
+    display: flex;
+    justify-content: flex-end;
+   
+  }
+
+  .AddformService {
+    margin-top: 140px;
+  }
+  
+  .msgValid {
+    color: green;
+    text-align: center;
+    padding: 18px;
+    margin: 8px;
+  }
+  
+  .imageForm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type="radio"] {
+    width: auto;
+    height: auto;
+  }
+  .LignStyleService {
+    border: var(--secondary-color) 1px solid;
+    margin-left: 28%;
+    margin-right: 28%;
+    margin-bottom: 2%;
+    margin-top: 4%;
+  }
+  .imageForm {
+    height: auto;
+    width: auto;
+    border-radius: 5px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+ 
+   
+    .form-inputCategoryAdd {
+      display: block;
+      min-width: 88%;
+    }
+    .main-formAdd {
+      width: 80%;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom: 20px;
+    }
+  
+    .LignStyleService {
+      border: var(--secondary-color) 1px solid;
+      margin-left: 18%;
+      margin-right: 18%;
+      margin-bottom: 8%;
+      margin-top: 4%;
+    }
+  }
+  
+  @media screen and (max-width: 568px) {
+    .imageForm {
+      display: flex;
+      width: 150px;
+      border-radius: 5px;
+    }
+    .main-formAdd {
+      width: 90%;
+      margin-left:auto;
+      margin-right:auto;
+      margin-bottom: 20px;
+    }
+
+  }
