@@ -4,6 +4,7 @@ import LogoSVG from "./../../../assets/entier noir.svg";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
+  
   const [openFirst, setOpenFirst] = useState(false);
 
   function showOpen() {
@@ -13,10 +14,12 @@ const Nav = () => {
       setOpenFirst(false);
     }
   }
+
   const handleRemove = () => {
     sessionStorage.removeItem("token");
     alert("Vous ête deconnecté du compte administrateur");
   };
+
   return (
     <section>
       <nav className="App">
@@ -32,8 +35,6 @@ const Nav = () => {
               <Link className="router" to="/prestations_admin">
                 PRESTATIONS
               </Link>
-
-
               <Link className="router" to="/rendezvous_admin">
                 PRENDRE RDV{" "}
               </Link>
@@ -52,7 +53,6 @@ const Nav = () => {
               <Link className="router" to="/" onClick={handleRemove}>
                 DÉCONNEXION
               </Link>
-
 
               <a href="#" className="close">
                 ✕

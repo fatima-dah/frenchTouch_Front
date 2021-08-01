@@ -32,8 +32,7 @@ const AdminLogin = ({ cart, setToken }) => {
         .then((res) => res.data)
         .then((data) => {
           setToken(data.token);
-
-          // console.log(data);
+          console.log(data);
           history.push(`./admin`);
           window.history.go();
         })
@@ -118,7 +117,7 @@ const AdminLogin = ({ cart, setToken }) => {
                 type="submit"
                 className="submitContact"
                 value="Envoyer"
-                onClick={handleLogin} 
+                onClick={handleLogin}
               />
             </form>
           </div>

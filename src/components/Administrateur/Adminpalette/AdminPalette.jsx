@@ -13,7 +13,6 @@ function Prestations() {
   const [reference, setReference] = useState("");
 
   const [valid, setValid] = useState("");
-  const [statusBtn, setStatusBtn] = useState(true);
   const [file, setFile] = useState("");
   const [fileName, setFileName] = useState("");
   const [uploadedFile, setUploadedFile] = useState({});
